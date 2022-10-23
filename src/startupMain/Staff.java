@@ -3,26 +3,23 @@ package startupMain;
 import java.util.Scanner;
 
 public class Staff {
-	
-	public void authenticateStaff() {
+
+	public void showStaffSystem() {
 		StaffLogin staffLogin = new StaffLogin();
 		boolean isAuth = staffLogin.Login();
 		if (isAuth == false) {
 			return;
 		}
-	}
-	
-	public void showStaffSystem() {
 		Scanner sc = new Scanner(System.in);
 //		System.out.println("***** Staff Interface *****\n"
 //						 + "1. Create/Update/Remove Movie Listing\n"
 //						 + "2. Create/Update/Remove Cinema Showtimes\n"
 //						 + "3. Configure System Settings");
 		
-		System.out.println("***** Staff Interface *****\n"
+		System.out.println("\n********** Staff Interface **********\n"
 						 + "1. Create/Update/Remove Movie Listing\n"
 						 + "2. Create/Update/Remove Cinema Showtimes\n"
-						 + "3. Configure System Settings");
+						 + "3. Configure System Settings\n");
 		
 		switch(sc.nextInt()) {
 			case 1: 

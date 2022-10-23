@@ -18,7 +18,7 @@ public class Startup {
 			while (true) {
 				
 				try {
-					System.out.println("Hi, are you a staff or a customer? Enter 0 for staff and 1 for customer:");
+					System.out.print("Hi, are you a staff or a customer? Enter 0 for staff and 1 for customer: ");
 					userType = sc.nextInt();
 					
 					//If input is not 0 or 1, throw new exception
@@ -30,7 +30,7 @@ public class Startup {
 					
 				} catch (IOException e) {
 					//Catch exception if input not 0 or 1
-					System.out.println("Invalid Option.");
+					System.out.println("Invalid Option.\n");
 				}
 			}
 			

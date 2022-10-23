@@ -24,11 +24,11 @@ public class StaffLogin {
 				System.out.print("Password: ");
 				String password = sc.nextLine();
 				
-				StaffAuthenticator staffAuthenticator = new StaffAuthenticator(username, password);
+				StaffAuthenticator staffAuthenticator = new StaffAuthenticator();
+				
 				//if not authenticated, throw exception
-				if (staffAuthenticator.verify() == false) {
+				if (staffAuthenticator.verify(username, password) == false) {
 					throw new IOException();
-					//break out of while loop and return false
 				}
 				return true;
 				
