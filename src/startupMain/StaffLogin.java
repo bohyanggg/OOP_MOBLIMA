@@ -5,14 +5,9 @@ import java.util.Scanner;
 
 public class StaffLogin {
 	
-	public StaffLogin() {
-		
-	}
-	
-	public boolean Login() {
+	public boolean login() {
 		
 		Scanner sc = new Scanner(System.in);
-		
 		int loginAttempts = 0;
 		
 		while (loginAttempts < 3) {
@@ -20,14 +15,11 @@ public class StaffLogin {
 			try {
 				System.out.print("Username: ");
 				String username = sc.nextLine();
-				
 				System.out.print("Password: ");
 				String password = sc.nextLine();
 				
-				StaffAuthenticator staffAuthenticator = new StaffAuthenticator();
-				
 				//if not authenticated, throw exception
-				if (staffAuthenticator.verify(username, password) == false) {
+				if (verify(username, password) == false) {
 					throw new IOException();
 				}
 				return true;
@@ -39,7 +31,15 @@ public class StaffLogin {
 				loginAttempts += 1;
 			}
 		}
+		return false;
+	}
+	
+	public boolean verify(String username, String password) {
 		
+		//if username and password are correct
+		if (username.equals("staff") && password.equals("admin")) return true;
+		
+		//if either username or password is wrong
 		return false;
 	}
 }

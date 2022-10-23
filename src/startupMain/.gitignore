@@ -3,3 +3,9 @@
 /Startup.class
 /StaffAuthenticator.class
 /StaffLogin.class
+/ConfigMovieListing.class
+/MovieDetailsInterface.class
+/MovieListInterface.class
+/DisplayAllMovies.class
+/MovieListingConfig.class
+/MovieListingDisplay.class
