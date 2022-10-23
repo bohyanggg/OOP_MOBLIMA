@@ -1,4 +1,4 @@
-package idkpackage;
+package startupMain;
 
 public class StaffAuthenticator {
 
@@ -13,7 +13,6 @@ public class StaffAuthenticator {
 	public boolean verify() {
 		
 		//if username and password are correct
-		
 		if (username=="1" && password=="1") return true;
 		
 //		if (/*username and password are valid (according to our database)*/) {

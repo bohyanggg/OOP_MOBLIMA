@@ -2,8 +2,6 @@ package startupMain;
 
 import java.util.Scanner;
 
-import idkpackage.StaffLogin;
-
 public class Staff {
 	
 	public void authenticateStaff() {

@@ -1,4 +1,4 @@
-package idkpackage;
+package startupMain;
 
 import java.io.IOException;
 import java.util.Scanner;
