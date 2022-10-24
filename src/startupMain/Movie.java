@@ -1,18 +1,21 @@
 package startupMain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Movie {
 
+	private Scanner sc = new Scanner(System.in);
+	
+	//Note: max number of cast and reviewsAndRatings set to 10
 	private String title;
 	private int showingStatus;
 	private String synopsis;
 	private String director;
-	private String[] cast;
+	private ArrayList<String> cast;
 	private double overallReviewerRating; //1 to 5
-	private String[] reviewsAndRatings; //stored as (String review, double rating) as one array element
+	private String[] reviewsAndRatings = new String[10]; //stored as (String review, double rating) as one array element
 	private int ticketSales;
-	private Scanner sc = new Scanner(System.in);
 	
 //	public Movie() {
 //		title = "";
@@ -31,7 +34,7 @@ public class Movie {
 		setSynopsis();
 		setDirector();
 		setCast();
-		setReviewsAndRatings();
+		addReviewsAndRatings(); //UNFINISHED
 	}
 	
 	public String getTitle() {
@@ -86,19 +89,21 @@ public class Movie {
 		director = newDirector;
 	}
 
-	public String[] getCast() {
+	public ArrayList<String> getCast() {
+		for (int i=0; i<cast.size(); i++) {
+			System.out.println(cast.get(i));
+		}
 		return cast;
 	}
 
 	public void setCast() {
 		System.out.print("Enter No. of Cast Members: "); //at least 2
 		int numCast = sc.nextInt();
-		String[] newCast = new String[numCast];
 		for (int i=0; i<numCast; i++) {
 			System.out.print("Enter Cast Member " + i + " : ");
-			newCast[i] = sc.nextLine();
+			cast.add(sc.nextLine());
 		}
-		cast = newCast;
+//		cast = newCast; //??????????????????????????????????????????????
 	}
 
 	//DISPLAY "NA" IF NO RATINGS
@@ -115,8 +120,11 @@ public class Movie {
 		return reviewsAndRatings;
 	}
 
-	public void setReviewsAndRatings(String[] reviewsAndRatings) {
-		this.reviewsAndRatings = reviewsAndRatings;
+	public void addReviewsAndRatings() {
+		String newReview = sc.nextLine();
+		int newRating = sc.nextInt();
+		
+		//reviewsAndRatings = reviewsAndRatings;
 	}
 
 	public int getTicketSales() {
@@ -128,3 +136,4 @@ public class Movie {
 	}
 }
 
+//FOR GET METHODS, SHOULD RETURN? OR JUST PRINT AND DON'T RETURN?
