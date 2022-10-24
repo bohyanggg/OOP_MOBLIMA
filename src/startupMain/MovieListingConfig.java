@@ -18,8 +18,8 @@ public class MovieListingConfig extends MovieListingDisplay {
 			choice = sc.nextInt();
 			
 			switch (choice) {
-//				case 1: createMovieListing();
-//						break;
+				case 1: createMovieListing();
+						break;
 //				case 2: updateMovieListing();
 //						break;
 //				case 3: removeMovieListing();
@@ -32,21 +32,8 @@ public class MovieListingConfig extends MovieListingDisplay {
 	}
 	
 	public void createMovieListing() {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter Movie Title: ");
-		String title = sc.nextLine();
-		System.out.print("Enter Synopsis: ");
-		String synopsis = sc.nextLine();
-		System.out.print("Enter Director: ");
-		String director = sc.nextLine();
-		System.out.print("Enter No. of Cast Members: "); //at least 2
-		int numCast = sc.nextInt();
-		String[] cast = new String[numCast];
-		for (int i=0; i<numCast; i++) {
-			System.out.print("Enter Cast Member " + i + " : ");
-			cast[i] = sc.nextLine();
-		}
-		Movie newMovie = new Movie(title, synopsis, director, cast);
+		Movie newMovie = new Movie();
+
 		//add newMovie to movie list
 	}
 }
