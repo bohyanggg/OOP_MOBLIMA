@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 public class Movie {
 
-	private Scanner sc = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
 	
 	private String title;
 	private int showingStatus;
 	private String synopsis;
 	private String director;
-	private ArrayList<String> cast;
+	private ArrayList<String> cast = new ArrayList<String>();
 	private double overallReviewerRating; //1 to 5
 	private String[] reviewsAndRatings = new String[10]; //stored as (String review, double rating) as one array element
 	private int ticketSales;
@@ -26,6 +26,19 @@ public class Movie {
 //		ticketSales = 0;
 //	}
 
+	//Collection of all getter methods to display movie attributes
+	public void viewMovieDetails() {
+		getTitle();
+		getShowingStatus();
+		getSynopsis();
+		getDirector();
+		getCast();
+		getOverallReviewerRating();
+		getReviewsAndRatings();
+		getTicketSales();
+	}
+	
+	
 	//Collection of all setter methods to create movie except overallReviewerRating and ticketSales
 	public void createMovie() {
 		setTitle();
@@ -36,81 +49,83 @@ public class Movie {
 		addReviewsAndRatings(); //UNFINISHED
 	}
 	
-	public String getTitle() {
-		return title;
+	public void getTitle() {
+		System.out.print("Title: " + title);
 	}
 
 	public void setTitle() {
-		System.out.print("Enter Movie Title: ");
-		String newTitle = sc.nextLine();
-		title = newTitle;
+		System.out.print("\nEnter Movie Title: ");
+		title = sc.nextLine();
+		System.out.println(title);
 	}
 
-	public String getShowingStatus() {
+	public void getShowingStatus() {
 		switch(showingStatus) {
-			case 0: return "Coming Soon";
-			case 1: return "Preview";
-			case 2: return "Now Showing";
-			case 3: return "End of Showing";
+			case 1: System.out.println("Coming Soon");
+			case 2: System.out.println("Preview");
+			case 3: System.out.println("Now Showing");
+			case 4: System.out.println("End of Showing");
 		}
-		//Should not get error
-		return "Error";
 	}
 
-	//ADD 4 OPTIONS TO CHOOSE (0=Coming Soon, 1=Preview, 2=Now Showing, 3=End of Showing)
+	//4 OPTIONS TO CHOOSE (0=Coming Soon, 1=Preview, 2=Now Showing, 3=End of Showing)
 	public void setShowingStatus() {
-		System.out.println("Enter Showing Status:\n"
-						  + "0: Coming Soon\n"
-						  + "1: Preview\n"
-						  + "2: Now Showing\n"
-						  + "3: End of Showing\n");
-		int newShowingStatus = sc.nextInt();
-		showingStatus = newShowingStatus;
+		System.out.println("\nEnter Showing Status:\n"
+						  + "1: Coming Soon\n"
+						  + "2: Preview\n"
+						  + "3: Now Showing\n"
+						  + "4: End of Showing\n");
+		showingStatus = sc.nextInt();
+		sc.nextLine(); //to fix nextLine() issue
+		System.out.println(showingStatus);
 	}
 
-	public String getSynopsis() {
-		return synopsis;
+	public void getSynopsis() {
+		System.out.print("Synopsis: " + synopsis);
 	}
 
 	public void setSynopsis() {
-		System.out.print("Enter Synopsis: ");
-		String newSynopsis = sc.nextLine();
-		synopsis = newSynopsis;
+		System.out.print("\nEnter Synopsis: ");
+		synopsis = sc.nextLine();
+		System.out.println(synopsis);
 	}
 
-	public String getDirector() {
-		return director;
+	public void getDirector() {
+		System.out.print("Director: " + director);
 	}
 
 	public void setDirector() {
-		System.out.print("Enter Director: ");
-		String newDirector = sc.nextLine();
-		director = newDirector;
+		System.out.print("\nEnter Director: ");
+		director = sc.nextLine();
+		System.out.println(director);
 	}
 
-	public ArrayList<String> getCast() {
-		for (int i=0; i<cast.size(); i++) {
-			System.out.println(cast.get(i));
+	public void getCast() {
+		System.out.print("Cast: ");
+		for (int i=0; i<cast.size()-1; i++) {
+			System.out.print(cast.get(i) + ", ");
 		}
-		return cast;
+		//Print last cast member without comma afterwards
+		System.out.print(cast.get(cast.size()-1));
 	}
 
 	public void setCast() {
-		System.out.print("Enter No. of Cast Members: "); //at least 2
+		System.out.print("\nEnter No. of Cast Members (at least 2): ");
 		int numCast = sc.nextInt();
-		for (int i=0; i<numCast; i++) {
-			System.out.print("Enter Cast Member " + i + " : ");
+		sc.nextLine(); //to fix nextLine() issue
+		for (int i=1; i<=numCast; i++) {
+			System.out.print("Enter Cast Member " + i + ": ");
 			cast.add(sc.nextLine());
 		}
-//		cast = newCast; //??????????????????????????????????????????????
+		System.out.println(cast);
 	}
 
-	//DISPLAY "NA" IF NO RATINGS
+	//DISPLAY "NA" IF NO RATINGS (UNFINISHED)
 	public double getOverallReviewerRating() {
 		return overallReviewerRating;
 	}
 
-	//CALCULATE USING AVERAGE OF ALL PAST RATINGS
+	//CALCULATE USING AVERAGE OF ALL PAST RATINGS (UNFINISHED)
 	public void setOverallReviewerRating(double overallReviewerRating) {
 		this.overallReviewerRating = overallReviewerRating;
 	}
@@ -120,10 +135,11 @@ public class Movie {
 	}
 
 	public void addReviewsAndRatings() {
-		String newReview = sc.nextLine();
+		System.out.print("\nEnter Rating: ");
 		int newRating = sc.nextInt();
+		System.out.print("\nEnter Review: ");
+		String newReview = sc.nextLine();
 		
-		//reviewsAndRatings = reviewsAndRatings;
 	}
 
 	public int getTicketSales() {

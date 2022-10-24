@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Staff {
 
-	private Scanner sc = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
 	
 	private int choice;
 	

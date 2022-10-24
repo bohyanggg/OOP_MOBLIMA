@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 public class Startup {
 	
+	private static Scanner sc = new Scanner(System.in);
+	
 	private static int userType;
 	
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
+		
 		
 		//Ask for user type
 		while (true) {

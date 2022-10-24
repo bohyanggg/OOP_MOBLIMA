@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MovieListingConfig {
 
-	private Scanner sc = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
 	
 	private int choice;
 	
@@ -35,7 +35,7 @@ public class MovieListingConfig {
 	
 	public void createMovieListing() {
 		Movie newMovie = new Movie();
-
+		newMovie.createMovie();
 		//add newMovie to movie list
 	}
 }
