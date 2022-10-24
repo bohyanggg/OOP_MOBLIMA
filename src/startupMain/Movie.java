@@ -49,7 +49,7 @@ public class Movie {
 	}
 	
 	public void getTitle() {
-		System.out.print("Title: " + title);
+		System.out.println("\n*****************************\nTitle: " + title);
 	}
 
 	public void setTitle() {
@@ -59,11 +59,12 @@ public class Movie {
 	}
 
 	public void getShowingStatus() {
+		System.out.print("Showing Status: ");
 		switch(showingStatus) {
-			case 1: System.out.println("Coming Soon");
-			case 2: System.out.println("Preview");
-			case 3: System.out.println("Now Showing");
-			case 4: System.out.println("End of Showing");
+			case 1: System.out.println("Coming Soon"); break;
+			case 2: System.out.println("Preview"); break;
+			case 3: System.out.println("Now Showing"); break;
+			case 4: System.out.println("End of Showing"); break;
 		}
 	}
 
@@ -80,7 +81,7 @@ public class Movie {
 	}
 
 	public void getSynopsis() {
-		System.out.print("Synopsis: " + synopsis);
+		System.out.println("Synopsis: " + synopsis);
 	}
 
 	public void setSynopsis() {
@@ -90,7 +91,7 @@ public class Movie {
 	}
 
 	public void getDirector() {
-		System.out.print("Director: " + director);
+		System.out.println("Director: " + director);
 	}
 
 	public void setDirector() {
@@ -105,7 +106,7 @@ public class Movie {
 			System.out.print(cast.get(i) + ", ");
 		}
 		//Print last cast member without comma afterwards
-		System.out.print(cast.get(cast.size()-1));
+		System.out.println(cast.get(cast.size()-1));
 	}
 
 	public void setCast() {

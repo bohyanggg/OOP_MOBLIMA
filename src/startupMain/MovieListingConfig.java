@@ -36,6 +36,7 @@ public class MovieListingConfig {
 	public void createMovieListing() {
 		Movie newMovie = new Movie();
 		newMovie.createMovie();
+		newMovie.viewMovieDetails();
 		//add newMovie to movie list
 	}
 }
