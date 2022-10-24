@@ -120,15 +120,15 @@ public class Movie {
 		System.out.println(cast);
 	}
 
-	//DISPLAY "NA" IF NO RATINGS (UNFINISHED)
-	public double getOverallReviewerRating() {
-		return overallReviewerRating;
-	}
-
-	//CALCULATE USING AVERAGE OF ALL PAST RATINGS (UNFINISHED)
-	public void setOverallReviewerRating(double overallReviewerRating) {
-		this.overallReviewerRating = overallReviewerRating;
-	}
+//	//DISPLAY "NA" IF NO RATINGS (UNFINISHED)
+//	public double getOverallReviewerRating() {
+//		return overallReviewerRating;
+//	}
+//
+//	//CALCULATE USING AVERAGE OF ALL PAST RATINGS (UNFINISHED)
+//	public void setOverallReviewerRating(double overallReviewerRating) {
+//		this.overallReviewerRating = overallReviewerRating;
+//	}
 
 	public void getReviewsAndRatings() {
 		System.out.print("Reviews and Ratings: ");
