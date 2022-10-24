@@ -46,7 +46,6 @@ public class Movie {
 		setSynopsis();
 		setDirector();
 		setCast();
-		addReviewsAndRatings(); //UNFINISHED
 	}
 	
 	public void getTitle() {
@@ -131,12 +130,11 @@ public class Movie {
 	}
 
 	public void getReviewsAndRatings() {
-//		
-//		
-//		
-//		
-//		
-//		System.out.println(reviewsAndRatings);
+		System.out.print("Reviews and Ratings: ");
+		for (int i=0; i<reviewsAndRatings.size(); i++) {
+			System.out.println(reviewsAndRatings.get(i)[0]);
+			System.out.println(reviewsAndRatings.get(i)[1]);
+		}
 	}
 
 	//Store rating as string and convert to int later to calculate overallReviewerRating
