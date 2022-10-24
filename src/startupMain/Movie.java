@@ -24,6 +24,16 @@ public class Movie {
 //		ticketSales = 0;
 //	}
 
+	//Collection of all setter methods to create movie except overallReviewerRating and ticketSales
+	public void createMovie() {
+		setTitle();
+		setShowingStatus();
+		setSynopsis();
+		setDirector();
+		setCast();
+		setReviewsAndRatings();
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -41,6 +51,7 @@ public class Movie {
 			case 2: return "Now Showing";
 			case 3: return "End of Showing";
 		}
+		//Should not get error
 		return "Error";
 	}
 
@@ -112,8 +123,8 @@ public class Movie {
 		return ticketSales;
 	}
 
-	public void setTicketSales(int ticketSales) {
-		this.ticketSales = ticketSales;
+	public void addTicketSales() {
+		ticketSales += 1;
 	}
 }
 
