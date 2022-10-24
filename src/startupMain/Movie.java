@@ -7,7 +7,6 @@ public class Movie {
 
 	private Scanner sc = new Scanner(System.in);
 	
-	//Note: max number of cast and reviewsAndRatings set to 10
 	private String title;
 	private int showingStatus;
 	private String synopsis;

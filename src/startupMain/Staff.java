@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Staff {
 
+	private Scanner sc = new Scanner(System.in);
+	
 	private int choice;
 	
 	public void showStaffSystem() {
@@ -18,8 +20,7 @@ public class Staff {
 							 + "3. Configure System Settings\n"
 							 + "4. Logout\n");
 			
-			Scanner sc = new Scanner(System.in);
-				choice = sc.nextInt();
+			choice = sc.nextInt();
 				
 			switch(choice) {
 			

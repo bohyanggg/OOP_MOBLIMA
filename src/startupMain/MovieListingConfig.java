@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class MovieListingConfig {
 
+	private Scanner sc = new Scanner(System.in);
+	
 	private int choice;
 	
 	public void mlConfigOptions() {
@@ -14,7 +16,7 @@ public class MovieListingConfig {
 					 + "2. Update Movie Listing\n"
 					 + "3. Remove Movie Listing\n"
 					 + "4. Return to Staff Menu\n");
-			Scanner sc = new Scanner(System.in);
+			
 			choice = sc.nextInt();
 			
 			switch (choice) {
