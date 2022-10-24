@@ -2,7 +2,7 @@ package startupMain;
 
 import java.util.Scanner;
 
-public class MovieListingConfig extends MovieListingDisplay {
+public class MovieListingConfig {
 
 	private int choice;
 	
