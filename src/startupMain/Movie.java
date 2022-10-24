@@ -13,7 +13,7 @@ public class Movie {
 	private String director;
 	private ArrayList<String> cast = new ArrayList<String>();
 	private double overallReviewerRating; //1 to 5
-	private String[] reviewsAndRatings = new String[10]; //stored as (String review, double rating) as one array element
+	private ArrayList<String[]> reviewsAndRatings = new ArrayList<String[]>(); //stored as (String review, double rating) as one array element
 	private int ticketSales;
 	
 //	public Movie() {
@@ -130,20 +130,28 @@ public class Movie {
 		this.overallReviewerRating = overallReviewerRating;
 	}
 
-	public String[] getReviewsAndRatings() {
-		return reviewsAndRatings;
+	public void getReviewsAndRatings() {
+//		
+//		
+//		
+//		
+//		
+//		System.out.println(reviewsAndRatings);
 	}
 
+	//Store rating as string and convert to int later to calculate overallReviewerRating
 	public void addReviewsAndRatings() {
 		System.out.print("\nEnter Rating: ");
-		int newRating = sc.nextInt();
+		String newRating = sc.nextLine();
 		System.out.print("\nEnter Review: ");
 		String newReview = sc.nextLine();
-		
+		String[] newReviewAndRating = new String[]{newRating, newReview};
+		reviewsAndRatings.add(newReviewAndRating);
+		System.out.println("\nRating and Review Added!\n");
 	}
 
-	public int getTicketSales() {
-		return ticketSales;
+	public void getTicketSales() {
+		System.out.println(ticketSales);
 	}
 
 	public void addTicketSales() {
@@ -151,4 +159,4 @@ public class Movie {
 	}
 }
 
-//FOR GET METHODS, SHOULD RETURN? OR JUST PRINT AND DON'T RETURN?
+//FOR GETTER METHODS, SHOULD RETURN? OR JUST PRINT AND DON'T RETURN? (prob need return for title only)
