@@ -132,9 +132,14 @@ public class Movie {
 
 	public void getReviewsAndRatings() {
 		System.out.print("Reviews and Ratings: ");
-		for (int i=0; i<reviewsAndRatings.size(); i++) {
-			System.out.println(reviewsAndRatings.get(i)[0]);
-			System.out.println(reviewsAndRatings.get(i)[1]);
+		if (reviewsAndRatings.size() == 0) {
+			System.out.println("0");
+		}
+		else {
+			for (int i=0; i<reviewsAndRatings.size(); i++) {
+				System.out.println(reviewsAndRatings.get(i)[0]);
+				System.out.println(reviewsAndRatings.get(i)[1]);
+			}
 		}
 	}
 
@@ -150,7 +155,7 @@ public class Movie {
 	}
 
 	public void getTicketSales() {
-		System.out.println(ticketSales);
+		System.out.println("Ticket Sales: " + ticketSales);
 	}
 
 	public void addTicketSales() {
