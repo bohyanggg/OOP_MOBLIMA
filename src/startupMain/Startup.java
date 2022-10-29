@@ -1,6 +1,7 @@
 package startupMain;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Startup {
@@ -10,8 +11,6 @@ public class Startup {
 	private static int userType;
 	
 	public static void main(String[] args) {
-		
-		
 		
 		//Ask for user type
 		while (true) {
