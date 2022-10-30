@@ -1,5 +1,7 @@
 package startupMain;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
@@ -19,7 +21,19 @@ public class Customer {
 		int userChoice = Choice.nextInt();
 		while(userChoice != 5) {
 			if (userChoice == 1) {
-				
+				File file = new File("MoviesTest.txt");
+				try {
+					Scanner scan = new Scanner(file);
+					while(scan.hasNextLine())
+					{
+						String nextLine = scan.nextLine();
+						System.out.println(nextLine);
+					}
+					showCustomerSystem();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			if (userChoice == 2) {
 				Booking booking = new Booking();

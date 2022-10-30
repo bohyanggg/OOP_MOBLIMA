@@ -1,5 +1,10 @@
 package startupMain;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class MovieListingConfig {
@@ -35,8 +40,22 @@ public class MovieListingConfig {
 	
 	public void createMovieListing() {
 		Movie newMovie = new Movie();
-		newMovie.createMovie();
-		newMovie.viewMovieDetails();
+		newMovie.createMovie(); //To ask input for the movie details
+		//newMovie.viewMovieDetails();
 		//add newMovie to movie list
+		String newMovieString = newMovie.getTitle() + "@" + newMovie.getShowingStatus() + "@" + newMovie.getSynopsis() + "@" + 
+		newMovie.getDirector() + "@" + newMovie.getCast() + "@NA@0@0";
+		//"@NA@0@0" referring to overallrating, reviewsandratings, ticketsales
+		
+		//maybe can make a method for this whole file writing thing
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter("MoviesTest.txt", true));
+			writer.write(newMovieString + "\n");
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

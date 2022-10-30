@@ -48,8 +48,8 @@ public class Movie {
 		setCast();
 	}
 	
-	public void getTitle() {
-		System.out.println("\n*****************************\nTitle: " + title);
+	public String getTitle() {
+		return title;
 	}
 
 	public void setTitle() {
@@ -58,14 +58,17 @@ public class Movie {
 		System.out.println(title);
 	}
 
-	public void getShowingStatus() {
+	public String getShowingStatus() {
+	
 		System.out.print("Showing Status: ");
-		switch(showingStatus) {
-			case 1: System.out.println("Coming Soon"); break;
-			case 2: System.out.println("Preview"); break;
-			case 3: System.out.println("Now Showing"); break;
-			case 4: System.out.println("End of Showing"); break;
+		switch(showingStatus) 
+		{
+			case 1: return "Coming Soon";
+			case 2: return "Preview";
+			case 3: return "Now Showing";
+			case 4: return "End of Showing";
 		}
+		return "test";
 	}
 
 	//4 OPTIONS TO CHOOSE (0=Coming Soon, 1=Preview, 2=Now Showing, 3=End of Showing)
@@ -80,8 +83,8 @@ public class Movie {
 		System.out.println(showingStatus);
 	}
 
-	public void getSynopsis() {
-		System.out.println("Synopsis: " + synopsis);
+	public String getSynopsis() {
+		return synopsis;
 	}
 
 	public void setSynopsis() {
@@ -90,8 +93,8 @@ public class Movie {
 		System.out.println(synopsis);
 	}
 
-	public void getDirector() {
-		System.out.println("Director: " + director);
+	public String getDirector() {
+		return director;
 	}
 
 	public void setDirector() {
@@ -100,13 +103,15 @@ public class Movie {
 		System.out.println(director);
 	}
 
-	public void getCast() {
-		System.out.print("Cast: ");
+	public String getCast() {
+		//System.out.print("Cast: ");
+		String stringCast = "";
 		for (int i=0; i<cast.size()-1; i++) {
-			System.out.print(cast.get(i) + ", ");
+			stringCast += cast.get(i) + ", ";
 		}
 		//Print last cast member without comma afterwards
-		System.out.println(cast.get(cast.size()-1));
+		stringCast+= cast.get(cast.size()-1);
+		return stringCast;
 	}
 
 	public void setCast() {
