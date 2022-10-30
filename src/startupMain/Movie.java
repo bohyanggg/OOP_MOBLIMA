@@ -28,12 +28,12 @@ public class Movie {
 
 	//Collection of all getter methods to display movie attributes
 	public void viewMovieDetails() {
-		getTitle();
-		getShowingStatus();
-		getSynopsis();
-		getDirector();
-		getCast();
-		getOverallReviewerRating();
+		System.out.println("Movie Title: " + this.getTitle());
+		System.out.println("Showing Status: " + this.getShowingStatus());
+		System.out.println("Movie Synopsis: " + this.getSynopsis());
+		System.out.println("Movie Director: " + this.getDirector());
+		System.out.println("Movie Casts: " + this.getCast());
+		System.out.println("Movie Overall Rating: " + this.getOverallReviewerRating());
 		getReviewsAndRatings();
 		getTicketSales();
 	}
@@ -59,8 +59,6 @@ public class Movie {
 	}
 
 	public String getShowingStatus() {
-	
-		System.out.print("Showing Status: ");
 		switch(showingStatus) 
 		{
 			case 1: return "Coming Soon";

@@ -41,7 +41,6 @@ public class MovieListingConfig {
 	public void createMovieListing() {
 		Movie newMovie = new Movie();
 		newMovie.createMovie(); //To ask input for the movie details
-		//newMovie.viewMovieDetails();
 		//add newMovie to movie list
 		String newMovieString = newMovie.getTitle() + "@" + newMovie.getShowingStatus() + "@" + newMovie.getSynopsis() + "@" + 
 		newMovie.getDirector() + "@" + newMovie.getCast() + "@NA@0@0";
@@ -56,6 +55,6 @@ public class MovieListingConfig {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		newMovie.viewMovieDetails();
 	}
 }
