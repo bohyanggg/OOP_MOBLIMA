@@ -12,23 +12,15 @@ public class Movie {
 	private String synopsis;
 	private String director;
 	private ArrayList<String> cast = new ArrayList<String>();
-	private double overallReviewerRating; //1 to 5
+//	private String overallReviewerRating; //1 to 5 //prob just calculate whenever required
 	private ArrayList<String[]> reviewsAndRatings = new ArrayList<String[]>(); //stored as (String review, double rating) as one array element
 	private int ticketSales;
-	
-//	public Movie() {
-//		title = "";
-//		showingStatus = 0; // 0 = Coming Soon
-//		synopsis = "";
-//		director = "";
-//		cast = [];
-//		overallReviewerRating = 0;
-//		ticketSales = 0;
-//	}
 
+	
+	
 	//Collection of all getter methods to display movie attributes
 	public void viewMovieDetails() {
-		System.out.println("Movie Title: " + this.getTitle());
+		System.out.println("\nMovie Title: " + this.getTitle());
 		System.out.println("Showing Status: " + this.getShowingStatus());
 		System.out.println("Movie Synopsis: " + this.getSynopsis());
 		System.out.println("Movie Director: " + this.getDirector());
@@ -37,7 +29,6 @@ public class Movie {
 		getReviewsAndRatings();
 		getTicketSales();
 	}
-	
 	
 	//Collection of all setter methods to create movie except overallReviewerRating and ticketSales
 	public void createMovie() {
@@ -108,7 +99,7 @@ public class Movie {
 			stringCast += cast.get(i) + ", ";
 		}
 		//Print last cast member without comma afterwards
-		stringCast+= cast.get(cast.size()-1);
+		stringCast += cast.get(cast.size()-1);
 		return stringCast;
 	}
 
@@ -123,14 +114,19 @@ public class Movie {
 		System.out.println(cast);
 	}
 
-	//DISPLAY "NA" IF NO RATINGS (UNFINISHED)
-	public double getOverallReviewerRating() {
-		return overallReviewerRating;
-	}
+	public String getOverallReviewerRating() {
+		//display "NA" if no existing ratings
+		if (reviewsAndRatings.size() == 0) return "NA";
 
-	//CALCULATE USING AVERAGE OF ALL PAST RATINGS (UNFINISHED)
-	public void setOverallReviewerRating(double overallReviewerRating) {
-		this.overallReviewerRating = overallReviewerRating;
+		//calculate average of all ratings stored in reviewsAndRatings arrayList
+		double overallReviewerRating = 0;
+		for (int i=0; i<reviewsAndRatings.size(); i++) {
+			//convert rating from String to int and sum them
+			overallReviewerRating += Integer.parseInt(reviewsAndRatings.get(i)[0]);
+		}
+		//divide the sum of all ratings by number of ratings to get average
+		overallReviewerRating /= reviewsAndRatings.size();
+		return Double.toString(overallReviewerRating);
 	}
 
 	public void getReviewsAndRatings() {
@@ -140,8 +136,8 @@ public class Movie {
 		}
 		else {
 			for (int i=0; i<reviewsAndRatings.size(); i++) {
-				System.out.println(reviewsAndRatings.get(i)[0]);
-				System.out.println(reviewsAndRatings.get(i)[1]);
+				System.out.println(reviewsAndRatings.get(i)[0]); //rating
+				System.out.println(reviewsAndRatings.get(i)[1]); //review
 			}
 		}
 	}
@@ -165,5 +161,3 @@ public class Movie {
 		ticketSales += 1;
 	}
 }
-
-//FOR GETTER METHODS, SHOULD RETURN? OR JUST PRINT AND DON'T RETURN? (prob need return for title only)
