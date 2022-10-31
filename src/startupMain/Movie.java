@@ -12,11 +12,19 @@ public class Movie {
 	private String synopsis;
 	private String director;
 	private ArrayList<String> cast = new ArrayList<String>();
-//	private String overallReviewerRating; //1 to 5 //prob just calculate whenever required
+	private String overallReviewerRating; //1 to 5
 	private ArrayList<String[]> reviewsAndRatings = new ArrayList<String[]>(); //stored as (String review, double rating) as one array element
 	private int ticketSales;
 
-	
+//	public Movie() {
+//		title = "";
+//		showingStatus = 0; // 0 = Coming Soon
+//		synopsis = "";
+//		director = "";
+//		cast = [];
+//		overallReviewerRating = "0";
+//		ticketSales = 0;
+//	}
 	
 	//Collection of all getter methods to display movie attributes
 	public void viewMovieDetails() {
@@ -115,20 +123,25 @@ public class Movie {
 	}
 
 	public String getOverallReviewerRating() {
-		//display "NA" if no existing ratings
-		if (reviewsAndRatings.size() == 0) return "NA";
-
-		//calculate average of all ratings stored in reviewsAndRatings arrayList
-		double overallReviewerRating = 0;
-		for (int i=0; i<reviewsAndRatings.size(); i++) {
-			//convert rating from String to int and sum them
-			overallReviewerRating += Integer.parseInt(reviewsAndRatings.get(i)[0]);
-		}
-		//divide the sum of all ratings by number of ratings to get average
-		overallReviewerRating /= reviewsAndRatings.size();
-		return Double.toString(overallReviewerRating);
+		return overallReviewerRating;
 	}
 
+	public void setOverallReviewerRating() {
+		//"NA" if no existing ratings
+		if (reviewsAndRatings.size() == 0) overallReviewerRating = "NA";
+
+		//calculate average of all ratings stored in reviewsAndRatings arrayList
+		double averageRating = 0;
+		for (int i=0; i<reviewsAndRatings.size(); i++) {
+			//convert rating from String to int and sum them
+			averageRating += Integer.parseInt(reviewsAndRatings.get(i)[0]);
+		}
+		//divide the sum of all ratings by number of ratings to get average
+		averageRating /= reviewsAndRatings.size();
+		//round off to 1 d.p. then convert from double to string
+		overallReviewerRating = Double.toString(Math.round(averageRating*100) / 100);
+	}
+	
 	public void getReviewsAndRatings() {
 		System.out.print("Reviews and Ratings: ");
 		if (reviewsAndRatings.size() == 0) {

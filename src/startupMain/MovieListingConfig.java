@@ -27,8 +27,8 @@ public class MovieListingConfig {
 			switch (choice) {
 				case 1: createMovieListing();
 						break;
-//				case 2: updateMovieListing();
-//						break;
+				case 2: updateMovieListing();
+						break;
 //				case 3: removeMovieListing();
 //						break;
 				case 4: System.out.println("\nReturning to Staff Menu...\n");
@@ -56,5 +56,11 @@ public class MovieListingConfig {
 			e.printStackTrace();
 		}
 		newMovie.viewMovieDetails();
+	}
+
+	//REQUIRE READING/MODIFICATION OF TEXT FILE (UNFINISHED)
+	public void updateMovieListing() {
+		//System.out.print("\nEnter title of movie to be updated: ");
+		TestingTesting123.readTextFile();
 	}
 }
