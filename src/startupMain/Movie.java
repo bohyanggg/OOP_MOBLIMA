@@ -1,9 +1,10 @@
 package startupMain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Movie {
+public class Movie implements Serializable{
 
 	private static Scanner sc = new Scanner(System.in);
 	
@@ -173,4 +174,14 @@ public class Movie {
 	public void addTicketSales() {
 		ticketSales += 1;
 	}
+
+	@Override
+	//Testing for Serialization
+	public String toString() {
+		return "Movie [title=" + title + ", showingStatus=" + showingStatus + ", synopsis=" + synopsis + ", director="
+				+ director + ", cast=" + cast + ", overallReviewerRating=" + overallReviewerRating
+				+ ", reviewsAndRatings=" + reviewsAndRatings + ", ticketSales=" + ticketSales + "]";
+	}
+	
+	
 }
