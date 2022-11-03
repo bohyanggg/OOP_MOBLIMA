@@ -57,6 +57,7 @@ public class Movie implements Serializable{
 		setSynopsis();
 		setDirector();
 		setCast();
+		setOverallReviewerRating();
 	}
 	
 	public String getTitle() {
@@ -124,6 +125,7 @@ public class Movie implements Serializable{
 	}
 
 	public void setCast() {
+		cast.clear(); //empty the entire cast arrayList
 		System.out.print("\nEnter No. of Cast Members (at least 2): ");
 		int numCast = sc.nextInt();
 		sc.nextLine(); //to fix nextLine() issue
@@ -142,16 +144,19 @@ public class Movie implements Serializable{
 		//"NA" if no existing ratings
 		if (reviewsAndRatings.size() == 0) overallReviewerRating = "NA";
 
-		//calculate average of all ratings stored in reviewsAndRatings arrayList
-		double averageRating = 0;
-		for (int i=0; i<reviewsAndRatings.size(); i++) {
-			//convert rating from String to int and sum them
-			averageRating += Integer.parseInt(reviewsAndRatings.get(i)[0]);
+		else {
+			//calculate average of all ratings stored in reviewsAndRatings arrayList
+			double averageRating = 0;
+			for (int i=0; i<reviewsAndRatings.size(); i++) {
+				//convert rating from String to int and sum them
+				averageRating += Integer.parseInt(reviewsAndRatings.get(i)[0]);
+			}
+			//divide the sum of all ratings by number of ratings to get average
+			averageRating /= reviewsAndRatings.size();
+			//round off to 1 d.p. then convert from double to string
+			overallReviewerRating = Double.toString(Math.round(averageRating*100) / 100);
+	
 		}
-		//divide the sum of all ratings by number of ratings to get average
-		averageRating /= reviewsAndRatings.size();
-		//round off to 1 d.p. then convert from double to string
-		overallReviewerRating = Double.toString(Math.round(averageRating*100) / 100);
 	}
 	
 	public void getReviewsAndRatings() {
