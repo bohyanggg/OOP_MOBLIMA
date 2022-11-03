@@ -62,7 +62,7 @@ public class MovieListingConfig {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		newMovie.viewMovieDetails();
+		//newMovie.viewMovieDetails();
 		for (Movie movie: movieList)
 		{
 			System.out.println(movie);
