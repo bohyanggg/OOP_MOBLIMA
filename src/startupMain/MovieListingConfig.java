@@ -88,10 +88,7 @@ public class MovieListingConfig {
 								 + "2. Update Showing Status\n"
 								 + "3. Update Sypnosis\n"
 								 + "4. Update Cast\n"
-								 + "5. Update Overall Reviewer Rating\n"
-								 + "6. Update Reviews and Ratings\n"
-								 + "7. Update Ticket Sales\n"
-								 + "8. Return\n");
+								 + "5. Return\n");
 						int selection = sc.nextInt();
 						
 						switch (selection) {
@@ -107,12 +104,7 @@ public class MovieListingConfig {
 						case 4: movie.setCast();
 								ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
 								break; 
-						case 5: movie.setOverallReviewerRating();
-								ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
-								break;
-						//case 6: Update Reviews and Ratings
-						//case 7: Update Ticket Sales
-						case 8: System.out.println("\nReturning to Create/Update/Remove Movie Listing...\n");
+						case 5: System.out.println("\nReturning to Create/Update/Remove Movie Listing...\n");
 								return;
 						default: System.out.println("\nInvalid Option.\n");
 					}
