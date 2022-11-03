@@ -6,6 +6,11 @@ import java.util.Scanner;
 
 public class Movie implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4611176189600089207L;
+
 	private static Scanner sc = new Scanner(System.in);
 	
 	private String title;
@@ -28,7 +33,7 @@ public class Movie implements Serializable{
 //	}
 	
 	//Collection of all getter methods to display movie attributes
-	public void viewMovieDetails() {
+	public void viewallMovieDetails() {
 		System.out.println("\nMovie Title: " + this.getTitle());
 		System.out.println("Showing Status: " + this.getShowingStatus());
 		System.out.println("Movie Synopsis: " + this.getSynopsis());
@@ -36,7 +41,13 @@ public class Movie implements Serializable{
 		System.out.println("Movie Casts: " + this.getCast());
 		System.out.println("Movie Overall Rating: " + this.getOverallReviewerRating());
 		getReviewsAndRatings();
-		getTicketSales();
+		System.out.println("Ticket Sales: " + this.getTicketSales());
+	}
+	
+	public void viewimportantMovieDetails()
+	{
+		System.out.print("Title: " + this.getTitle() + " | Showing Status: " + this.getShowingStatus() + 
+				" | Movie Overall Rating: " + this.getOverallReviewerRating() + " | Ticket Sales: " + this.getTicketSales());
 	}
 	
 	//Collection of all setter methods to create movie except overallReviewerRating and ticketSales
@@ -167,8 +178,8 @@ public class Movie implements Serializable{
 		System.out.println("\nRating and Review Added!\n");
 	}
 
-	public void getTicketSales() {
-		System.out.println("Ticket Sales: " + ticketSales);
+	public int getTicketSales() {
+		return ticketSales;
 	}
 
 	public void addTicketSales() {

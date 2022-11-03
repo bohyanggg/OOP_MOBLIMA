@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 
 public class ResourceManager {
 	
@@ -22,4 +23,29 @@ public class ResourceManager {
 			return ois.readObject();
 		}
 	}
+	
+	public static ArrayList<Movie> getmovieList(ArrayList<Movie> movieList) //to load movieList from array to txt file
+	{
+		 try {
+			 ArrayList<Movie> txtmovieList = new ArrayList<>();
+			 txtmovieList = (ArrayList<Movie>) ResourceManager.load("MoviesTest.txt");
+			 return txtmovieList;
+		    } catch (Exception e) {
+		      // TODO Auto-generated catch block
+		      e.printStackTrace();
+		    }
+		System.out.println("not working");
+		return movieList;
+	}
+	
+	public static void addmovieList(ArrayList<Movie> movieList) //to add movieList array to txt file
+	{
+		try {
+			ResourceManager.save(movieList, "MoviesTest.txt");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }
