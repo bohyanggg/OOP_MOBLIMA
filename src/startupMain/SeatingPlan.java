@@ -1,5 +1,9 @@
 package startupMain;
 
+/* import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*; */
+
 public abstract class SeatingPlan {
 	private String cinema;
 	protected String plan[][] = new String[10][10];
@@ -16,9 +20,10 @@ public abstract class SeatingPlan {
 			}
 		}
 	}
-	
+
 	public void Display() {
-		
+
+
 	}
-	
+
 }
