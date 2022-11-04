@@ -28,12 +28,12 @@ public class Staff {
 						mlConfig.mlConfigOptions();
 						break;
 
-//						//UNFINISHED
-//				case 2: ConfigCinemaShowtimes configCS = new ConfigCinemaShowtimes();
-//						configCS.configCSOptions();
-//						break;
+						// TODO UNFINISHED
+				case 2: CinemaShowtimesConfig csConfig = new CinemaShowtimesConfig();
+						csConfig.csConfigOptions();
+						break;
 //						
-//						//UNFINISHED
+//						// TODO UNFINISHED
 //				case 3: ConfigSystemSettings configSS = new ConfigSystemSettings();
 //						configSS.configCSOptions();
 //						break;
