@@ -36,12 +36,14 @@ public class MovieDetails extends SeatingPlan {
 
     public void UpdateBookedSeats(String title, String SeatChoice){
         String[][] seats = this.MovieSeats.get(title);
+        System.out.println(SeatChoice);
         if (SeatChoice.length() > 2){
 			String[] chosenSeats = SeatChoice.split(",");
 			for (String seat : chosenSeats){
 				char strRow = seat.charAt(0);
 				int row = strRow - 65;
-				int seatNum = Integer.parseInt(seat.substring(1, 1));
+				char seatNumStr = seat.charAt(1);
+                int seatNum = Character.getNumericValue(seatNumStr);
 				// cover the offset on display
                 if (seatNum >= 7){
                     seatNum += 2;
@@ -57,19 +59,20 @@ public class MovieDetails extends SeatingPlan {
 		}
 		else if (SeatChoice.length() == 2){
 			char strRow = SeatChoice.charAt(0);
-				int row = strRow - 65;
-				int seatNum = Integer.parseInt(SeatChoice.substring(1, 1));
-				// cover the offset on display
-                if (seatNum >= 7){
-                    seatNum += 2;
-                }
-                else if (seatNum >= 3){
-                    seatNum += 1;
-                }
-                seatNum -= 1;
-                seats[row][seatNum] = "x";
-                // replace old map
-                this.MovieSeats.put(title, seats);
+            int row = strRow - 65;
+            char seatNumStr = SeatChoice.charAt(1);
+            int seatNum = Character.getNumericValue(seatNumStr);
+            // cover the offset on display
+            if (seatNum >= 7){
+                seatNum += 2;
+            }
+            else if (seatNum >= 3){
+                seatNum += 1;
+            }
+            seatNum -= 1;
+            seats[row][seatNum] = "x";
+            // replace old map
+            this.MovieSeats.put(title, seats);
 		}
     }
 

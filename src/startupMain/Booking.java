@@ -31,6 +31,10 @@ public class Booking {
 	public String getMovieChoice() {
 		return this.MovieChoice;
 	}
+
+	public String getSeatChoice(){
+		return this.SeatChoice;
+	}
 	
 	public void CineplexChoiceDisplay(Cineplex cp) {
 		cp.CineplexChoiceDisplay();

@@ -8,6 +8,12 @@ import java.util.Scanner;
 
 public class Customer {
 
+	MovieDetails movieDetails;
+
+	public Customer(MovieDetails movieDetails){
+		this.movieDetails = movieDetails;
+	}
+
 	public void showCustomerSystem() {
 		// TODO Auto-generated method stub
 		//xdd
@@ -38,7 +44,6 @@ public class Customer {
 			if (userChoice == 2) {
 				Booking booking = new Booking();
 				Cineplex cineplex = new Cineplex();
-				MovieDetails movieDetails = new MovieDetails();
 				// movieDetails.GetMovieDetailsFromFile();
 				booking.CineplexChoiceDisplay(cineplex);
 				booking.ChooseACineplex();
@@ -54,6 +59,8 @@ public class Customer {
 					String movieChoice = booking.getMovieChoice();
 					movieDetails.DisplayMovieDetails(movieChoice);
 					booking.ChooseASeat();
+					System.out.println(booking.getSeatChoice());
+					movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
 				}
 				else if (cineplexChoice == "Sentosa") {
 					Cinema sentosa = new Cinema(cineplexChoice);
