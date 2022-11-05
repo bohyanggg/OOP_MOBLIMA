@@ -38,6 +38,8 @@ public class Customer {
 			if (userChoice == 2) {
 				Booking booking = new Booking();
 				Cineplex cineplex = new Cineplex();
+				MovieDetails movieDetails = new MovieDetails();
+				// movieDetails.GetMovieDetailsFromFile();
 				booking.CineplexChoiceDisplay(cineplex);
 				booking.ChooseACineplex();
 				String cineplexChoice = booking.getCineplexChoice();
@@ -48,6 +50,9 @@ public class Customer {
 					Cinema orchard = new Cinema(booking.getCinemaChoice());
 					ArrayList<String> movies = orchard.GetMoviesOfCinema();
 					booking.MovieChoiceDisplay(orchard, movies);
+					booking.ChooseAMovie();
+					String movieChoice = booking.getMovieChoice();
+					movieDetails.DisplayMovieDetails(movieChoice);
 //					orchard.Display();
 				}
 				else if (cineplexChoice == "Sentosa") {

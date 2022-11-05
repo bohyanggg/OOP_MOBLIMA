@@ -11,7 +11,6 @@ public class Startup {
 	private static int userType;
 	
 	public static void main(String[] args) {
-		
 		//Ask for user type
 		while (true) {
 			

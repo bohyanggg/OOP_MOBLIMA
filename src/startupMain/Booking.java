@@ -75,5 +75,21 @@ public class Booking {
 		}
 	}
 	
+	public void ChooseAMovie(){
+		System.out.println("Enter your choice: ");
+		int userChoice = movieChoice.nextInt();
+		if (userChoice == 1) {
+			MovieChoice = "Minions: The Rise of Gru";
+		}
+		else if (userChoice == 2) {
+			MovieChoice = "Black Adam";
+		}
+		else if (userChoice == 3) {
+			MovieChoice = "Black Panther: Wakanda Forever";
+		}
+		else {
+			ChooseACineplex();
+		}
+	}
 	
 }
