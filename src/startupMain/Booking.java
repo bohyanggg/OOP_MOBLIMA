@@ -13,6 +13,9 @@ public class Booking {
 	private String MovieChoice;
 	private Scanner movieChoice = new Scanner(System.in);
 	
+	private String SeatChoice;
+	private Scanner seatChoice = new Scanner(System.in);
+
 	public Booking() {
 		
 	}
@@ -41,6 +44,10 @@ public class Booking {
 		c.MovieChoiceDisplay(movies);
 	}
 	
+	public void SeatingPlanDisplay(MovieDetails details){
+
+	}
+
 	public void ChooseACineplex() {
 		System.out.print("Enter your choice: ");
 		int userChoice = cineplexChoice.nextInt();
@@ -92,4 +99,12 @@ public class Booking {
 		}
 	}
 	
+	public void ChooseASeat(){
+		System.out.println("Enter your choice: (comma',' separated for multiple seats)");
+		SeatChoice = seatChoice.next();
+		//TODO: please do some input validation here I shall assume that input validation is done
+		if (SeatChoice.length() < 2){
+			this.ChooseASeat();
+		}
+	}
 }

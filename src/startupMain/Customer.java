@@ -53,7 +53,7 @@ public class Customer {
 					booking.ChooseAMovie();
 					String movieChoice = booking.getMovieChoice();
 					movieDetails.DisplayMovieDetails(movieChoice);
-//					orchard.Display();
+					booking.ChooseASeat();
 				}
 				else if (cineplexChoice == "Sentosa") {
 					Cinema sentosa = new Cinema(cineplexChoice);

@@ -6,12 +6,71 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MovieDetails {
+public class MovieDetails extends SeatingPlan {
 
     HashMap<String, HashMap<String, ArrayList<String>>> MovieDetails = new HashMap<String, HashMap<String, ArrayList<String>>>();
+    HashMap<String, String[][]> MovieSeats = new HashMap<String, String[][]>();
 
     public MovieDetails(){
         this.GetMovieDetailsFromFile();
+    }
+
+    private void SetSeatingPlan(String title){
+        String[][] seats = super.plan;
+        this.MovieSeats.put(title, seats);
+    }
+
+    private void DisplaySeatingPlan(String title){
+        System.out.println("Choose a seat that's available (x means occupied): ");
+        String[][] seats = this.MovieSeats.get(title);
+        char c = 'A';
+        System.out.println("  12 3456 78");
+        for (int i = 0; i <10 ; i++) {
+            System.out.print(Character.toString(c + i) + " ");
+			for (int j = 0; j < 10; j ++) {
+				System.out.print(seats[i][j]);
+			}
+            System.out.println();
+		}
+    }
+
+    public void UpdateBookedSeats(String title, String SeatChoice){
+        String[][] seats = this.MovieSeats.get(title);
+        if (SeatChoice.length() > 2){
+			String[] chosenSeats = SeatChoice.split(",");
+			for (String seat : chosenSeats){
+				char strRow = seat.charAt(0);
+				int row = strRow - 65;
+				int seatNum = Integer.parseInt(seat.substring(1, 1));
+				// cover the offset on display
+                if (seatNum >= 7){
+                    seatNum += 2;
+                }
+                else if (seatNum >= 3){
+                    seatNum += 1;
+                }
+                seatNum -= 1;
+                seats[row][seatNum] = "x";
+                // replace old map
+                this.MovieSeats.put(title, seats);
+			}
+		}
+		else if (SeatChoice.length() == 2){
+			char strRow = SeatChoice.charAt(0);
+				int row = strRow - 65;
+				int seatNum = Integer.parseInt(SeatChoice.substring(1, 1));
+				// cover the offset on display
+                if (seatNum >= 7){
+                    seatNum += 2;
+                }
+                else if (seatNum >= 3){
+                    seatNum += 1;
+                }
+                seatNum -= 1;
+                seats[row][seatNum] = "x";
+                // replace old map
+                this.MovieSeats.put(title, seats);
+		}
     }
 
     private HashMap<String, ArrayList<String>> getMovieDetails(String title){
@@ -24,6 +83,8 @@ public class MovieDetails {
             String value = entry.getValue().get(0);
             System.out.println(key + ": " + value);
         }
+        this.SetSeatingPlan(title);
+        this.DisplaySeatingPlan(title);
     }
 
     private void GetMovieDetailsFromFile(){

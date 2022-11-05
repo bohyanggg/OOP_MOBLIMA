@@ -66,4 +66,8 @@ public class Cinema extends SeatingPlan{
 			counter += 1;
 		}
 	}
+
+	public void DisplaySeats(String title){
+
+	}
 }
