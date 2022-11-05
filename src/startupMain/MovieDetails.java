@@ -36,7 +36,7 @@ public class MovieDetails extends SeatingPlan {
 
     public void UpdateBookedSeats(String title, String SeatChoice){
         String[][] seats = this.MovieSeats.get(title);
-        System.out.println(SeatChoice);
+        System.out.println("Booked seats: " + SeatChoice);
         if (SeatChoice.length() > 2){
 			String[] chosenSeats = SeatChoice.split(",");
 			for (String seat : chosenSeats){

@@ -59,7 +59,6 @@ public class Customer {
 					String movieChoice = booking.getMovieChoice();
 					movieDetails.DisplayMovieDetails(movieChoice);
 					booking.ChooseASeat();
-					System.out.println(booking.getSeatChoice());
 					movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
 				}
 				else if (cineplexChoice == "Sentosa") {
