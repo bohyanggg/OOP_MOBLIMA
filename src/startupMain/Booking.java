@@ -110,7 +110,19 @@ public class Booking {
 		else if (userChoice == 5) {
 			MovieChoice = "Smile";
 		}
-		else if (userChoice == 6){
+		else if (userChoice == 6) {
+			MovieChoice = "Ajooma";
+		}
+		else if (userChoice == 7) {
+			MovieChoice = "Come Back Home";
+		}
+		else if (userChoice == 8) {
+			MovieChoice = "Love Today";
+		}
+		else if (userChoice == 9){
+			MovieChoice = "Faces Of Anne";
+		}
+		else if (userChoice == 10){
 			MovieChoice = "Quit";
 		}
 		else {
