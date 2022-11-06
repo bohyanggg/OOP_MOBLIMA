@@ -6,28 +6,28 @@ import java.util.Scanner;
 public class Booking {
 	private String CineplexChoice;
 	private Scanner cineplexChoice = new Scanner(System.in);
-	
+
 	private String CinemaChoice;
 	private Scanner cinemaChoice = new Scanner(System.in);
-	
+
 	private String MovieChoice;
 	private Scanner movieChoice = new Scanner(System.in);
-	
+
 	private String SeatChoice;
 	private Scanner seatChoice = new Scanner(System.in);
 
 	public Booking() {
-		
+
 	}
-	
+
 	public String getCineplexChoice() {
 		return this.CineplexChoice;
 	}
-	
+
 	public String getCinemaChoice() {
 		return this.CinemaChoice;
 	}
-	
+
 	public String getMovieChoice() {
 		return this.MovieChoice;
 	}
@@ -35,19 +35,19 @@ public class Booking {
 	public String getSeatChoice(){
 		return this.SeatChoice;
 	}
-	
+
 	public void CineplexChoiceDisplay(Cineplex cp) {
 		cp.CineplexChoiceDisplay();
 	}
-	
+
 	public void CinemaChoiceDisplay(Cineplex cp, ArrayList<String> cinemas) {
 		cp.CinemaChoiceDisplay(cinemas);
 	}
-	
+
 	public void MovieChoiceDisplay(Cinema c, ArrayList<String> movies) {
 		c.MovieChoiceDisplay(movies);
 	}
-	
+
 	public void SeatingPlanDisplay(MovieDetails details){
 
 	}
@@ -71,7 +71,7 @@ public class Booking {
 			ChooseACineplex();
 		}
 	}
-	
+
 	public void ChooseACinema() {
 		System.out.print("Enter your choice: ");
 		int userChoice = cinemaChoice.nextInt();
@@ -91,7 +91,7 @@ public class Booking {
 			ChooseACineplex();
 		}
 	}
-	
+
 	public void ChooseAMovie(){
 		System.out.println("Enter your choice: ");
 		int userChoice = movieChoice.nextInt();
@@ -111,7 +111,7 @@ public class Booking {
 			ChooseACineplex();
 		}
 	}
-	
+
 	public void ChooseASeat(){
 		System.out.println("Enter your choice: (comma',' separated for multiple seats)");
 		SeatChoice = seatChoice.next();
