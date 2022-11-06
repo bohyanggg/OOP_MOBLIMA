@@ -86,9 +86,9 @@ public class Customer {
 					if (booking.getCinemaChoice() == "Quit"){
 						continue;
 					}
-					Cinema orchard = new Cinema(booking.getCinemaChoice());
-					ArrayList<String> movies = orchard.GetMoviesOfCinema();
-					booking.MovieChoiceDisplay(orchard, movies);
+					Cinema lotOne = new Cinema(booking.getCinemaChoice());
+					ArrayList<String> movies = lotOne.GetMoviesOfCinema();
+					booking.MovieChoiceDisplay(lotOne, movies);
 					booking.ChooseAMovie();
 					if (booking.getMovieChoice() == "Quit"){
 						continue;
@@ -99,12 +99,12 @@ public class Customer {
 					movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
 				}
 				else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
-					Cinema sentosa = new Cinema(cineplexChoice);
-					sentosa.Display();
+					Cinema clementiMall = new Cinema(cineplexChoice);
+					clementiMall.Display();
 				}
 				else if (cineplexChoice == "Cathay Cineplexes Jewel") {
-					Cinema woodlands = new Cinema(cineplexChoice);
-					woodlands.Display();
+					Cinema jewel = new Cinema(cineplexChoice);
+					jewel.Display();
 				}
 				else if (cineplexChoice == "Quit"){
 					userChoice = 5;

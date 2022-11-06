@@ -41,7 +41,7 @@ public class ResourceManager {
 	public static void addmovieList(ArrayList<Movie> movieList) //to add movieList array to txt file
 	{
 		try {
-			ResourceManager.save(movieList, ".\\src\\MoviesTest.txt");
+			ResourceManager.save(movieList, "MoviesTest.txt");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
