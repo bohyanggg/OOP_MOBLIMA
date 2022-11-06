@@ -11,7 +11,8 @@ public class Startup {
 	private static int userType;
 	
 	public static void main(String[] args) {
-		
+		// load movie details
+		MovieDetails movieDetails = new MovieDetails();
 		//Ask for user type
 		while (true) {
 			
@@ -45,7 +46,7 @@ public class Startup {
 			//If user is a customer
 			else {
 				//Create new customer object
-				Customer customer = new Customer();
+				Customer customer = new Customer(movieDetails);
 				customer.showCustomerSystem();
 			}
 		}

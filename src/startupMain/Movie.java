@@ -10,7 +10,7 @@ public class Movie implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -4611176189600089207L;
-
+	
 	private static Scanner sc = new Scanner(System.in);
 	
 	private String title;
@@ -182,11 +182,11 @@ public class Movie implements Serializable{
 		reviewsAndRatings.add(newReviewAndRating);
 		System.out.println("\nRating and Review Added!\n");
 	}
-
+	
 	public int getTicketSales() {
 		return ticketSales;
 	}
-
+	
 	public void addTicketSales() {
 		ticketSales += 1;
 	}

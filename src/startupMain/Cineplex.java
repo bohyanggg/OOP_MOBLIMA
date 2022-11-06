@@ -63,19 +63,6 @@ public class Cineplex{
 			System.out.println(counter + ". " + name);
 			counter += 1;
 		}
+		System.out.println(counter + ". Exit");
 	}
 }
-
-//class Cinemas {
-//	private String Name;
-//	private String Location;
-//	public Cinemas() {
-//		
-//	}
-//	
-//	public 
-//	
-//	public String CineplexName() {
-//		return 
-//	}
-//}
