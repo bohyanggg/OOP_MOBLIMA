@@ -26,7 +26,7 @@ public class Cinema extends SeatingPlan{
 	
 	private void getMovies() {
 		try {
-			Path fileName = Path.of(".\\src\\Cinemas.txt");
+			Path fileName = Path.of("..\\src\\Cinemas.txt");
 			ArrayList<String> strList = (ArrayList<String>) Files.readAllLines(fileName);
 			for (String line : strList) {
 				String[] info = line.split("@");

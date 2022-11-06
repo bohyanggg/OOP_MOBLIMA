@@ -26,7 +26,7 @@ public class Cineplex{
 	
 	private void InitialiseCineplexes() {
 		try {
-			Path fileName = Path.of(".\\src\\Cineplexes.txt");
+			Path fileName = Path.of("..\\src\\Cineplexes.txt");
 			ArrayList<String> strList = (ArrayList<String>) Files.readAllLines(fileName);
 			for (String line : strList) {
 //				System.out.println(line);
