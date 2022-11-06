@@ -184,6 +184,10 @@ public class MovieListingConfig {
 		movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
 		int i = 1; //To number the movies
 		System.out.print("\n");
+		if (movieList.isEmpty()) {
+			System.out.println("No Movies!");
+			return;
+		}
 		for (Movie movie: movieList)
 		{
 			System.out.print("Movie " + i + ": ");
