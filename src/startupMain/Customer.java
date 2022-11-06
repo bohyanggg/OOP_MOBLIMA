@@ -16,7 +16,6 @@ public class Customer {
 
 	public void showCustomerSystem() {
 		// TODO Auto-generated method stub
-		//xdd
 		System.out.println("1. Search/List movie");
 		System.out.println("2. Check seat availibility and selection of seat(s)");
 		System.out.println("3. View booking history");
@@ -27,19 +26,51 @@ public class Customer {
 		int userChoice = Choice.nextInt();
 		while(userChoice != 5) {
 			if (userChoice == 1) {
-				File file = new File("MoviesTest.txt");
-				try {
-					Scanner scan = new Scanner(file);
-					while(scan.hasNextLine())
-					{
-						String nextLine = scan.nextLine();
-						System.out.println(nextLine);
-					}
-					showCustomerSystem();
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
+				movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
+				int i = 1; //To number the movies
+				System.out.print("\n");
+				for (Movie movie: movieList)
+				{
+					System.out.print("Movie " + i + ": ");
+					i++;
+					movie.viewimportantMovieDetails();
+					System.out.print("\n");
 				}
+				int totalMovie = i -1;
+				i = 1;
+				System.out.println("\nView all details of a Movie? (Y/N)");
+				Scanner sc = new Scanner(System.in);
+				String choice = sc.next();
+				if (choice.equalsIgnoreCase("Y"))
+				{
+					System.out.println("\nEnter Movie number: ");
+					int movieNumber = sc.nextInt();
+					if (movieNumber > totalMovie)
+					{
+						System.out.println("\nInvalid Input Number!");
+						return;
+					}
+					for (Movie movie: movieList)
+					{
+						if (i == movieNumber)
+						{
+							movie.viewallMovieDetails();
+							break;
+						}
+						i++;
+					}
+				}
+				else if (choice.equalsIgnoreCase("N"))
+				{
+					break;
+				}
+				else
+				{
+					System.out.println("\nInvalid Input!");
+					break;
+				}
+				
 			}
 			if (userChoice == 2) {
 				Booking booking = new Booking();

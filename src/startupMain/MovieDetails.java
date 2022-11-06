@@ -92,7 +92,7 @@ public class MovieDetails extends SeatingPlan {
 
     private void GetMovieDetailsFromFile(){
         try {
-			Path fileName = Path.of("..\\src\\Movies.txt");
+        	Path fileName = Path.of("..\\src\\Movies.txt");
 			ArrayList<String> movies = (ArrayList<String>) Files.readAllLines(fileName);
 			for (String line : movies){
                 String[] info = line.split("@");
