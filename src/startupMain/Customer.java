@@ -79,7 +79,7 @@ public class Customer {
 				booking.CineplexChoiceDisplay(cineplex);
 				booking.ChooseACineplex();
 				String cineplexChoice = booking.getCineplexChoice();
-				if (cineplexChoice == "Orchard") {
+				if (cineplexChoice == "Cathay Cineplexes Lot One") {
 					ArrayList<String> cinemas = cineplex.GetCinemasOfCineplex(cineplexChoice);
 					booking.CinemaChoiceDisplay(cineplex, cinemas);
 					booking.ChooseACinema();
@@ -98,11 +98,11 @@ public class Customer {
 					booking.ChooseASeat();
 					movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
 				}
-				else if (cineplexChoice == "Sentosa") {
+				else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
 					Cinema sentosa = new Cinema(cineplexChoice);
 					sentosa.Display();
 				}
-				else if (cineplexChoice == "Woodlands") {
+				else if (cineplexChoice == "Cathay Cineplexes Jewel") {
 					Cinema woodlands = new Cinema(cineplexChoice);
 					woodlands.Display();
 				}
