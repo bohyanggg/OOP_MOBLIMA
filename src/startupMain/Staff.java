@@ -32,10 +32,10 @@ public class Staff {
 				case 2: CinemaShowtimesConfig csConfig = new CinemaShowtimesConfig();
 						csConfig.csConfigOptions();
 						break;
-//						
+
 //						// TODO UNFINISHED
-//				case 3: ConfigSystemSettings configSS = new ConfigSystemSettings();
-//						configSS.configCSOptions();
+//				case 3: SystemSettingsConfig ssConfig = new SystemSettingsConfig();
+//						ssConfig.ssConfigOptions();
 //						break;
 
 				case 4: System.out.println("\nLogging Out...\n");
