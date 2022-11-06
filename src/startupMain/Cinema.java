@@ -65,6 +65,7 @@ public class Cinema extends SeatingPlan{
 			System.out.println(counter + ". " + movie);
 			counter += 1;
 		}
+		System.out.println(counter + ". Exit");
 	}
 
 	public void DisplaySeats(String title){

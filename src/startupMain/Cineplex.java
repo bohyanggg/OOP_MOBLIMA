@@ -63,5 +63,6 @@ public class Cineplex{
 			System.out.println(counter + ". " + name);
 			counter += 1;
 		}
+		System.out.println(counter + ". Exit");
 	}
 }

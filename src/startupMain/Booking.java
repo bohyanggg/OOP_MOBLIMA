@@ -64,6 +64,9 @@ public class Booking {
 		else if (userChoice == 3) {
 			CineplexChoice = "Woodlands";
 		}
+		else if (userChoice == 4){
+			CineplexChoice = "Quit";
+		}
 		else {
 			ChooseACineplex();
 		}
@@ -81,6 +84,9 @@ public class Booking {
 		else if (userChoice == 3) {
 			CinemaChoice = "Cathay Cineplex";
 		}
+		else if (userChoice == 4){
+			CinemaChoice = "Quit";
+		}
 		else {
 			ChooseACineplex();
 		}
@@ -97,6 +103,9 @@ public class Booking {
 		}
 		else if (userChoice == 3) {
 			MovieChoice = "Black Panther: Wakanda Forever";
+		}
+		else if (userChoice == 4){
+			MovieChoice = "Quit";
 		}
 		else {
 			ChooseACineplex();

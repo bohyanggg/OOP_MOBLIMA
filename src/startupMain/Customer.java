@@ -52,10 +52,16 @@ public class Customer {
 					ArrayList<String> cinemas = cineplex.GetCinemasOfCineplex(cineplexChoice);
 					booking.CinemaChoiceDisplay(cineplex, cinemas);
 					booking.ChooseACinema();
+					if (booking.getCinemaChoice() == "Quit"){
+						continue;
+					}
 					Cinema orchard = new Cinema(booking.getCinemaChoice());
 					ArrayList<String> movies = orchard.GetMoviesOfCinema();
 					booking.MovieChoiceDisplay(orchard, movies);
 					booking.ChooseAMovie();
+					if (booking.getMovieChoice() == "Quit"){
+						continue;
+					}
 					String movieChoice = booking.getMovieChoice();
 					movieDetails.DisplayMovieDetails(movieChoice);
 					booking.ChooseASeat();
@@ -68,6 +74,10 @@ public class Customer {
 				else if (cineplexChoice == "Woodlands") {
 					Cinema woodlands = new Cinema(cineplexChoice);
 					woodlands.Display();
+				}
+				else if (cineplexChoice == "Quit"){
+					userChoice = 5;
+					showCustomerSystem();
 				}
 				else {
 					userChoice = 5;
