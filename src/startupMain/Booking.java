@@ -56,13 +56,13 @@ public class Booking {
 		System.out.print("Enter your choice: ");
 		int userChoice = cineplexChoice.nextInt();
 		if (userChoice == 1) {
-			CineplexChoice = "Orchard";
+			CineplexChoice = "Cathay Cineplexes Lot One";
 		}
 		else if (userChoice == 2) {
-			CineplexChoice = "Sentosa";
+			CineplexChoice = "Cathay Cineplexes Clementi Mall";
 		}
 		else if (userChoice == 3) {
-			CineplexChoice = "Woodlands";
+			CineplexChoice = "Cathay Cineplexes Jewel";
 		}
 		else if (userChoice == 4){
 			CineplexChoice = "Quit";
@@ -76,13 +76,13 @@ public class Booking {
 		System.out.print("Enter your choice: ");
 		int userChoice = cinemaChoice.nextInt();
 		if (userChoice == 1) {
-			CinemaChoice = "Golden Village";
+			CinemaChoice = "Cinema 1";
 		}
 		else if (userChoice == 2) {
-			CinemaChoice = "Shaw Theatre";
+			CinemaChoice = "Cinema 2";
 		}
 		else if (userChoice == 3) {
-			CinemaChoice = "Cathay Cineplex";
+			CinemaChoice = "Cinema 3";
 		}
 		else if (userChoice == 4){
 			CinemaChoice = "Quit";
@@ -96,15 +96,21 @@ public class Booking {
 		System.out.println("Enter your choice: ");
 		int userChoice = movieChoice.nextInt();
 		if (userChoice == 1) {
-			MovieChoice = "Minions: The Rise of Gru";
-		}
-		else if (userChoice == 2) {
 			MovieChoice = "Black Adam";
 		}
-		else if (userChoice == 3) {
+		else if (userChoice == 2) {
 			MovieChoice = "Black Panther: Wakanda Forever";
 		}
-		else if (userChoice == 4){
+		else if (userChoice == 3) {
+			MovieChoice = "Home Coming";
+		}
+		else if (userChoice == 4) {
+			MovieChoice = "ONE PIECE FILM RED";
+		}
+		else if (userChoice == 5) {
+			MovieChoice = "Smile";
+		}
+		else if (userChoice == 6){
 			MovieChoice = "Quit";
 		}
 		else {
