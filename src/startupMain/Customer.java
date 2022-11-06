@@ -25,7 +25,7 @@ public class Customer {
 		Scanner Choice = new Scanner(System.in);
 		int userChoice = Choice.nextInt();
 		while(userChoice != 5) {
-			if (userChoice == 1) {
+			if (userChoice == 1) { //i copied over this whole part from MovieListingConfig 's viewmovielisting
 				ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 				movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
 				int i = 1; //To number the movies
