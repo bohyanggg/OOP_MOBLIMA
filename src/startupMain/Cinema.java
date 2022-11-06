@@ -33,7 +33,7 @@ public class Cinema extends SeatingPlan{
 				if (info[0].equals(this.Name)) {
 					
 					for (int i = 1; i < info.length ; i++) {
-						System.out.println(info[i]);
+						//System.out.println(info[i]);
 						movies.add(info[i]);
 					}
 				}

@@ -57,10 +57,12 @@ public class Customer {
 							if (i == movieNumber)
 							{
 								movie.viewallMovieDetails();
+								System.out.print("\n");
 								break;
 							}
 							i++;
 						}
+						break;
 					}
 					else if (choice.equalsIgnoreCase("N"))
 					{
@@ -73,6 +75,7 @@ public class Customer {
 					}
 					
 				}
+				
 				if (userChoice == 2) {
 					Booking booking = new Booking();
 					Cineplex cineplex = new Cineplex();
@@ -115,6 +118,16 @@ public class Customer {
 						userChoice = 5;
 						showCustomerSystem();
 					}
+				}
+				
+				if (userChoice == 3) {
+					//TODO view booking history not done yet
+					System.out.println("view booking history not done yet");
+				}
+				
+				if (userChoice == 4) {
+					//TODO list top 5 ranking of movies not done yet
+					System.out.println("list top 5 ranking of movies not done yet");
 				}
 			}
 		}
