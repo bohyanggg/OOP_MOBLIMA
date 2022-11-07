@@ -18,6 +18,7 @@ public class Customer {
 
 		while (true) {
 			System.out.println("********** Customer Menu **********");
+			System.out.println("0. Search movie");
 			System.out.println("1. Search/List movie");
 			System.out.println("2. Check seat availibility and selection of seat(s)");
 			System.out.println("3. View booking history");
@@ -27,6 +28,42 @@ public class Customer {
 			Scanner Choice = new Scanner(System.in);
 			int userChoice = Choice.nextInt();
 			while(userChoice != 5) {
+				if (userChoice ==0) {
+					
+					ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
+					movieList = ResourceManager.getmovieList(movieList);
+					if (movieList.size() == 0) {
+                        System.out.println("Sorry there are currently no movies!");
+                        break;
+                    }
+					
+                    // Getting the keyword from the user to be searched
+                    System.out.printf("Please enter the keyword to be searched: ");
+                    Choice.nextLine();        // To remove the carriage return character
+                    String keyWord = Choice.nextLine();
+                    
+                    System.out.println("Displaying the list of movies with keyword \"" + keyWord + "\"...");
+                    System.out.println("=====================================");
+                    System.out.println("MOVIE ID\t\tMOVIE TITLE");
+                    System.out.println("=====================================");
+
+                    // Searching through the listOfMovies for titles have contain the keyword, then displaying it
+                    boolean foundMovieID1 = false;
+                    for (int i = 0; i < movieList.size(); i++) {
+                        if (movieList.get(i).getTitle().toLowerCase().contains(keyWord.toLowerCase())) {
+                            System.out.println(i + 1 + ".\t\t\t" + movieList.get(i).getTitle());
+                            foundMovieID1 = true;
+                            
+                        }
+                    
+                    }
+                    if (!foundMovieID1) {
+                        System.out.println("Sorry there are currently no movies that match " + keyWord + "!");
+                        break;
+                    }
+                    // If cannot find any movies that contain the keyword
+                    
+				}
 				if (userChoice == 1) { //i copied over this whole part from MovieListingConfig 's viewmovielisting
 					ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 					movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
