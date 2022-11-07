@@ -10,7 +10,7 @@ public class CinemaShowtimesConfig {
 	private int choice;
 	
 	/**
-	 * Cinema Showtimes Config Menu
+	 * Cinema Showtimes Configuration Menu
 	 */
 	public void csConfigOptions() {
 		
@@ -41,15 +41,15 @@ public class CinemaShowtimesConfig {
 
 		ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 		movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
-		System.out.print("\nSelect movie to be showed: ");
-		for (int i=1; i<=movieList.size(); i++) //To iterate through the movieListArray from the txt file
+		System.out.println("\nSelect movie to be showed: ");
+		for (int i=0; i<movieList.size(); i++) //To iterate through the movieListArray from the txt file
 		{
-			System.out.print("Movie " + i + ": ");
+			System.out.print("Movie " + (i+1) + ": ");
 			movieList.get(i).viewimportantMovieDetails(); //To show only the important details of the file 
 			System.out.print("\n");
 		}
-		int choice = sc.nextInt();
-		movieList.get(choice).getCinemaShowtime();
+		int choice = sc.nextInt()-1;
+		movieList.get(choice).printCinemaShowtime();
 		movieList.get(choice).setCinemaShowtime();
 		ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
 	}
@@ -67,7 +67,7 @@ public class CinemaShowtimesConfig {
 			for (int j=0; j<movieList.size(); j++) {
 				Movie currentMovie = movieList.get(j);
 				//if currently accessed movie's showing status!=End of Showing and has valid Cinema 1 showtime
-				if (!currentMovie.getShowingStatus().equals("End of Showing") && !currentMovie.getCinemaShowtime()[i].equals("-")) {
+				if (!currentMovie.getShowingStatus().equals("End of Showing") && !currentMovie.getCinemaShowtime()[i].isEmpty()) {
 					System.out.println(currentMovie.getTitle() + " " + currentMovie.getCinemaShowtime()[i]);
 				}
 			}

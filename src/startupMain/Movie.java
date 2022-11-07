@@ -15,15 +15,31 @@ public class Movie implements Serializable{
 	
 	private String title;
 	private String type; //e.g. Blockbuster PG13
-	private String[] cinemaShowtime = new String[] {"-", "-", "-"}; //e.g. [Cinema 1, 13/11 1300H], [Cinema 2, 13/11 1400H], [Cinema 3, -]
+	private ArrayList<String>[] cinemaShowtime; //array of arrayLists -> [ [cinema 1:...], [cinema 2:...], [cinema 3:...] ]
 	private int showingStatus;
 	private String synopsis;
 	private String director;
-	private ArrayList<String> cast = new ArrayList<String>();
+	private ArrayList<String> cast;
 	private String overallReviewerRating; //1 to 5
-	private ArrayList<String[]> reviewsAndRatings = new ArrayList<String[]>(); //stored as (String review, String rating) as one array element
+	private ArrayList<String[]> reviewsAndRatings; //stored as (String review, String rating) as one array element
 	private int ticketSales;
 	
+	public Movie() {
+		title = "";
+		type = "";
+		cinemaShowtime = new ArrayList[3];// {cinemaDateTime1, cinemaDateTime2, cinemaDateTime3};
+		cinemaShowtime[0] = new ArrayList<String>();
+		cinemaShowtime[1] = new ArrayList<String>();
+		cinemaShowtime[2] = new ArrayList<String>();
+		showingStatus = 0;
+		synopsis = "";
+		director = "";
+		cast = new ArrayList<String>();
+		overallReviewerRating = "";
+		reviewsAndRatings = new ArrayList<String[]>();
+		ticketSales = 0;
+	}
+
 	//Collection of all getter methods to display movie attributes
 	public void viewallMovieDetails() {
 		System.out.println("\nMovie Title: " + this.getTitle());
@@ -77,25 +93,40 @@ public class Movie implements Serializable{
 	public void printCinemaShowtime() {
 		System.out.print("Cinema Showtimes: ");
 		for (int i=0; i<3; i++) {
-			if (cinemaShowtime[i] != "-") {
-				System.out.print("Cinema " + (i+1) + ": " + cinemaShowtime[i] + "||");
+			if (!cinemaShowtime[i].isEmpty()) {
+				System.out.print("Cinema " + (i+1) + ": ");
+				for (int j=0; j<cinemaShowtime[i].size(); j++) {
+					if (cinemaShowtime[i].get(j) != "") {
+						System.out.print(cinemaShowtime[i].get(j) + "||");
+					}
+				}
 			}
 		}
 		System.out.print("\n");
 	}
 	
-	public String[] getCinemaShowtime() {
+	public ArrayList<String>[] getCinemaShowtime() {
 		return cinemaShowtime;
 	}
 
 	public void setCinemaShowtime() {
-		System.out.print("\nEnter Cinema Showtimes (e.g. \"13/11 1300H\" or \"-\"): ");
-		System.out.print("\nCinema 1: ");
-		cinemaShowtime[0] = sc.nextLine();
-		System.out.print("Cinema 2: ");
-		cinemaShowtime[1] = sc.nextLine();
-		System.out.print("Cinema 3: ");
-		cinemaShowtime[2] = sc.nextLine();
+		while (true) {
+			System.out.println("\nChoose Cinema Number:\n" +
+							 "1. Cinema 1\n" + 
+							 "2. Cinema 2\n" +
+							 "3. Cinema 3\n" +
+							 "4. Next Step\n");
+			int choice = sc.nextInt();
+			if (choice == 4) break;
+			sc.nextLine(); //fix sc.nextLine() problem
+			System.out.print("\nEnter Cinema Showtimes (e.g. \"13/11 1300H\"): ");
+			switch (choice) {
+				case 1: cinemaShowtime[0].add(sc.nextLine()); System.out.println("Added!"); break;
+				case 2: cinemaShowtime[1].add(sc.nextLine()); System.out.println("Added!"); break;
+				case 3: cinemaShowtime[2].add(sc.nextLine()); System.out.println("Added!"); break;
+				default: System.out.println("Invalid Input");
+			}
+		}
 	}
 	
 	public String getShowingStatus() {
