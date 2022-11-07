@@ -37,8 +37,11 @@ public class Staff {
 //				case 3: SystemSettingsConfig ssConfig = new SystemSettingsConfig();
 //						ssConfig.ssConfigOptions();
 //						break;
+						
+						// TODO UNFINISHED
+//				case 4: list top 5 ranking movies by ticket sales/overall reviewer rating(display title and overall rating)
 
-				case 4: System.out.println("\nLogging Out...\n");
+				case 5: System.out.println("\nLogging Out...\n");
 						return;
 				
 				default: System.out.println("\nInvalid Option.\n");

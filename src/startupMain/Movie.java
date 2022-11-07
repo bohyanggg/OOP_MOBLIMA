@@ -15,7 +15,7 @@ public class Movie implements Serializable{
 	
 	private String title;
 	private String type; //e.g. Blockbuster PG13
-	private String cinemaShowtime; //e.g. Cinema 1 13/11 1300H
+	private ArrayList<String> cinemaShowtime = new ArrayList<String>(); //e.g. (Cinema 1 13/11 1300H), (Cinema 2 13/11 1400H)...
 	private int showingStatus;
 	private String synopsis;
 	private String director;
@@ -75,12 +75,18 @@ public class Movie implements Serializable{
 	}
 	
 	public String getCinemaShowtime() {
-		return cinemaShowtime;
+		String stringCinemaShowtime = "";
+		for (int i=0; i<cinemaShowtime.size()-1; i++) {
+			stringCinemaShowtime += cinemaShowtime.get(i) + ", ";
+		}
+		//Print last cast member without comma afterwards
+		stringCinemaShowtime += cinemaShowtime.get(cinemaShowtime.size()-1);
+		return stringCinemaShowtime;
 	}
 
 	public void setCinemaShowtime() {
-		System.out.print("\nEnter Cinema Showtime (e.g. Cinema 1 13/11 1300H): ");
-		cinemaShowtime = sc.nextLine();
+		System.out.print("\nEnter a Cinema Showtime (e.g. Cinema 1 13/11 1300H): ");
+		cinemaShowtime.add(sc.nextLine());
 	}
 	
 	public String getShowingStatus() {

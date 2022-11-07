@@ -28,9 +28,11 @@ public class CinemaShowtimesConfig {
 						break;
 				case 2: updateCinemaShowtime();
 						break;
-				case 3: viewCinemaShowing();
+				case 3: removeCinemaShowing();
 						break;
-				case 4: System.out.println("\nReturning to Staff Menu...\n");
+				case 4: viewCinemaShowing();
+						break;
+				case 5: System.out.println("\nReturning to Staff Menu...\n");
 						return;
 				default: System.out.println("\nInvalid Option.\n");
 			}
@@ -47,6 +49,11 @@ public class CinemaShowtimesConfig {
 		
 	}
 
+	private void removeCinemaShowing() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	private void viewCinemaShowing() {
 		// TODO Read from Cinemas.txt
 		
