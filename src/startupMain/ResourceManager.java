@@ -13,9 +13,9 @@ public class ResourceManager {
 	public static void save(Serializable data, String fileName) throws Exception
 	{
 		try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get(fileName)))) {
-	oos.writeObject(data);
-	oos.close();
-}
+			oos.writeObject(data);
+			oos.close();
+		}
 	}
 	
 	public static Object load(String fileName) throws Exception{

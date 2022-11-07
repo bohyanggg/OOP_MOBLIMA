@@ -19,7 +19,7 @@ public class Movie implements Serializable{
 	private String director;
 	private ArrayList<String> cast = new ArrayList<String>();
 	private String overallReviewerRating; //1 to 5
-	private ArrayList<String[]> reviewsAndRatings = new ArrayList<String[]>(); //stored as (String review, double rating) as one array element
+	private ArrayList<String[]> reviewsAndRatings = new ArrayList<String[]>(); //stored as (String review, String rating) as one array element
 	private int ticketSales;
 
 //	public Movie() {
