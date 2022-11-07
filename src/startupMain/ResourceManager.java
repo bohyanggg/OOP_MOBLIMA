@@ -31,7 +31,6 @@ public class ResourceManager {
 			 txtmovieList = (ArrayList<Movie>) ResourceManager.load("MoviesTest.txt");
 			 return txtmovieList;
 		    } catch (Exception e) {
-		      // TODO Auto-generated catch block
 		      e.printStackTrace();
 		    }
 		System.out.println("No Movies!");
@@ -43,7 +42,6 @@ public class ResourceManager {
 		try {
 			ResourceManager.save(movieList, "MoviesTest.txt");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

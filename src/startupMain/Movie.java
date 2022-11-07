@@ -174,15 +174,14 @@ public class Movie implements Serializable{
 		}
 		else {
 			for (int i=0; i<reviewsAndRatings.size(); i++) {
-				System.out.println(reviewsAndRatings.get(i)[0]); //rating
-				System.out.println(reviewsAndRatings.get(i)[1]); //review
+				System.out.println(reviewsAndRatings.get(i)[0] + " - "+ reviewsAndRatings.get(i)[1]); //rating and review
 			}
 		}
 	}
 
 	//Store rating as string and convert to int later to calculate overallReviewerRating
 	public void addReviewsAndRatings() {
-		System.out.print("\nEnter Rating: ");
+		System.out.print("\nEnter Rating (1 to 5): ");
 		String newRating = sc.nextLine();
 		System.out.print("\nEnter Review: ");
 		String newReview = sc.nextLine();
