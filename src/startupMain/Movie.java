@@ -14,6 +14,8 @@ public class Movie implements Serializable{
 	private static Scanner sc = new Scanner(System.in);
 	
 	private String title;
+	private String type; //e.g. Blockbuster PG13
+	private String cinemaShowtime; //e.g. Cinema 1 13/11 1300H
 	private int showingStatus;
 	private String synopsis;
 	private String director;
@@ -21,20 +23,12 @@ public class Movie implements Serializable{
 	private String overallReviewerRating; //1 to 5
 	private ArrayList<String[]> reviewsAndRatings = new ArrayList<String[]>(); //stored as (String review, String rating) as one array element
 	private int ticketSales;
-
-//	public Movie() {
-//		title = "";
-//		showingStatus = 0; // 0 = Coming Soon
-//		synopsis = "";
-//		director = "";
-//		cast = [];
-//		overallReviewerRating = "0";
-//		ticketSales = 0;
-//	}
 	
 	//Collection of all getter methods to display movie attributes
 	public void viewallMovieDetails() {
 		System.out.println("\nMovie Title: " + this.getTitle());
+		System.out.println("Movie Type: " + this.getType());
+		System.out.println("Cinema Showtime: " + this.getCinemaShowtime());
 		System.out.println("Showing Status: " + this.getShowingStatus());
 		System.out.println("Movie Synopsis: " + this.getSynopsis());
 		System.out.println("Movie Director: " + this.getDirector());
@@ -53,6 +47,8 @@ public class Movie implements Serializable{
 	//Collection of all setter methods to create movie except overallReviewerRating and ticketSales
 	public void createMovie() {
 		setTitle();
+		setType();
+		setCinemaShowtime();
 		setShowingStatus();
 		setSynopsis();
 		setDirector();
@@ -67,9 +63,26 @@ public class Movie implements Serializable{
 	public void setTitle() {
 		System.out.print("\nEnter Movie Title: ");
 		title = sc.nextLine();
-		System.out.println(title);
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType() {
+		System.out.print("\nEnter Movie Type (e.g. Blockbuster PG13): ");
+		type = sc.nextLine();
+	}
+	
+	public String getCinemaShowtime() {
+		return cinemaShowtime;
+	}
+
+	public void setCinemaShowtime() {
+		System.out.print("\nEnter Cinema Showtime (e.g. Cinema 1 13/11 1300H): ");
+		cinemaShowtime = sc.nextLine();
+	}
+	
 	public String getShowingStatus() {
 		switch(showingStatus) 
 		{
@@ -90,7 +103,6 @@ public class Movie implements Serializable{
 						  + "4: End of Showing\n");
 		showingStatus = sc.nextInt();
 		sc.nextLine(); //to fix nextLine() issue
-		System.out.println(showingStatus);
 	}
 
 	public String getSynopsis() {
@@ -100,7 +112,6 @@ public class Movie implements Serializable{
 	public void setSynopsis() {
 		System.out.print("\nEnter Synopsis: ");
 		synopsis = sc.nextLine();
-		System.out.println(synopsis);
 	}
 
 	public String getDirector() {
@@ -110,11 +121,9 @@ public class Movie implements Serializable{
 	public void setDirector() {
 		System.out.print("\nEnter Director: ");
 		director = sc.nextLine();
-		System.out.println(director);
 	}
 
 	public String getCast() {
-		//System.out.print("Cast: ");
 		String stringCast = "";
 		for (int i=0; i<cast.size()-1; i++) {
 			stringCast += cast.get(i) + ", ";
@@ -133,7 +142,6 @@ public class Movie implements Serializable{
 			System.out.print("Enter Cast Member " + i + ": ");
 			cast.add(sc.nextLine());
 		}
-		System.out.println(cast);
 	}
 
 	public String getOverallReviewerRating() {
@@ -191,13 +199,11 @@ public class Movie implements Serializable{
 		ticketSales += 1;
 	}
 
-	@Override
-	//Testing for Serialization
-	public String toString() {
-		return "Movie [title=" + title + ", showingStatus=" + showingStatus + ", synopsis=" + synopsis + ", director="
-				+ director + ", cast=" + cast + ", overallReviewerRating=" + overallReviewerRating
-				+ ", reviewsAndRatings=" + reviewsAndRatings + ", ticketSales=" + ticketSales + "]";
-	}
-	
-	
+//	@Override
+//	//Testing for Serialization
+//	public String toString() {
+//		return "Movie [title=" + title + ", showingStatus=" + showingStatus + ", synopsis=" + synopsis + ", director="
+//				+ director + ", cast=" + cast + ", overallReviewerRating=" + overallReviewerRating
+//				+ ", reviewsAndRatings=" + reviewsAndRatings + ", ticketSales=" + ticketSales + "]";
+//	}
 }

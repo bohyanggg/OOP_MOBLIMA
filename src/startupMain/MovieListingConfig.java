@@ -96,19 +96,25 @@ public class MovieListingConfig {
 						case 1: movie.setTitle();
 								ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
 								break;
-						case 2: movie.setShowingStatus();
+						case 2: movie.setType();
 								ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
 								break;
-						case 3: movie.setSynopsis();
+						case 3: movie.setCinemaShowtime();
 								ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
 								break;
-						case 4: movie.setDirector();
+						case 4: movie.setShowingStatus();
 								ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
 								break;
-						case 5: movie.setCast();
+						case 5: movie.setSynopsis();
+								ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
+								break;
+						case 6: movie.setDirector();
+								ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
+								break;
+						case 7: movie.setCast();
 								ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
 								break; 
-						case 6: System.out.println("\nReturning to Create/Update/Remove Movie Listing...\n");
+						case 8: System.out.println("\nReturning to Create/Update/Remove Movie Listing...\n");
 								return;
 						default: System.out.println("\nInvalid Option.\n");
 					}
@@ -143,6 +149,7 @@ public class MovieListingConfig {
 	{
 		ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 		movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
+		
 		int i = 1; //To number the movies
 		System.out.print("\n");
 		for (Movie movie: movieList)
@@ -182,12 +189,15 @@ public class MovieListingConfig {
 	{
 		ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 		movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
-		int i = 1; //To number the movies
-		System.out.print("\n");
+		
 		if (movieList.isEmpty()) {
 			System.out.println("No Movies!");
 			return;
 		}
+		
+		int i = 1; //To number the movies
+		System.out.print("\n");
+
 		for (Movie movie: movieList)
 		{
 			System.out.print("Movie " + i + ": ");

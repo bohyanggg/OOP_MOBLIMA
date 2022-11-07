@@ -34,7 +34,7 @@ public class ResourceManager {
 		      // TODO Auto-generated catch block
 		      e.printStackTrace();
 		    }
-		System.out.println("not working");
+		System.out.println("No Movies!");
 		return movieList;
 	}
 	
