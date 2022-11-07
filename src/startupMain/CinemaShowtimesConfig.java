@@ -5,14 +5,13 @@ import java.util.Scanner;
 
 public class CinemaShowtimesConfig {
 
-//		Create/Update/Remove cinema showtimes and the movies to be shown
-//		Configuring “End of Showing” date and the movie should not be listed for 
-//		booking
-
 	private static Scanner sc = new Scanner(System.in);
 	
 	private int choice;
 	
+	/**
+	 * Cinema Showtimes Config Menu
+	 */
 	public void csConfigOptions() {
 		
 		while (true) {
@@ -35,9 +34,11 @@ public class CinemaShowtimesConfig {
 		}
 	}
 
+	/**
+	 * Change cinema showtimes for selected movie
+	 */
 	private void createUpdateRemoveCinemaShowing() {
-		// TODO Append to corresponding cinema
-		//select movie, change from - to date and time
+
 		ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 		movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
 		System.out.print("\nSelect movie to be showed: ");
@@ -53,8 +54,11 @@ public class CinemaShowtimesConfig {
 		ResourceManager.addmovieList(movieList); //add the movie arraylist back into txt file
 	}
 	
+	/**
+	 * Displays movies to be showed in each cinema
+	 */
 	private void viewCinemaShowing() {
-		// TODO Read from Cinemas.txt
+
 		ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 		movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
 		//for Cinema 1, 2, 3
@@ -68,7 +72,5 @@ public class CinemaShowtimesConfig {
 				}
 			}
 		}
-
 	}
-
 }
