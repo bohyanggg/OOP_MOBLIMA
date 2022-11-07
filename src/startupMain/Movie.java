@@ -15,7 +15,7 @@ public class Movie implements Serializable{
 	
 	private String title;
 	private String type; //e.g. Blockbuster PG13
-	private ArrayList<String> cinemaShowtime = new ArrayList<String>(); //e.g. (Cinema 1 13/11 1300H), (Cinema 2 13/11 1400H)...
+	private String[] cinemaShowtime = new String[] {"-", "-", "-"}; //e.g. [Cinema 1, 13/11 1300H], [Cinema 2, 13/11 1400H], [Cinema 3, -]
 	private int showingStatus;
 	private String synopsis;
 	private String director;
@@ -28,7 +28,7 @@ public class Movie implements Serializable{
 	public void viewallMovieDetails() {
 		System.out.println("\nMovie Title: " + this.getTitle());
 		System.out.println("Movie Type: " + this.getType());
-		System.out.println("Cinema Showtime: " + this.getCinemaShowtime());
+		getCinemaShowtime();
 		System.out.println("Showing Status: " + this.getShowingStatus());
 		System.out.println("Movie Synopsis: " + this.getSynopsis());
 		System.out.println("Movie Director: " + this.getDirector());
@@ -74,19 +74,24 @@ public class Movie implements Serializable{
 		type = sc.nextLine();
 	}
 	
-	public String getCinemaShowtime() {
-		String stringCinemaShowtime = "";
-		for (int i=0; i<cinemaShowtime.size()-1; i++) {
-			stringCinemaShowtime += cinemaShowtime.get(i) + ", ";
+	public void getCinemaShowtime() {
+		System.out.print("Cinema Showtimes: ");
+		for (int i=0; i<3; i++) {
+			if (cinemaShowtime[i] != "-") {
+				System.out.print("Cinema " + (i+1) + ": " + cinemaShowtime[i] + "||");
+			}
 		}
-		//Print last cast member without comma afterwards
-		stringCinemaShowtime += cinemaShowtime.get(cinemaShowtime.size()-1);
-		return stringCinemaShowtime;
+		System.out.print("\n");
 	}
 
 	public void setCinemaShowtime() {
-		System.out.print("\nEnter a Cinema Showtime (e.g. Cinema 1 13/11 1300H): ");
-		cinemaShowtime.add(sc.nextLine());
+		System.out.print("\nEnter Cinema Showtimes (e.g. \"13/11 1300H\" or \"-\"): ");
+		System.out.print("\nCinema 1: ");
+		cinemaShowtime[0] = sc.nextLine();
+		System.out.print("Cinema 2: ");
+		cinemaShowtime[1] = sc.nextLine();
+		System.out.print("Cinema 3: ");
+		cinemaShowtime[2] = sc.nextLine();
 	}
 	
 	public String getShowingStatus() {

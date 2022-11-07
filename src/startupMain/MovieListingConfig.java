@@ -190,11 +190,6 @@ public class MovieListingConfig {
 		ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 		movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
 		
-		if (movieList.isEmpty()) {
-			System.out.println("No Movies!");
-			return;
-		}
-		
 		int i = 1; //To number the movies
 		System.out.print("\n");
 
