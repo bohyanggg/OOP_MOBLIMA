@@ -28,7 +28,7 @@ public class Movie implements Serializable{
 	public void viewallMovieDetails() {
 		System.out.println("\nMovie Title: " + this.getTitle());
 		System.out.println("Movie Type: " + this.getType());
-		getCinemaShowtime();
+		printCinemaShowtime();
 		System.out.println("Showing Status: " + this.getShowingStatus());
 		System.out.println("Movie Synopsis: " + this.getSynopsis());
 		System.out.println("Movie Director: " + this.getDirector());
@@ -74,7 +74,7 @@ public class Movie implements Serializable{
 		type = sc.nextLine();
 	}
 	
-	public void getCinemaShowtime() {
+	public void printCinemaShowtime() {
 		System.out.print("Cinema Showtimes: ");
 		for (int i=0; i<3; i++) {
 			if (cinemaShowtime[i] != "-") {
@@ -82,6 +82,10 @@ public class Movie implements Serializable{
 			}
 		}
 		System.out.print("\n");
+	}
+	
+	public String[] getCinemaShowtime() {
+		return cinemaShowtime;
 	}
 
 	public void setCinemaShowtime() {
