@@ -261,11 +261,11 @@ public class Movie implements Serializable{
 	}
 	
 	public int getTicketSales() {
-		return ticketSales;
+		return this.ticketSales;
 	}
 	
 	public void addTicketSales() {
-		ticketSales += 1;
+		 this.ticketSales += 1;
 	}
 
 //	@Override

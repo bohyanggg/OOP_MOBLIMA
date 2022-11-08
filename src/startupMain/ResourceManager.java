@@ -9,7 +9,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class ResourceManager {
-	
+	public static ResourceManager instance;
 	public static void save(Serializable data, String fileName) throws Exception
 	{
 		try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get(fileName)))) {
@@ -45,5 +45,11 @@ public class ResourceManager {
 			e.printStackTrace();
 		}
 	}
+	public static ResourceManager getInstance() {
+        if (instance == null) {
+            instance = new ResourceManager();
+        }
+        return instance;
+    }
 	
 }

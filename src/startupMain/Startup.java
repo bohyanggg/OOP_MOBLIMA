@@ -20,7 +20,11 @@ public class Startup {
 			while (true) {
 				
 				try {
-					System.out.print("Hi, are you a staff or a customer? Enter 0 for staff and 1 for customer: ");
+					System.out.print("|=============Main Menu===============|\n");
+					System.out.print("  Hi, are you a staff or a customer?\n");
+					System.out.print("         Enter 0 for Staff \n");
+					System.out.print("        Enter 1 for Customer \n");
+					System.out.print("|=====================================|\n");
 					userType = sc.nextInt();
 					
 					//If input is not 0 or 1, throw new exception

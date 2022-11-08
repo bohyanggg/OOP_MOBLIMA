@@ -1,10 +1,8 @@
 package startupMain;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
+
 
 public class Customer {
 
@@ -22,12 +20,14 @@ public class Customer {
 			System.out.println("1. Search/List movie");
 			System.out.println("2. Check seat availibility and selection of seat(s)");
 			System.out.println("3. View booking history");
-			System.out.println("4. List Top 5 ranking of movies");
-			System.out.println("5. Quit");
+			System.out.println("4. List Top 5 ranking of movies by ratings");
+			System.out.println("5. List Top 5 ranking of movies by tickets sold");
+			System.out.println("6. Quit");
 			System.out.print("Enter your choice: ");
+			
 			Scanner Choice = new Scanner(System.in);
 			int userChoice = Choice.nextInt();
-			while(userChoice != 5) {
+			while(userChoice != 6) {
 				if (userChoice ==0) {
 					
 					ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
@@ -118,6 +118,7 @@ public class Customer {
 				}
 				
 				if (userChoice == 2) {
+					Movie movie = new Movie();
 					Booking booking = new Booking();
 					Cineplex cineplex = new Cineplex();
 					// movieDetails.GetMovieDetailsFromFile();
@@ -146,10 +147,13 @@ public class Customer {
 					else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
 						Cinema clementiMall = new Cinema(cineplexChoice);
 						clementiMall.Display();
+						movie.addTicketSales();
 					}
 					else if (cineplexChoice == "Cathay Cineplexes Jewel") {
 						Cinema jewel = new Cinema(cineplexChoice);
 						jewel.Display();
+						movie.addTicketSales();
+						
 					}
 					else if (cineplexChoice == "Quit"){
 						userChoice = 5;
@@ -167,8 +171,62 @@ public class Customer {
 				}
 				
 				if (userChoice == 4) {
-					//TODO list top 5 ranking of movies not done yet
-					System.out.println("list top 5 ranking of movies not done yet");
+					ArrayList<Movie> movieList = new ArrayList<>();
+					movieList = ResourceManager.getmovieList(movieList);
+					System.out.println("Top 5 Movies based on Review Ratings(lowest to highest)");
+                    HashMap<String, String> reviewRatingTable = new HashMap<String, String>();                    
+                    for(Movie movieInList : movieList){
+                        reviewRatingTable.put(movieInList.getTitle(), movieInList.getOverallReviewerRating());
+                    }
+                    List<Map.Entry<String, String> > list = new LinkedList<Map.Entry<String, String> >(reviewRatingTable.entrySet());
+                    Collections.sort(list, new Comparator<Map.Entry<String, String> >() {
+                        public int compare(Map.Entry<String, String> o1,
+                                           Map.Entry<String, String> o2)
+                        {
+                            return (o1.getValue()).compareTo(o2.getValue());
+                        }
+                    });
+                    HashMap<String, String> sortedMap = new LinkedHashMap<String, String>();
+                    for (Map.Entry<String, String> aa : list) {
+                        sortedMap.put(aa.getKey(), aa.getValue());
+                    }
+                    int count = 1;
+                    Iterator<String> itr = sortedMap.keySet().iterator();
+                    while (itr.hasNext() && count < 6) {
+                        String key = itr.next();
+                        System.out.println(count +". "+ key +": " + sortedMap.get(key));
+                        count++;
+                    }
+                    break;
+				}
+				if (userChoice == 5) {
+					ArrayList<Movie> movieList = new ArrayList<>();
+					movieList = ResourceManager.getmovieList(movieList);
+					System.out.println("Top 5 Movies based on Review Ratings(lowest to highest)");
+                    HashMap<String, Integer> reviewRatingTable = new HashMap<String, Integer>();                    
+                    for(Movie movieInList : movieList){
+                        reviewRatingTable.put(movieInList.getTitle(), movieInList.getTicketSales());
+                    }
+                    List<Map.Entry<String, Integer> > list = new LinkedList<Map.Entry<String, Integer> >(reviewRatingTable.entrySet());
+                    Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
+                        public int compare(Map.Entry<String, Integer> o1,
+                                           Map.Entry<String, Integer> o2)
+                        {
+                            return (o1.getValue()).compareTo(o2.getValue());
+                        }
+                    });
+                    HashMap<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+                    for (Map.Entry<String, Integer> aa : list) {
+                        sortedMap.put(aa.getKey(), aa.getValue());
+                    }
+                    int count = 1;
+                    Iterator<String> itr = sortedMap.keySet().iterator();
+                    while (itr.hasNext() && count < 6) {
+                        String key = itr.next();
+                        System.out.println(count +". "+ key +": " + sortedMap.get(key));
+                        count++;
+                    }
+                    break;
 				}
 			}
 		}
