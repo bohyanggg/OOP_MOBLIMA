@@ -116,7 +116,7 @@ public class Customer {
 					}
 					
 				}
-				
+				//movie.addTicketSales(); add this in user choice 2 at the end to +1 for movie ticket sales after booking
 				if (userChoice == 2) {
 					Movie movie = new Movie();
 					Booking booking = new Booking();
@@ -147,12 +147,12 @@ public class Customer {
 					else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
 						Cinema clementiMall = new Cinema(cineplexChoice);
 						clementiMall.Display();
-						movie.addTicketSales();
+						
 					}
 					else if (cineplexChoice == "Cathay Cineplexes Jewel") {
 						Cinema jewel = new Cinema(cineplexChoice);
 						jewel.Display();
-						movie.addTicketSales();
+						
 						
 					}
 					else if (cineplexChoice == "Quit"){
