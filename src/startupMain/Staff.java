@@ -28,12 +28,12 @@ public class Staff {
 						mlConfig.mlConfigOptions();
 						break;
 
-						// TODO UNFINISHED
 				case 2: CinemaShowtimesConfig csConfig = new CinemaShowtimesConfig();
 						csConfig.csConfigOptions();
 						break;
 
 //						// TODO UNFINISHED
+//						Cinema staff can configure the system settings (e.g., ticket prices, holidays, etc.) 
 //				case 3: SystemSettingsConfig ssConfig = new SystemSettingsConfig();
 //						ssConfig.ssConfigOptions();
 //						break;

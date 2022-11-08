@@ -111,20 +111,43 @@ public class Movie implements Serializable{
 
 	public void setCinemaShowtime() {
 		while (true) {
+			System.out.println("\nChoose option:\n" +
+							 "1. Create a showtime\n" +
+							 "2. Remove a showtime\n" +
+							 "3. Return\n");
+			int createOrRemove = sc.nextInt();
+			if (createOrRemove == 3) break;
 			System.out.println("\nChoose Cinema Number:\n" +
 							 "1. Cinema 1\n" + 
 							 "2. Cinema 2\n" +
 							 "3. Cinema 3\n" +
-							 "4. Next Step\n");
+							 "4. Return\n");
 			int choice = sc.nextInt();
 			if (choice == 4) break;
 			sc.nextLine(); //fix sc.nextLine() problem
-			System.out.print("\nEnter Cinema Showtimes (e.g. \"13/11 1300H\"): ");
-			switch (choice) {
-				case 1: cinemaShowtime[0].add(sc.nextLine()); System.out.println("Added!"); break;
-				case 2: cinemaShowtime[1].add(sc.nextLine()); System.out.println("Added!"); break;
-				case 3: cinemaShowtime[2].add(sc.nextLine()); System.out.println("Added!"); break;
-				default: System.out.println("Invalid Input");
+			
+			if (createOrRemove == 1) {
+				System.out.print("\nEnter Cinema Showtimes (e.g. \"Sun 13/11 1300H\"): ");
+				switch (choice) {
+					case 1: cinemaShowtime[0].add(sc.nextLine()); System.out.println("Added!"); break;
+					case 2: cinemaShowtime[1].add(sc.nextLine()); System.out.println("Added!"); break;
+					case 3: cinemaShowtime[2].add(sc.nextLine()); System.out.println("Added!"); break;
+					default: System.out.println("Invalid Input");
+				}
+			}
+			
+			else if (createOrRemove == 2) {
+				System.out.println("\nChoose showtime to be removed:\n");
+				for (int i=0; i<cinemaShowtime[choice-1].size(); i++) {
+					System.out.println((i+1) + ". " + cinemaShowtime[choice-1].get(i));
+				}
+				cinemaShowtime[choice-1].remove(sc.nextInt()-1);
+				System.out.println("Removed!");
+			}
+			
+			else {
+				System.out.println("Invalid Input");
+				continue;
 			}
 		}
 	}

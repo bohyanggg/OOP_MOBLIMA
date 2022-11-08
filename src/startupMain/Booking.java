@@ -92,6 +92,7 @@ public class Booking {
 		}
 	}
 
+	//TODO SCAN FROM MovieTest.txt
 	public void ChooseAMovie(){
 		System.out.println("Enter your choice: ");
 		int userChoice = movieChoice.nextInt();
