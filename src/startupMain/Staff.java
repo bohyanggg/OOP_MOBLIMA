@@ -32,11 +32,11 @@ public class Staff {
 						csConfig.csConfigOptions();
 						break;
 
-//						// TODO UNFINISHED
-//						Cinema staff can configure the system settings (e.g., ticket prices, holidays, etc.) 
-//				case 3: SystemSettingsConfig ssConfig = new SystemSettingsConfig();
-//						ssConfig.ssConfigOptions();
-//						break;
+						// TODO UNFINISHED
+						//Cinema staff can configure the system settings (e.g., ticket prices, holidays, etc.) 
+				case 3: SystemSettingsConfig ssConfig = new SystemSettingsConfig();
+						ssConfig.ssConfigOptions();
+						break;
 						
 						// TODO UNFINISHED
 //				case 4: list top 5 ranking movies by ticket sales/overall reviewer rating(display title and overall rating)

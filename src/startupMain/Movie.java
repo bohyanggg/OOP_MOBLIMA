@@ -137,10 +137,11 @@ public class Movie implements Serializable{
 			}
 			
 			else if (createOrRemove == 2) {
-				System.out.println("\nChoose showtime to be removed:\n");
+				System.out.println("\nChoose showtime to be removed:");
 				for (int i=0; i<cinemaShowtime[choice-1].size(); i++) {
 					System.out.println((i+1) + ". " + cinemaShowtime[choice-1].get(i));
 				}
+				System.out.println();
 				cinemaShowtime[choice-1].remove(sc.nextInt()-1);
 				System.out.println("Removed!");
 			}
