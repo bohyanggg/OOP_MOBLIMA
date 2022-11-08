@@ -17,8 +17,8 @@ public class Customer {
 		while (true) {
 			System.out.println("********** Customer Menu **********");
 			System.out.println("0. Search movie");
-			System.out.println("1. Search/List movie");
-			System.out.println("2. Check seat availibility and selection of seat(s)");
+			System.out.println("1. List movie");
+			System.out.println("2. Check/Book seat availibility and selection of seat(s)");
 			System.out.println("3. View booking history");
 			System.out.println("4. List Top 5 ranking of movies by ratings");
 			System.out.println("5. List Top 5 ranking of movies by tickets sold");
