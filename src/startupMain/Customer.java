@@ -53,6 +53,7 @@ public class Customer {
                         if (movieList.get(i).getTitle().toLowerCase().contains(keyWord.toLowerCase())) {
                             System.out.println(i + 1 + ".\t\t\t" + movieList.get(i).getTitle());
                             foundMovieID1 = true;
+                            continue;
                             
                         }
                     
@@ -61,6 +62,8 @@ public class Customer {
                         System.out.println("Sorry there are currently no movies that match " + keyWord + "!");
                         break;
                     }
+                    
+                    break;
                     // If cannot find any movies that contain the keyword
                     
 				}
