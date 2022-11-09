@@ -2,6 +2,10 @@ package startupMain;
 
 import java.util.Scanner;
 
+/**
+ * Class for configuring ticket prices and holidays
+ *
+ */
 public class SystemSettingsConfig {
 
 	Scanner sc = new Scanner(System.in);
