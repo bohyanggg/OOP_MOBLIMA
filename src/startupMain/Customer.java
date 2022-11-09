@@ -5,13 +5,13 @@ import java.util.*;
 
 
 public class Customer {
-
+//Movie details
 	MovieDetails movieDetails;
 
 	public Customer(MovieDetails movieDetails){
 		this.movieDetails = movieDetails;
 	}
-
+//UI for the Customer menu
 	public void showCustomerSystem() {
 
 		while (true) {
@@ -28,6 +28,7 @@ public class Customer {
 			Scanner Choice = new Scanner(System.in);
 			int userChoice = Choice.nextInt();
 			while(userChoice != 6) {
+//Choice 0	Search for Movies		
 				if (userChoice ==0) {
 					
 					ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
@@ -67,6 +68,7 @@ public class Customer {
                     // If cannot find any movies that contain the keyword
                     
 				}
+//Choice 1	List movies			
 				if (userChoice == 1) { //i copied over this whole part from MovieListingConfig 's viewmovielisting
 					ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 					movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
@@ -116,7 +118,7 @@ public class Customer {
 					}
 					
 				}
-				//movie.addTicketSales(); add this in user choice 2 at the end to +1 for movie ticket sales after booking
+//movie.addTicketSales(); add this in user choice 2 at the end to +1 for movie ticket sales after booking
 				if (userChoice == 2) {
 					Movie movie = new Movie();
 					Booking booking = new Booking();
@@ -164,12 +166,12 @@ public class Customer {
 						showCustomerSystem();
 					}
 				}
-				
+//Choice 3	Booking History		
 				if (userChoice == 3) {
 					//TODO view booking history not done yet
 					System.out.println("view booking history not done yet");
 				}
-				
+//Choice 4	Top 5 by Ratings			
 				if (userChoice == 4) {
 					ArrayList<Movie> movieList = new ArrayList<>();
 					movieList = ResourceManager.getmovieList(movieList);
@@ -199,6 +201,7 @@ public class Customer {
                     }
                     break;
 				}
+//Choice 5 Top 5 by Ticket Sales			
 				if (userChoice == 5) {
 					ArrayList<Movie> movieList = new ArrayList<>();
 					movieList = ResourceManager.getmovieList(movieList);
