@@ -231,7 +231,10 @@ public class Customer {
                     }
                     break;
 				}
-			}
+				
+				
+				
+			}break;
 		}
 	}
 }
