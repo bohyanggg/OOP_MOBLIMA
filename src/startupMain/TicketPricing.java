@@ -1,6 +1,16 @@
 package startupMain;
 
-public class TicketPricing {
+import java.io.Serializable;
+
+/**
+ * TicketPricing Class: base prices, additional charges and discounts as attributes
+ */
+public class TicketPricing implements Serializable {
+	
+	/**
+	 * To implement Serializable
+	 */
+	private static final long serialVersionUID = 3927137758267882764L;
 	
 	private double blockbusterCharge;
 	private double threeDCharge;
@@ -10,7 +20,7 @@ public class TicketPricing {
 	private double[] baseMoviePricing;
 	
 	/**
-	 * TicketPricing constructor with default values
+	 * TicketPricing constructor with assigned values
 	 */
 	public TicketPricing() {
 		this.blockbusterCharge = 1;
@@ -47,6 +57,18 @@ public class TicketPricing {
 		return totalPrice;
 	}
 	
+	/**
+	 * Prints all ticket pricing details
+	 */
+	public void printAllTicketPricingDetails() {
+		System.out.println("\nCurrent Ticket Pricing Details:");
+		System.out.println("Blockbuster Charge: " + blockbusterCharge);
+		System.out.println("3D Charge: " + threeDCharge);
+		System.out.println("Platinum Movie Suite Charge: " + platinumCinemaCharge);
+		System.out.println("Holiday Discount: " + holidayDiscount);
+		System.out.println("Base Movie Pricing [Senior Citizen and Child Weekday, Adult Weekday, Weekend (All)]: " + baseMoviePricing);
+	}
+	
 	public double getBlockbusterCharge() {
 		return blockbusterCharge;
 	}
@@ -65,16 +87,16 @@ public class TicketPricing {
 	public void setPlatinumCinemaCharge(double platinumCinemaCharge) {
 		this.platinumCinemaCharge = platinumCinemaCharge;
 	}
-	public double[] getBaseMoviePricing() {
-		return baseMoviePricing;
-	}
-	public void setBaseMoviePricing(double[] baseMoviePricing) {
-		this.baseMoviePricing = baseMoviePricing;
-	}
 	public double getHolidayDiscount() {
 		return holidayDiscount;
 	}
 	public void setHolidayDiscount(double holidayDiscount) {
 		this.holidayDiscount = holidayDiscount;
+	}
+	public double[] getBaseMoviePricing() {
+		return baseMoviePricing;
+	}
+	public void setBaseMoviePricing(double[] baseMoviePricing) {
+		this.baseMoviePricing = baseMoviePricing;
 	}
 }

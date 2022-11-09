@@ -2,6 +2,9 @@ package startupMain;
 
 import java.util.Scanner;
 
+/**
+ * Ticket Class for creating movie ticket object
+ */
 public class Ticket {
 	
 	Scanner sc = new Scanner(System.in);

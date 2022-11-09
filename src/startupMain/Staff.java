@@ -18,7 +18,9 @@ public class Staff {
 							 + "1. Create/Update/Remove Movie Listing\n"
 							 + "2. Create/Update/Remove Cinema Showtimes\n"
 							 + "3. Configure System Settings\n"
-							 + "4. Logout\n");
+							 + "4. List Top 5 ranking of movies by ratings\n"
+							 + "5. List Top 5 ranking of movies by tickets sold\n"
+							 + "6. Logout\n");
 			
 			choice = sc.nextInt();
 				
@@ -32,16 +34,18 @@ public class Staff {
 						csConfig.csConfigOptions();
 						break;
 
-						// TODO UNFINISHED
-						//Cinema staff can configure the system settings (e.g., ticket prices, holidays, etc.) 
+//						TODO UNFINISHED
+//						Cinema staff can configure the system settings (e.g., ticket prices, holidays, etc.) 
 				case 3: SystemSettingsConfig ssConfig = new SystemSettingsConfig();
 						ssConfig.ssConfigOptions();
 						break;
-						
-						// TODO UNFINISHED
-//				case 4: list top 5 ranking movies by ticket sales/overall reviewer rating(display title and overall rating)
 
-				case 5: System.out.println("\nLogging Out...\n");
+//						TODO UNFINISHED (TAKE FROM CUSTOMER.JAVA)
+//				case 4: list top 5 ranking movies by overall reviewer rating(display title and overall rating)
+//
+//				case 5: list top 5 ranking movies by ticket sales
+
+				case 6: System.out.println("\nLogging Out...\n");
 						return;
 				
 				default: System.out.println("\nInvalid Option.\n");

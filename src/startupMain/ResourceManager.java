@@ -45,11 +45,49 @@ public class ResourceManager {
 			e.printStackTrace();
 		}
 	}
+	
 	public static ResourceManager getInstance() {
         if (instance == null) {
             instance = new ResourceManager();
         }
         return instance;
     }
+	
+	/**
+	 *  To load curretnt ticket pricing from TicketPricing.txt
+	 * @return
+	 */
+	public static TicketPricing loadTicketPricing()
+	{
+		TicketPricing currentTicketPricing = new TicketPricing();
+		try {
+			currentTicketPricing = (TicketPricing) ResourceManager.load("TicketPricing.txt");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return currentTicketPricing;
+	}
+	
+	/**
+	 * To save updated ticket pricing to TicketPricing.txt
+	 * @param updatedTicketPricing
+	 */
+	public static void saveTicketPricing(TicketPricing updatedTicketPricing)
+	{
+		try {
+			ResourceManager.save(updatedTicketPricing, "TicketPricing.txt");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+//	//TODO HOLIDAYS
+//	
+//	
+//	
+//	
+//	
+//	
+//	
 	
 }

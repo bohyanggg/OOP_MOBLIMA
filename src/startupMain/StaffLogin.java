@@ -10,6 +10,7 @@ public class StaffLogin {
 		Scanner sc = new Scanner(System.in);
 		int loginAttempts = 0;
 		
+		System.out.println();
 		while (loginAttempts < 3) {
 			
 			try {
