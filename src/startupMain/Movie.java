@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Movie implements Serializable{
 
 	/**
-	 * 
+	 * To implement Serializable
 	 */
 	private static final long serialVersionUID = -4611176189600089207L;
 	
@@ -268,11 +268,4 @@ public class Movie implements Serializable{
 		 this.ticketSales += 1;
 	}
 
-//	@Override
-//	//Testing for Serialization
-//	public String toString() {
-//		return "Movie [title=" + title + ", showingStatus=" + showingStatus + ", synopsis=" + synopsis + ", director="
-//				+ director + ", cast=" + cast + ", overallReviewerRating=" + overallReviewerRating
-//				+ ", reviewsAndRatings=" + reviewsAndRatings + ", ticketSales=" + ticketSales + "]";
-//	}
 }

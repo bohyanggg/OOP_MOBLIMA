@@ -8,6 +8,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
+/**
+ * Contains methods for loading and saving objects through text files
+ */
 public class ResourceManager {
 	public static ResourceManager instance;
 	public static void save(Serializable data, String fileName) throws Exception
@@ -24,28 +27,6 @@ public class ResourceManager {
 		}
 	}
 	
-	public static ArrayList<Movie> getmovieList(ArrayList<Movie> movieList) //to load movieList from array to txt file
-	{
-		 try {
-			 ArrayList<Movie> txtmovieList = new ArrayList<>();
-			 txtmovieList = (ArrayList<Movie>) ResourceManager.load("MoviesTest.txt");
-			 return txtmovieList;
-		    } catch (Exception e) {
-		      e.printStackTrace();
-		    }
-		System.out.println("No Movies!");
-		return movieList;
-	}
-	
-	public static void addmovieList(ArrayList<Movie> movieList) //to add movieList array to txt file
-	{
-		try {
-			ResourceManager.save(movieList, "MoviesTest.txt");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 	public static ResourceManager getInstance() {
         if (instance == null) {
             instance = new ResourceManager();
@@ -54,7 +35,38 @@ public class ResourceManager {
     }
 	
 	/**
-	 *  To load curretnt ticket pricing from TicketPricing.txt
+	 * Loads list of all movies from text file to ArrayList format
+	 * @param movieList
+	 * @return
+	 */
+	public static ArrayList<Movie> getmovieList(ArrayList<Movie> movieList)
+	{
+		 try {
+			 ArrayList<Movie> txtmovieList = new ArrayList<>();
+			 txtmovieList = (ArrayList<Movie>) ResourceManager.load("Movies.txt");
+			 return txtmovieList;
+		    } catch (Exception e) {
+		      e.printStackTrace();
+		    }
+		System.out.println("No Movies!");
+		return movieList;
+	}
+	
+	/**
+	 * Saves list of all movies to text file
+	 * @param movieList
+	 */
+	public static void addmovieList(ArrayList<Movie> movieList)
+	{
+		try {
+			ResourceManager.save(movieList, "Movies.txt");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * To load current ticket pricing from TicketPricing.txt
 	 * @return
 	 */
 	public static TicketPricing loadTicketPricing()
@@ -81,13 +93,32 @@ public class ResourceManager {
 		}
 	}
 	
-//	//TODO HOLIDAYS
-//	
-//	
-//	
-//	
-//	
-//	
-//	
+	/**
+	 * To load list of holidays from Holidays.txt
+	 * @return
+	 */
+	public static ArrayList<String> loadHolidays()
+	{
+		ArrayList<String> holidays = new ArrayList<String>();
+		try {
+			holidays = (ArrayList<String>) ResourceManager.load("Holidays.txt");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return holidays;
+	}
+	
+	/**
+	 * To save updated list of holidays to Holidays.txt
+	 * @param updatedHolidays
+	 */
+	public static void saveHolidays(ArrayList<String> updatedHolidays)
+	{
+		try {
+			ResourceManager.save(updatedHolidays, "Holidays.txt");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

@@ -1,5 +1,6 @@
 package startupMain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -20,7 +21,7 @@ public class SystemSettingsConfig {
 							   "3. Return to Staff Menu\n");
 			switch (sc.nextInt()) {
 			case 1: configureTicketPrices(); break;
-//			case 2: //store in .txt and be able to add/remove dates
+			case 2: configureHolidays(); break;
 			case 3: System.out.println("\nReturning to Staff Menu...\n"); return;
 			default: System.out.println("\nInvalid Option.\n");
 			}
@@ -86,6 +87,32 @@ public class SystemSettingsConfig {
 	 * Method for configuration of holidays (dates)
 	 */
 	public void configureHolidays() {
+		ArrayList<String> holidays = new ArrayList<String>();
+		holidays = ResourceManager.loadHolidays();
+		System.out.println("\nSelect an Option:\n" +
+						   "1. Add Holiday\n" +
+						   "2. Remove Holiday\n" +
+						   "3. Return\n");
 		
+		switch (sc.nextInt()) {
+		case 1: System.out.print("\nEnter new holiday (e.g. DD/MM):");
+				holidays.add(sc.nextLine());
+				System.out.println("\nAdded!");
+				break;
+				
+		case 2: System.out.println("\nSelect holiday to be removed:");
+				for (int i=0; i<holidays.size(); i++) {
+					System.out.println((i+1) + ". " + holidays.get(i));
+				}
+				holidays.remove(sc.nextInt());
+				System.out.println("\nRemoved!");
+				break;
+		
+		case 3: return;
+		
+		default: System.out.println("\nInvalid Option.\n"); return;
+		}
+		
+		ResourceManager.saveHolidays(holidays);
 	}
 }
