@@ -93,42 +93,48 @@ public class Booking {
 	}
 
 	//TODO SCAN FROM Movies.txt
-	public void ChooseAMovie(){
-		System.out.println("Enter your choice: ");
+	public int ChooseAMovie(){
+		System.out.print("Enter your choice: ");
 		int userChoice = movieChoice.nextInt();
-		if (userChoice == 1) {
-			MovieChoice = "Black Adam";
-		}
-		else if (userChoice == 2) {
-			MovieChoice = "Black Panther: Wakanda Forever";
-		}
-		else if (userChoice == 3) {
-			MovieChoice = "Home Coming";
-		}
-		else if (userChoice == 4) {
-			MovieChoice = "ONE PIECE FILM RED";
-		}
-		else if (userChoice == 5) {
-			MovieChoice = "Smile";
-		}
-		else if (userChoice == 6) {
-			MovieChoice = "Ajooma";
-		}
-		else if (userChoice == 7) {
-			MovieChoice = "Come Back Home";
-		}
-		else if (userChoice == 8) {
-			MovieChoice = "Love Today";
-		}
-		else if (userChoice == 9){
-			MovieChoice = "Faces Of Anne";
-		}
-		else if (userChoice == 10){
-			MovieChoice = "Quit";
-		}
-		else {
-			ChooseACineplex();
-		}
+		ArrayList<Movie> tempMovieList = new ArrayList<Movie>();
+		ArrayList<Movie> movieList = ResourceManager.getmovieList(tempMovieList);
+		MovieChoice = movieList.get(userChoice-1).getTitle();
+		return userChoice;
+		
+//		int userChoice = movieChoice.nextInt();
+//		if (userChoice == 1) {
+//			MovieChoice = "Black Adam";
+//		}
+//		else if (userChoice == 2) {
+//			MovieChoice = "Black Panther: Wakanda Forever";
+//		}
+//		else if (userChoice == 3) {
+//			MovieChoice = "Home Coming";
+//		}
+//		else if (userChoice == 4) {
+//			MovieChoice = "ONE PIECE FILM RED";
+//		}
+//		else if (userChoice == 5) {
+//			MovieChoice = "Smile";
+//		}
+//		else if (userChoice == 6) {
+//			MovieChoice = "Ajooma";
+//		}
+//		else if (userChoice == 7) {
+//			MovieChoice = "Come Back Home";
+//		}
+//		else if (userChoice == 8) {
+//			MovieChoice = "Love Today";
+//		}
+//		else if (userChoice == 9){
+//			MovieChoice = "Faces Of Anne";
+//		}
+//		else if (userChoice == 10){
+//			MovieChoice = "Quit";
+//		}
+//		else {
+//			ChooseACineplex();
+//		}
 	}
 
 	public void ChooseASeat(){

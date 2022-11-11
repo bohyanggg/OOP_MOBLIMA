@@ -138,8 +138,9 @@ public class Customer {
 						ArrayList<Movie> movieList = new ArrayList<>();
 						movieList = ResourceManager.getmovieList(movieList);
 						booking.MovieChoiceDisplay(lotOne, movieList);
-						booking.ChooseAMovie();
-						movie.getCinemaShowtime();
+						int chosenMovieIndex = booking.ChooseAMovie();
+						movieList.get(chosenMovieIndex-1).printCinemaShowtime();
+						//movie.getCinemaShowtime();
 						if (booking.getMovieChoice() == "Quit"){
 							continue;
 						}
