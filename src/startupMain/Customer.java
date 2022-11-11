@@ -5,14 +5,14 @@ import java.util.*;
 
 
 public class Customer {
-//Movie details
+	//Movie details
 	MovieDetails movieDetails;
 	Scanner sc = new Scanner(System.in);
 
 	public Customer(MovieDetails movieDetails){
 		this.movieDetails = movieDetails;
 	}
-//UI for the Customer menu
+	//UI for the Customer menu
 	public void showCustomerSystem() {
 
 		while (true) {
@@ -29,7 +29,8 @@ public class Customer {
 			Scanner Choice = new Scanner(System.in);
 			int userChoice = Choice.nextInt();
 			while(userChoice != 6) {
-//Choice 0	Search for Movies		
+				
+				//Choice 0	Search for Movies		
 				if (userChoice ==0) {
 					
 					ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
@@ -69,7 +70,8 @@ public class Customer {
                     // If cannot find any movies that contain the keyword
                     
 				}
-//Choice 1	List movies			
+				
+				//Choice 1	List movies			
 				if (userChoice == 1) { //i copied over this whole part from MovieListingConfig 's viewmovielisting
 					ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
 					movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
@@ -119,12 +121,12 @@ public class Customer {
 					}
 					
 				}
-//movie.addTicketSales(); add this in user choice 2 at the end to +1 for movie ticket sales after booking
+
 				if (userChoice == 2) {
-					//Movie movie = new Movie();
+
 					Booking booking = new Booking();
 					Cineplex cineplex = new Cineplex();
-					// movieDetails.GetMovieDetailsFromFile();
+					
 					booking.CineplexChoiceDisplay(cineplex);
 					booking.ChooseACineplex();
 					String cineplexChoice = booking.getCineplexChoice();
@@ -142,13 +144,15 @@ public class Customer {
 						booking.MovieChoiceDisplay(lotOne, movieList);
 						int chosenMovieIndex = booking.ChooseAMovie();
 						
-						//movieList.get(chosenMovieIndex-1).printCinemaShowtime();
-						
-						//movie.getCinemaShowtime();
 						if (booking.getMovieChoice() == "Quit"){
 							continue;
 						}
 						
+						//IF NO CINEMA SHOWTIMES FOR CHOSEN CINEMA
+						if (movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size() == 0) {
+							System.out.println("No available cinema showtimes.");
+							continue;
+						}
 						System.out.print("Available Cinema Showtimes: ");
 						for (int i=0; i<movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size(); i++) {
 							System.out.println((i+1) + ". " + movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(i));
@@ -165,20 +169,112 @@ public class Customer {
 						booking.ChooseASeat();
 						movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
 						
-						//TODO CREATE TICKET HERE, PASS IN THE DATE AND TIME TOO
+						//ADD 1 TO MOVIE'S TOTAL TICKET SALES AND SAVE TO MOVIES.TXT
+						movieList.get(chosenMovieIndex).addTicketSales();
+						ResourceManager.addmovieList(movieList);
+						
+						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
 						Ticket ticket = new Ticket();
 						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
 					}
 					
 					else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
-						Cinema clementiMall = new Cinema(cineplexChoice);
-						clementiMall.Display();
+//						Cinema clementiMall = new Cinema(cineplexChoice);
+//						clementiMall.Display();
+						ArrayList<String> cinemas = cineplex.GetCinemasOfCineplex(cineplexChoice);
+						booking.CinemaChoiceDisplay(cineplex, cinemas);
+						int chosenCinemaIndex = booking.ChooseACinema();
+						if (booking.getCinemaChoice() == "Quit"){
+							continue;
+						}
+						Cinema clementiMall = new Cinema(booking.getCinemaChoice());
+						ArrayList<Movie> movieList = new ArrayList<>();
+						movieList = ResourceManager.getmovieList(movieList);
+						booking.MovieChoiceDisplay(clementiMall, movieList);
+						int chosenMovieIndex = booking.ChooseAMovie();
+						
+						if (booking.getMovieChoice() == "Quit"){
+							continue;
+						}
+						
+						//IF NO CINEMA SHOWTIMES FOR CHOSEN CINEMA
+						if (movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size() == 0) {
+							System.out.println("No available cinema showtimes.");
+							continue;
+						}
+						System.out.print("Available Cinema Showtimes: ");
+						for (int i=0; i<movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size(); i++) {
+							System.out.println((i+1) + ". " + movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(i));
+						}
+						System.out.print("Enter your choice: ");
+						//FOR TICKET DATE TIME
+						int chosenCinemaShowtimeIndex = sc.nextInt()-1;
+						String chosenCinemaShowtime = movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(chosenCinemaShowtimeIndex);
+						
+						String movieChoice = booking.getMovieChoice();
+						System.out.println();
+						movieDetails.DisplayMovieDetails(movieChoice);
+						System.out.println();
+						booking.ChooseASeat();
+						movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
+						
+						//ADD 1 TO MOVIE'S TOTAL TICKET SALES AND SAVE TO MOVIES.TXT
+						movieList.get(chosenMovieIndex).addTicketSales();
+						ResourceManager.addmovieList(movieList);
+						
+						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
+						Ticket ticket = new Ticket();
+						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
 						
 					}
+					
 					else if (cineplexChoice == "Cathay Cineplexes Jewel") {
-						Cinema jewel = new Cinema(cineplexChoice);
-						jewel.Display();
+//						Cinema jewel = new Cinema(cineplexChoice);
+//						jewel.Display();
+						ArrayList<String> cinemas = cineplex.GetCinemasOfCineplex(cineplexChoice);
+						booking.CinemaChoiceDisplay(cineplex, cinemas);
+						int chosenCinemaIndex = booking.ChooseACinema();
+						if (booking.getCinemaChoice() == "Quit"){
+							continue;
+						}
+						Cinema jewel = new Cinema(booking.getCinemaChoice());
+						ArrayList<Movie> movieList = new ArrayList<>();
+						movieList = ResourceManager.getmovieList(movieList);
+						booking.MovieChoiceDisplay(jewel, movieList);
+						int chosenMovieIndex = booking.ChooseAMovie();
 						
+						if (booking.getMovieChoice() == "Quit"){
+							continue;
+						}
+						
+						//IF NO CINEMA SHOWTIMES FOR CHOSEN CINEMA
+						if (movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size() == 0) {
+							System.out.println("No available cinema showtimes.");
+							continue;
+						}
+						System.out.print("Available Cinema Showtimes: ");
+						for (int i=0; i<movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size(); i++) {
+							System.out.println((i+1) + ". " + movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(i));
+						}
+						System.out.print("Enter your choice: ");
+						//FOR TICKET DATE TIME
+						int chosenCinemaShowtimeIndex = sc.nextInt()-1;
+						String chosenCinemaShowtime = movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(chosenCinemaShowtimeIndex);
+						
+						String movieChoice = booking.getMovieChoice();
+						System.out.println();
+						movieDetails.DisplayMovieDetails(movieChoice);
+						System.out.println();
+						booking.ChooseASeat();
+						movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
+						
+						//ADD 1 TO MOVIE'S TOTAL TICKET SALES AND SAVE TO MOVIES.TXT
+						movieList.get(chosenMovieIndex).addTicketSales();
+						ResourceManager.addmovieList(movieList);
+						
+						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
+						Ticket ticket = new Ticket();
+						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
 						
 					}
 					else if (cineplexChoice == "Quit"){
@@ -190,16 +286,18 @@ public class Customer {
 						showCustomerSystem();
 					}
 				}
-//Choice 3	Booking History		
+				
+				//Choice 3	Booking History		
 				if (userChoice == 3) {
 					//TODO view booking history not done yet
 					System.out.println("view booking history not done yet");
 				}
-//Choice 4	Top 5 by Ratings			
+				
+				//Choice 4	Top 5 by Ratings			
 				if (userChoice == 4) {
 					ArrayList<Movie> movieList = new ArrayList<>();
 					movieList = ResourceManager.getmovieList(movieList);
-					System.out.println("Top 5 Movies based on Review Ratings(lowest to highest)");
+					System.out.println("Top 5 Movies based on Review Ratings (lowest to highest)");
                     HashMap<String, String> reviewRatingTable = new HashMap<String, String>();                    
                     for(Movie movieInList : movieList){
                         reviewRatingTable.put(movieInList.getTitle(), movieInList.getOverallReviewerRating());
@@ -225,11 +323,12 @@ public class Customer {
                     }
                     break;
 				}
-//Choice 5 Top 5 by Ticket Sales			
+				
+				//Choice 5 Top 5 by Ticket Sales			
 				if (userChoice == 5) {
 					ArrayList<Movie> movieList = new ArrayList<>();
 					movieList = ResourceManager.getmovieList(movieList);
-					System.out.println("Top 5 Movies based on Review Ratings(lowest to highest)");
+					System.out.println("Top 5 Movies based on Ticket Sales (lowest to highest)");
                     HashMap<String, Integer> reviewRatingTable = new HashMap<String, Integer>();                    
                     for(Movie movieInList : movieList){
                         reviewRatingTable.put(movieInList.getTitle(), Integer.parseInt(movieInList.getTicketSales()));
@@ -255,10 +354,7 @@ public class Customer {
                     }
                     break;
 				}
-				
-				
-				
-			}break;
+			}
 		}
 	}
 }
