@@ -86,6 +86,7 @@ public class MovieDetails extends SeatingPlan {
             String value = entry.getValue().get(0);
             System.out.println(key + ": " + value);
         }
+        System.out.println();
         this.SetSeatingPlan(title);
         this.DisplaySeatingPlan(title);
     }

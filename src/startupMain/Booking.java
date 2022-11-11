@@ -72,7 +72,7 @@ public class Booking {
 		}
 	}
 
-	public void ChooseACinema() {
+	public int ChooseACinema() {
 		System.out.print("Enter your choice: ");
 		int userChoice = cinemaChoice.nextInt();
 		if (userChoice == 1) {
@@ -90,6 +90,7 @@ public class Booking {
 		else {
 			ChooseACineplex();
 		}
+		return userChoice-1;
 	}
 
 	//TODO SCAN FROM Movies.txt
@@ -99,7 +100,7 @@ public class Booking {
 		ArrayList<Movie> tempMovieList = new ArrayList<Movie>();
 		ArrayList<Movie> movieList = ResourceManager.getmovieList(tempMovieList);
 		MovieChoice = movieList.get(userChoice-1).getTitle();
-		return userChoice;
+		return userChoice-1;
 		
 //		int userChoice = movieChoice.nextInt();
 //		if (userChoice == 1) {

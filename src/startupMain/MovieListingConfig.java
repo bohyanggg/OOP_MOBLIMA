@@ -85,11 +85,13 @@ public class MovieListingConfig {
 					{
 						System.out.println("\nSelect an option:\n"
 								 + "1. Update Movie Title\n"
-								 + "2. Update Showing Status\n"
-								 + "3. Update Sypnosis\n"
-								 + "4. Update Director\n"
-								 + "5. Update Cast\n"
-								 + "6. Return\n");
+								 + "2. Update Movie Type\n"
+								 + "3. Update Cinema Showtime\n"
+								 + "4. Update Showing Status\n"
+								 + "5. Update Sypnosis\n"
+								 + "6. Update Director\n"
+								 + "7. Update Cast\n"
+								 + "8. Return\n");
 						int selection = sc.nextInt();
 						
 						switch (selection) {

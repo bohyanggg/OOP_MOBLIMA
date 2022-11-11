@@ -7,6 +7,7 @@ import java.util.*;
 public class Customer {
 //Movie details
 	MovieDetails movieDetails;
+	Scanner sc = new Scanner(System.in);
 
 	public Customer(MovieDetails movieDetails){
 		this.movieDetails = movieDetails;
@@ -120,17 +121,18 @@ public class Customer {
 				}
 //movie.addTicketSales(); add this in user choice 2 at the end to +1 for movie ticket sales after booking
 				if (userChoice == 2) {
-					Movie movie = new Movie();
+					//Movie movie = new Movie();
 					Booking booking = new Booking();
 					Cineplex cineplex = new Cineplex();
 					// movieDetails.GetMovieDetailsFromFile();
 					booking.CineplexChoiceDisplay(cineplex);
 					booking.ChooseACineplex();
 					String cineplexChoice = booking.getCineplexChoice();
+					
 					if (cineplexChoice == "Cathay Cineplexes Lot One") {
 						ArrayList<String> cinemas = cineplex.GetCinemasOfCineplex(cineplexChoice);
 						booking.CinemaChoiceDisplay(cineplex, cinemas);
-						booking.ChooseACinema();
+						int chosenCinemaIndex = booking.ChooseACinema();
 						if (booking.getCinemaChoice() == "Quit"){
 							continue;
 						}
@@ -139,16 +141,35 @@ public class Customer {
 						movieList = ResourceManager.getmovieList(movieList);
 						booking.MovieChoiceDisplay(lotOne, movieList);
 						int chosenMovieIndex = booking.ChooseAMovie();
-						movieList.get(chosenMovieIndex-1).printCinemaShowtime();
+						
+						//movieList.get(chosenMovieIndex-1).printCinemaShowtime();
+						
 						//movie.getCinemaShowtime();
 						if (booking.getMovieChoice() == "Quit"){
 							continue;
 						}
+						
+						System.out.print("Available Cinema Showtimes: ");
+						for (int i=0; i<movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size(); i++) {
+							System.out.println((i+1) + ". " + movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(i));
+						}
+						System.out.print("Enter your choice: ");
+						//FOR TICKET DATE TIME
+						int chosenCinemaShowtimeIndex = sc.nextInt()-1;
+						String chosenCinemaShowtime = movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(chosenCinemaShowtimeIndex);
+						
 						String movieChoice = booking.getMovieChoice();
+						System.out.println();
 						movieDetails.DisplayMovieDetails(movieChoice);
+						System.out.println();
 						booking.ChooseASeat();
 						movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
+						
+						//TODO CREATE TICKET HERE, PASS IN THE DATE AND TIME TOO
+						Ticket ticket = new Ticket();
+						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
 					}
+					
 					else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
 						Cinema clementiMall = new Cinema(cineplexChoice);
 						clementiMall.Display();

@@ -16,6 +16,8 @@ public class Ticket {
 	private String customerName;
 	private String customerMobileNumber;
 	private String customerEmail;
+	private String transactionID;
+	private String chosenCinemaShowtime;
 	
 	/**
 	 * Default constructor for Ticket.
@@ -28,17 +30,20 @@ public class Ticket {
 	 * Method to create ticket based on chosen movie.
 	 * @param movie
 	 */
-	public void createTicket(Movie movie, Booking booking) {
+	public void createTicket(Movie movie, Booking booking, String chosenCinemaShowtime) {
 		this.type = movie.getType();
 		//TODO CHECK IF "booking.getCinemaChoice()" RETURNS CINEMA NO. THROUGH BOOKING.JAVA
 		this.cinemaClass = booking.getCinemaChoice();
 		System.out.print("\nEnter your age: ");
 		this.age = sc.nextInt();
-//		TODO CHECK IF "booking.get???()" RETURNS SELECTED CINEMA SHOWTIME THROUGH BOOKING.JAVA
-//		if (booking.get???().contains("Sat") || booking.get???().contains("Sun"))
-//			this.weekDayOrEnd = 1;
-//		else 
-//			this.weekDayOrEnd = 0;
+		this.chosenCinemaShowtime = chosenCinemaShowtime;
+		this.transactionID = generateTransactionID();
+		
+		if (chosenCinemaShowtime.contains("Sat") || chosenCinemaShowtime.contains("Sun"))
+			this.weekDayOrEnd = 1;
+		else 
+			this.weekDayOrEnd = 0;
+
 		
 		//TODO MAY NEED TO ADD "sc.nextLine()" IN BETWEEN SCANS IF SCANNER NOT WORKING PROPERLY
 		System.out.print("\nEnter your name: ");
@@ -49,6 +54,13 @@ public class Ticket {
 		this.customerEmail = sc.nextLine();
 	}
 
+	//TODO CONVERT CINEMA SHOWTIME TO TRANSACTION ID (STRING) WITH CINEMA CODE
+	public String generateTransactionID() {
+		
+		//RETURN COMPLETED TRANSACTION ID
+		return null;
+	}
+	
 	public String getType() {
 		return type;
 	}
@@ -77,7 +89,13 @@ public class Ticket {
 		return customerEmail;
 	}
 	
+	public String getTransactionID() {
+		return transactionID;
+	}
 	
+	public String getChosenCinemaShowtime() {
+		return chosenCinemaShowtime;
+	}
 }
 
 //• The movie ticket price can be charged according to the following type : 
