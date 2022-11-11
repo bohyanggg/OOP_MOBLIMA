@@ -44,7 +44,7 @@ public class Booking {
 		cp.CinemaChoiceDisplay(cinemas);
 	}
 
-	public void MovieChoiceDisplay(Cinema c, ArrayList<String> movies) {
+	public void MovieChoiceDisplay(Cinema c, ArrayList<Movie> movies) {
 		c.MovieChoiceDisplay(movies);
 	}
 

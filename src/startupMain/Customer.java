@@ -135,8 +135,9 @@ public class Customer {
 							continue;
 						}
 						Cinema lotOne = new Cinema(booking.getCinemaChoice());
-						ArrayList<String> movies = lotOne.GetMoviesOfCinema();
-						booking.MovieChoiceDisplay(lotOne, movies);
+						ArrayList<Movie> movieList = new ArrayList<>();
+						movieList = ResourceManager.getmovieList(movieList);
+						booking.MovieChoiceDisplay(lotOne, movieList);
 						booking.ChooseAMovie();
 						if (booking.getMovieChoice() == "Quit"){
 							continue;

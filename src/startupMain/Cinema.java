@@ -58,11 +58,11 @@ public class Cinema extends SeatingPlan{
 		}
 	}
 	
-	public void MovieChoiceDisplay(ArrayList<String> movies) {
+	public void MovieChoiceDisplay(ArrayList<Movie> movies) {
 		System.out.println("Available movies: ");
 		int counter = 1;
-		for (String movie : movies) {
-			System.out.println(counter + ". " + movie);
+		for (Movie movie : movies) {
+			System.out.println(counter + ". " + movie.getTitle());
 			counter += 1;
 		}
 		System.out.println(counter + ". Exit");
