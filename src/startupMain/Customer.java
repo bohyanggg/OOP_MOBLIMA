@@ -208,7 +208,7 @@ public class Customer {
 					System.out.println("Top 5 Movies based on Review Ratings(lowest to highest)");
                     HashMap<String, Integer> reviewRatingTable = new HashMap<String, Integer>();                    
                     for(Movie movieInList : movieList){
-                        reviewRatingTable.put(movieInList.getTitle(), movieInList.getTicketSales());
+                        reviewRatingTable.put(movieInList.getTitle(), Integer.parseInt(movieInList.getTicketSales()));
                     }
                     List<Map.Entry<String, Integer> > list = new LinkedList<Map.Entry<String, Integer> >(reviewRatingTable.entrySet());
                     Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {

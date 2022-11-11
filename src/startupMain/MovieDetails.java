@@ -11,9 +11,9 @@ public class MovieDetails extends SeatingPlan {
     HashMap<String, HashMap<String, ArrayList<String>>> MovieDetails = new HashMap<String, HashMap<String, ArrayList<String>>>();
     HashMap<String, String[][]> MovieSeats = new HashMap<String, String[][]>();
 
-//    public MovieDetails(){
-//        this.GetMovieDetailsFromFile();
-//    }
+   public MovieDetails(){
+       this.PutDataIntoMap();
+   }
 
     private void SetSeatingPlan(String title){
         String[][] seats = super.plan;
@@ -88,6 +88,43 @@ public class MovieDetails extends SeatingPlan {
         }
         this.SetSeatingPlan(title);
         this.DisplaySeatingPlan(title);
+    }
+
+    // TODO read from saved movies and put into a HashMap like below function
+    private void PutDataIntoMap(){
+        ArrayList<Movie> movieList = new ArrayList<>();
+        movieList = ResourceManager.getmovieList(movieList);
+        for (Movie m : movieList){
+            System.out.println(m.getTitle());
+            try {
+                    HashMap<String, ArrayList<String>> details = new HashMap<String, ArrayList<String>>();
+                    ArrayList<String> status = new ArrayList<String>();
+                    status.add(m.getShowingStatus());
+                    details.put("Showing Status", status);
+                    ArrayList<String> synopsis = new ArrayList<String>();
+                    synopsis.add(m.getSynopsis());
+                    details.put("Synopsis", synopsis);
+                    ArrayList<String> director = new ArrayList<String>();
+                    director.add(m.getDirector());
+                    details.put("Director", director);
+                    ArrayList<String> cast = new ArrayList<String>();
+                    cast.add(m.getCast());
+                    details.put("Cast", cast);
+                    ArrayList<String> overallReview = new ArrayList<String>();
+                    overallReview.add(m.getOverallReviewerRating());
+                    details.put("Overall Review", overallReview);
+                    // ArrayList<String> reviewsAndRatings = new ArrayList<String>();
+                    // reviewsAndRatings.add(m.getReviewsAndRatings());
+                    // details.put("Reviews and Ratings", reviewsAndRatings);
+                    ArrayList<String> sales = new ArrayList<String>();
+                    sales.add(m.getTicketSales());
+                    details.put("Ticket Sales", sales);
+                    this.MovieDetails.put(m.getTitle(), details);
+                }
+                catch (Exception err){
+                    System.err.println(err);
+                }
+        }
     }
 
 //    private void GetMovieDetailsFromFile(){

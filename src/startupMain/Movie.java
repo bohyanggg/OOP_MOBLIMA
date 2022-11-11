@@ -260,8 +260,8 @@ public class Movie implements Serializable{
 		System.out.println("\nRating and Review Added!\n");
 	}
 	
-	public int getTicketSales() {
-		return this.ticketSales;
+	public String getTicketSales() {
+		return Integer.toString(this.ticketSales);
 	}
 	
 	public void addTicketSales() {
