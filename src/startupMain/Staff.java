@@ -1,14 +1,5 @@
 package startupMain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Staff {
@@ -47,61 +38,10 @@ public class Staff {
 						ssConfig.ssConfigOptions();
 						break;
 
-				case 4: ArrayList<Movie> movieList = new ArrayList<>();
-						movieList = ResourceManager.getmovieList(movieList);
-						System.out.println("Top 5 Movies based on Review Ratings(lowest to highest)");
-	                    HashMap<String, String> reviewRatingTable = new HashMap<String, String>();                    
-	                    for(Movie movieInList : movieList){
-	                        reviewRatingTable.put(movieInList.getTitle(), movieInList.getOverallReviewerRating());
-	                    }
-	                    List<Map.Entry<String, String> > list = new LinkedList<Map.Entry<String, String> >(reviewRatingTable.entrySet());
-	                    Collections.sort(list, new Comparator<Map.Entry<String, String> >() {
-	                        public int compare(Map.Entry<String, String> o1,
-	                                           Map.Entry<String, String> o2)
-	                        {
-	                            return (o1.getValue()).compareTo(o2.getValue());
-	                        }
-	                    });
-	                    HashMap<String, String> sortedMap = new LinkedHashMap<String, String>();
-	                    for (Map.Entry<String, String> aa : list) {
-	                        sortedMap.put(aa.getKey(), aa.getValue());
-	                    }
-	                    int count = 1;
-	                    Iterator<String> itr = sortedMap.keySet().iterator();
-	                    while (itr.hasNext() && count < 6) {
-	                        String key = itr.next();
-	                        System.out.println(count +". "+ key +": " + sortedMap.get(key));
-	                        count++;
-	                    }
-	                    break;
-
-				case 5: ArrayList<Movie> movieList2 = new ArrayList<>();
-						movieList = ResourceManager.getmovieList(movieList2);
-						System.out.println("Top 5 Movies based on Review Ratings(lowest to highest)");
-	                    HashMap<String, Integer> reviewRatingTable2 = new HashMap<String, Integer>();                    
-	                    for(Movie movieInList : movieList){
-	                        reviewRatingTable2.put(movieInList.getTitle(), movieInList.getTicketSales());
-	                    }
-	                    List<Map.Entry<String, Integer> > list2 = new LinkedList<Map.Entry<String, Integer> >(reviewRatingTable2.entrySet());
-	                    Collections.sort(list2, new Comparator<Map.Entry<String, Integer> >() {
-	                        public int compare(Map.Entry<String, Integer> o1,
-	                                           Map.Entry<String, Integer> o2)
-	                        {
-	                            return (o1.getValue()).compareTo(o2.getValue());
-	                        }
-	                    });
-	                    HashMap<String, Integer> sortedMap2 = new LinkedHashMap<String, Integer>();
-	                    for (Map.Entry<String, Integer> aa : list2) {
-	                        sortedMap2.put(aa.getKey(), aa.getValue());
-	                    }
-	                    int count2 = 1;
-	                    Iterator<String> itr2 = sortedMap2.keySet().iterator();
-	                    while (itr2.hasNext() && count2 < 6) {
-	                        String key = itr2.next();
-	                        System.out.println(count2 +". "+ key +": " + sortedMap2.get(key));
-	                        count2++;
-	                    }
-	                    break;
+//						TODO UNFINISHED (TAKE FROM CUSTOMER.JAVA)
+//				case 4: list top 5 ranking movies by overall reviewer rating(display title and overall rating)
+//
+//				case 5: list top 5 ranking movies by ticket sales
 
 				case 6: System.out.println("\nLogging Out...\n");
 						return;
