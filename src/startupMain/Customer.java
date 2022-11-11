@@ -139,6 +139,7 @@ public class Customer {
 						movieList = ResourceManager.getmovieList(movieList);
 						booking.MovieChoiceDisplay(lotOne, movieList);
 						booking.ChooseAMovie();
+						movie.getCinemaShowtime();
 						if (booking.getMovieChoice() == "Quit"){
 							continue;
 						}
