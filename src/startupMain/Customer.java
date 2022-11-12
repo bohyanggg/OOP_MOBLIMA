@@ -23,12 +23,13 @@ public class Customer {
 			System.out.println("3. View booking history");
 			System.out.println("4. List Top 5 ranking of movies by ratings");
 			System.out.println("5. List Top 5 ranking of movies by tickets sold");
-			System.out.println("6. Quit");
+			System.out.println("6. Add review");
+			System.out.println("7. Quit");
 			System.out.print("Enter your choice: ");
 			
 			Scanner Choice = new Scanner(System.in);
 			int userChoice = Choice.nextInt();
-			while(userChoice != 6) {
+			while(userChoice != 7) {
 				
 				//Choice 0	Search for Movies		
 				if (userChoice ==0) {
@@ -177,7 +178,7 @@ public class Customer {
 						Ticket ticket = new Ticket();
 						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
 						Calendar c = Calendar.getInstance();
-        				System.out.println("The Current Date is:" + c.getTime());
+        				System.out.println("Time of purchase:" + c.getTime());
 					}
 					
 					else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
@@ -355,6 +356,29 @@ public class Customer {
                         count++;
                     }
                     break;
+				}
+				if (userChoice ==6)
+				{
+					System.out.println("List of Movies");
+					ArrayList<Movie> movieList = new ArrayList<>(); //Create arraylist to store movie objects from txt
+					movieList = ResourceManager.getmovieList(movieList); //to take objects from txt and store into movieList array
+					int i = 1; //To number the movies
+					System.out.print("\n");
+					for (Movie movie: movieList)
+					{
+						System.out.print("Movie " + i + ": ");
+						i++;
+						movie.viewimportantMovieDetails();
+						System.out.print("\n");
+					}
+					int totalMovie = i -1;
+					i = 1;
+					System.out.println("\nChoose a movie to review ");
+					Scanner sc = new Scanner(System.in);
+					String choice = sc.next();
+					
+					
+
 				}
 			}
 		}

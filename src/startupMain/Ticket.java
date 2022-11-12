@@ -52,6 +52,7 @@ public class Ticket {
 		System.out.print("\nEnter your email: ");
 		this.customerEmail = sc.nextLine();
 		this.chosenCinemaShowtime = chosenCinemaShowtime;
+		
 		this.transactionID = generateTransactionID();
 	}
 
