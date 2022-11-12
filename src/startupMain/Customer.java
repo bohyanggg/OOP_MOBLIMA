@@ -33,6 +33,10 @@ public class Customer {
 			
 			Scanner Choice = new Scanner(System.in);
 			int userChoice = Choice.nextInt();
+			if(userChoice == 7) {
+				System.out.println("Logging Out...\n");
+				break;
+			}
 			while(userChoice != 7) {
 				
 				//Choice 0	Search for Movies		
