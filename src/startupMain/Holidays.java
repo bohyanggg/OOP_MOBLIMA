@@ -26,11 +26,11 @@ public class Holidays implements Serializable {
 	 * Returns true if inputDate is in list of holidays, false otherwise
 	 * @return
 	 */
-	public static boolean isHoliday(String inputDate) {
+	public static int isHoliday(String inputDate) {
 		ArrayList<String> checkHolidays = ResourceManager.loadHolidays();
 		if (checkHolidays.contains(inputDate))
-			return true;
+			return 1;
 		else
-			return false;
+			return 0;
 	}
 }
