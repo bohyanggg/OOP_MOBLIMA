@@ -52,7 +52,7 @@ public class Ticket {
 		this.customerName = sc.nextLine();
 		System.out.print("Enter your mobile number: ");
 		this.customerMobileNumber = sc.nextLine();
-		System.out.println("Enter your email: ");
+		System.out.print("Enter your email: ");
 		this.customerEmail = sc.nextLine();
 		this.chosenCinemaShowtime = chosenCinemaShowtime;
 		

@@ -387,6 +387,7 @@ public class Customer {
 					int choice = sc.nextInt();
 					Movie chosenMovie = movieList.get(choice - 1);
 					chosenMovie.addReviewsAndRatings();
+					ResourceManager.addmovieList(movieList);
 					break;
 				}
 			}

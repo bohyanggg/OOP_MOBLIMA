@@ -54,7 +54,7 @@ public class Movie implements Serializable{
 		System.out.println("Movie Director: " + this.getDirector());
 		System.out.println("Movie Casts: " + this.getCast());
 		System.out.println("Movie Overall Rating: " + this.getOverallReviewerRating());
-		getReviewsAndRatings();
+		printReviewsAndRatings();
 		System.out.println("Ticket Sales: " + this.getTicketSales());
 	}
 	
@@ -235,21 +235,21 @@ public class Movie implements Serializable{
 			}
 			//divide the sum of all ratings by number of ratings to get average
 			averageRating /= reviewsAndRatings.size();
-			//round off to 1 d.p. then convert from double to string
-			overallReviewerRating = Double.toString(Math.round(averageRating*100) / 100);
-	
+			//convert from double to string
+			overallReviewerRating = Double.toString(averageRating);
 		}
 	}
 	
-	public void getReviewsAndRatings() {
+	public void printReviewsAndRatings() {
 		System.out.print("Reviews and Ratings: ");
 		if (reviewsAndRatings.size() == 0) {
 			System.out.println("0");
 		}
 		else {
 			for (int i=0; i<reviewsAndRatings.size(); i++) {
-				System.out.println(reviewsAndRatings.get(i)[0] + " - "+ reviewsAndRatings.get(i)[1]); //rating and review
+				System.out.print(reviewsAndRatings.get(i)[0] + "-"+ reviewsAndRatings.get(i)[1] + "/"); //rating and review
 			}
+			System.out.println();
 		}
 	}
 
@@ -261,6 +261,7 @@ public class Movie implements Serializable{
 		String newReview = sc.nextLine();
 		String[] newReviewAndRating = new String[]{newRating, newReview};
 		reviewsAndRatings.add(newReviewAndRating);
+		setOverallReviewerRating();
 		System.out.println("\nRating and Review Added!\n");
 	}
 	

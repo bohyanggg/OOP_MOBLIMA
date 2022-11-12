@@ -100,7 +100,7 @@ public class MovieDetails extends SeatingPlan {
         ArrayList<Movie> movieList = new ArrayList<>();
         movieList = ResourceManager.getmovieList(movieList);
         for (Movie m : movieList){
-            System.out.println(m.getTitle());
+            //System.out.println(m.getTitle());
             try {
                     HashMap<String, ArrayList<String>> details = new HashMap<String, ArrayList<String>>();
                     ArrayList<String> status = new ArrayList<String>();
