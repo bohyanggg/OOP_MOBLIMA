@@ -1,6 +1,8 @@
 package startupMain;
 
 import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -182,12 +184,21 @@ public class Customer {
 						movieList.get(chosenMovieIndex).addTicketSales();
 						ResourceManager.addmovieList(movieList);
 						
+						//PRINT TIME OF PURCHASE
+						Calendar calendarInstance = Calendar.getInstance();
+        				System.out.println("Time of purchase:" + calendarInstance.getTime());
+						
 						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
 						Ticket ticket = new Ticket();
 						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
-						Calendar c = Calendar.getInstance();
-        				System.out.println("Time of purchase:" + c.getTime());
-        				break;
+						
+						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
+						Date date = Calendar.getInstance().getTime();
+				        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+				        String strDate = dateFormat.format(date);
+						BookingHistory bookingHistory = new BookingHistory();
+						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), strDate);
+						break;
 					}
 					
 					else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
@@ -234,9 +245,20 @@ public class Customer {
 						movieList.get(chosenMovieIndex).addTicketSales();
 						ResourceManager.addmovieList(movieList);
 						
+						//PRINT TIME OF PURCHASE
+						Calendar calendarInstance = Calendar.getInstance();
+        				System.out.println("Time of purchase:" + calendarInstance.getTime());
+						
 						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
 						Ticket ticket = new Ticket();
 						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
+						
+						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
+						Date date = Calendar.getInstance().getTime();
+				        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+				        String strDate = dateFormat.format(date);
+						BookingHistory bookingHistory = new BookingHistory();
+						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), strDate);
 						break;
 					}
 					
@@ -284,9 +306,20 @@ public class Customer {
 						movieList.get(chosenMovieIndex).addTicketSales();
 						ResourceManager.addmovieList(movieList);
 						
+						//PRINT TIME OF PURCHASE
+						Calendar calendarInstance = Calendar.getInstance();
+        				System.out.println("Time of purchase:" + calendarInstance.getTime());
+						
 						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
 						Ticket ticket = new Ticket();
 						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
+						
+						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
+						Date date = Calendar.getInstance().getTime();
+				        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+				        String strDate = dateFormat.format(date);
+						BookingHistory bookingHistory = new BookingHistory();
+						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), strDate);
 						break;
 					}
 					else if (cineplexChoice == "Quit"){
@@ -301,8 +334,10 @@ public class Customer {
 				
 				//Choice 3	Booking History		
 				if (userChoice == 3) {
-					//TODO view booking history not done yet
-					System.out.println("view booking history not done yet");
+					BookingHistory bookingHistory = new BookingHistory();
+					System.out.print("\nEnter your name: ");
+					bookingHistory.printCustomerSpecificBookingHistory(sc.nextLine());
+					break;
 				}
 				
 				//Choice 4	Top 5 by Ratings			

@@ -123,4 +123,31 @@ public class ResourceManager {
 		}
 	}
 	
+	/**
+	 * To load booking history from BookingHistory.txt
+	 * @return
+	 */
+	public static ArrayList<String[]> loadBookingHistory()
+	{
+		ArrayList<String[]> bookingHistory = new ArrayList<String[]>();
+		try {
+			bookingHistory = (ArrayList<String[]>) ResourceManager.load("BookingHistory.txt");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bookingHistory;
+	}
+	
+	/**
+	 * To save updated list of holidays to BookingHistory.txt
+	 * @param updatedHolidays
+	 */
+	public static void saveBookingHistory(ArrayList<String[]> updatedBookingHistory)
+	{
+		try {
+			ResourceManager.save(updatedBookingHistory, "BookingHistory.txt");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -40,14 +40,11 @@ public class Ticket {
 		this.age = sc.nextInt();
 		sc.nextLine();
 		
-		
 		if (chosenCinemaShowtime.contains("Sat") || chosenCinemaShowtime.contains("Sun"))
 			this.weekDayOrEnd = 1;
 		else 
 			this.weekDayOrEnd = 0;
 
-		
-		//TODO MAY NEED TO ADD "sc.nextLine()" IN BETWEEN SCANS IF SCANNER NOT WORKING PROPERLY
 		System.out.print("Enter your name: ");
 		this.customerName = sc.nextLine();
 		System.out.print("Enter your mobile number: ");
@@ -55,12 +52,11 @@ public class Ticket {
 		System.out.print("Enter your email: ");
 		this.customerEmail = sc.nextLine();
 		this.chosenCinemaShowtime = chosenCinemaShowtime;
-		
 		this.transactionID = generateTransactionID();
 		System.out.println("Confirmed!");
 	}
 
-	//TODO CONVERT CINEMA SHOWTIME TO TRANSACTION ID (STRING) WITH CINEMA CODE
+	//TODO TRANSACTION ID WITH CINEMA CODE AND TRANSACTION TIME
 	public String generateTransactionID() {
 		
 		//RETURN COMPLETED TRANSACTION ID
