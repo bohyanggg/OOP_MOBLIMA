@@ -36,8 +36,7 @@ public class Ticket {
 		this.cinemaClass = booking.getCinemaChoice();
 		System.out.print("\nEnter your age: ");
 		this.age = sc.nextInt();
-		this.chosenCinemaShowtime = chosenCinemaShowtime;
-		this.transactionID = generateTransactionID();
+		
 		
 		if (chosenCinemaShowtime.contains("Sat") || chosenCinemaShowtime.contains("Sun"))
 			this.weekDayOrEnd = 1;
@@ -52,6 +51,8 @@ public class Ticket {
 		this.customerMobileNumber = sc.nextLine();
 		System.out.print("\nEnter your email: ");
 		this.customerEmail = sc.nextLine();
+		this.chosenCinemaShowtime = chosenCinemaShowtime;
+		this.transactionID = generateTransactionID();
 	}
 
 	//TODO CONVERT CINEMA SHOWTIME TO TRANSACTION ID (STRING) WITH CINEMA CODE

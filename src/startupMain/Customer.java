@@ -176,6 +176,8 @@ public class Customer {
 						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
 						Ticket ticket = new Ticket();
 						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
+						Calendar c = Calendar.getInstance();
+        				System.out.println("The Current Date is:" + c.getTime());
 					}
 					
 					else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
