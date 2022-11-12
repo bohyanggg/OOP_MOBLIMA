@@ -4,6 +4,11 @@ package startupMain;
 import java.awt.event.*;
 import javax.swing.*; */
 
+/**
+ * Entity class representing a seating plan
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public abstract class SeatingPlan {
 	private String cinema;
 	protected String plan[][] = new String[10][10];

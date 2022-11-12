@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Class for configuring ticket prices and holidays
+ * Boundary class
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
  */
 public class SystemSettingsConfig {
 

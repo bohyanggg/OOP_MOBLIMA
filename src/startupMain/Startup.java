@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Main method called when initiating program
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public class Startup {
 	
 	private static Scanner sc = new Scanner(System.in);

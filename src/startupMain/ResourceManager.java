@@ -9,7 +9,9 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 /**
- * Contains methods for loading and saving objects through text files
+ * Control class which contains methods for loading and saving objects through text files
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
  */
 public class ResourceManager {
 	public static ResourceManager instance;

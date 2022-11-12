@@ -9,6 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Entity class representing a cineplex
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public class Cineplex{
 	private String Name;
 	HashMap<String, ArrayList<String>> cineplex = new HashMap<String, ArrayList<String>>();

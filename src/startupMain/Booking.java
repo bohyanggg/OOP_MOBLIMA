@@ -2,7 +2,12 @@ package startupMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * Entity class representing a booking
+ * A booking object is created by Customer when they are making a movie booking
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public class Booking {
 	private String CineplexChoice;
 	private Scanner cineplexChoice = new Scanner(System.in);

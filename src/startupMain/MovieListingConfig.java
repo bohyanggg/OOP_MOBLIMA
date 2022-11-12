@@ -2,7 +2,11 @@ package startupMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * Boundary class
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public class MovieListingConfig {
 
 	private static Scanner sc = new Scanner(System.in);

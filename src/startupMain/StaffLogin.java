@@ -2,7 +2,11 @@ package startupMain;
 
 import java.io.IOException;
 import java.util.Scanner;
-
+/**
+ * Control class 
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public class StaffLogin {
 	
 	public boolean login() {

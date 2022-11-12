@@ -3,7 +3,11 @@ package startupMain;
 import java.io.*;
 import java.util.*;
 
-
+/**
+ * Boundary class which calls on control classes and uses entity classes.
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public class Customer {
 	//Movie details
 	MovieDetails movieDetails;

@@ -2,7 +2,11 @@ package startupMain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ * Entity class representing the holidays
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public class Holidays implements Serializable {
 	
 	/**

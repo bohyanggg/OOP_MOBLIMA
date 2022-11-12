@@ -3,7 +3,11 @@ package startupMain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * Entity class representing a movie
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public class Movie implements Serializable{
 
 	/**

@@ -4,7 +4,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ * Entity class representing a cinema
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
+ */
 public class Cinema extends SeatingPlan{
 	private String Name;
 	private String[][] plan;

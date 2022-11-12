@@ -3,7 +3,9 @@ package startupMain;
 import java.util.Scanner;
 
 /**
- * Ticket Class for creating movie ticket object
+ * Entity class representing a ticket
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
  */
 public class Ticket {
 	

@@ -1,9 +1,10 @@
 package startupMain;
 
 import java.io.Serializable;
-
 /**
- * TicketPricing Class: base prices, additional charges and discounts as attributes
+ * Entity class representing the ticket pricing: base prices, additional charges and discounts as attributes
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ *
  */
 public class TicketPricing implements Serializable {
 	
