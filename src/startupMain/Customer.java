@@ -380,10 +380,9 @@ public class Customer {
 					i = 1;
 					System.out.println("\nChoose a movie to review ");
 					Scanner sc = new Scanner(System.in);
-					String choice = sc.next();
-					
-					
-
+					int choice = sc.nextInt();
+					Movie chosenMovie = movieList.get(choice - 1);
+					chosenMovie.addReviewsAndRatings();
 				}
 			}
 		}
