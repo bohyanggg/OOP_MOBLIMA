@@ -180,6 +180,21 @@ public class Customer {
 						booking.ChooseASeat();
 						movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
 						
+						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
+						Ticket ticket = new Ticket();
+						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
+						
+						//CONFIRM PURCHASE OF TICKET
+						TicketPricing ticketPricing = new TicketPricing();
+						System.out.println("Price of Ticket is: $" + String.format("%.2f", ticketPricing.calculateTicketPrice(ticket)));
+						System.out.println("Proceed to payment? (Y/N)");
+						sc.nextLine();
+						String payOrNo = sc.nextLine();
+						if (payOrNo.equalsIgnoreCase("Y")) {
+							System.out.println("Payment Complete!");
+						}
+						else break;
+						
 						//ADD 1 TO MOVIE'S TOTAL TICKET SALES AND SAVE TO MOVIES.TXT
 						movieList.get(chosenMovieIndex).addTicketSales();
 						ResourceManager.addmovieList(movieList);
@@ -187,10 +202,6 @@ public class Customer {
 						//PRINT TIME OF PURCHASE
 						Calendar calendarInstance = Calendar.getInstance();
         				System.out.println("Time of purchase:" + calendarInstance.getTime());
-						
-						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
-						Ticket ticket = new Ticket();
-						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
 						
 						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
 						Date date = Calendar.getInstance().getTime();
@@ -241,6 +252,21 @@ public class Customer {
 						booking.ChooseASeat();
 						movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
 						
+						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
+						Ticket ticket = new Ticket();
+						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
+						
+						//CONFIRM PURCHASE OF TICKET
+						TicketPricing ticketPricing = new TicketPricing();
+						System.out.println("Price of Ticket is: $" + String.format("%.2f", ticketPricing.calculateTicketPrice(ticket)));
+						System.out.println("Proceed to payment? (Y/N)");
+						sc.nextLine();
+						String payOrNo = sc.nextLine();
+						if (payOrNo.equalsIgnoreCase("Y")) {
+							System.out.println("Payment Complete!");
+						}
+						else break;
+						
 						//ADD 1 TO MOVIE'S TOTAL TICKET SALES AND SAVE TO MOVIES.TXT
 						movieList.get(chosenMovieIndex).addTicketSales();
 						ResourceManager.addmovieList(movieList);
@@ -248,10 +274,6 @@ public class Customer {
 						//PRINT TIME OF PURCHASE
 						Calendar calendarInstance = Calendar.getInstance();
         				System.out.println("Time of purchase:" + calendarInstance.getTime());
-						
-						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
-						Ticket ticket = new Ticket();
-						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
 						
 						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
 						Date date = Calendar.getInstance().getTime();
@@ -302,6 +324,21 @@ public class Customer {
 						booking.ChooseASeat();
 						movieDetails.UpdateBookedSeats(movieChoice, booking.getSeatChoice());
 						
+						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
+						Ticket ticket = new Ticket();
+						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
+						
+						//CONFIRM PURCHASE OF TICKET
+						TicketPricing ticketPricing = new TicketPricing();
+						System.out.println("Price of Ticket is: $" + String.format("%.2f", ticketPricing.calculateTicketPrice(ticket)));
+						System.out.println("Proceed to payment? (Y/N)");
+						sc.nextLine();
+						String payOrNo = sc.nextLine();
+						if (payOrNo.equalsIgnoreCase("Y")) {
+							System.out.println("Payment Complete!");
+						}
+						else break;
+						
 						//ADD 1 TO MOVIE'S TOTAL TICKET SALES AND SAVE TO MOVIES.TXT
 						movieList.get(chosenMovieIndex).addTicketSales();
 						ResourceManager.addmovieList(movieList);
@@ -309,10 +346,6 @@ public class Customer {
 						//PRINT TIME OF PURCHASE
 						Calendar calendarInstance = Calendar.getInstance();
         				System.out.println("Time of purchase:" + calendarInstance.getTime());
-						
-						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
-						Ticket ticket = new Ticket();
-						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
 						
 						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
 						Date date = Calendar.getInstance().getTime();

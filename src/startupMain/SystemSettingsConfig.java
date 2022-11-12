@@ -97,14 +97,16 @@ public class SystemSettingsConfig {
 						   "3. Return\n");
 		
 		switch (sc.nextInt()) {
-		case 1: System.out.print("\nEnter new holiday (e.g. DD/MM):");
+		case 1: sc.nextLine();
+				System.out.print("\nEnter new holiday (e.g. DD/MM): ");
 				holidays.add(sc.nextLine());
 				System.out.println("\nAdded!");
 				break;
 				
-		case 2: System.out.println("\nSelect holiday to be removed:");
-				for (int i=0; i<holidays.size(); i++) {
-					System.out.println((i+1) + ". " + holidays.get(i));
+		case 2: sc.nextLine();
+				System.out.println("\nSelect holiday to be removed: ");
+				for (int i=1; i<holidays.size(); i++) {
+					System.out.println((i) + ". " + holidays.get(i));
 				}
 				holidays.remove(sc.nextInt());
 				System.out.println("\nRemoved!");

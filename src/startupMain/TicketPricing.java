@@ -38,20 +38,22 @@ public class TicketPricing implements Serializable {
 	 * @param booking
 	 * @return
 	 */
-	public double calculateTicketPrice(Ticket ticket, Booking booking) {
+	public double calculateTicketPrice(Ticket ticket) {
 		int totalPrice = 0;
+		
 		if (ticket.getType().contains("Blockbuster"))
 			totalPrice += blockbusterCharge;
 		else if (ticket.getType().contains("3D"))
 			totalPrice += threeDCharge;
+		
 		if (ticket.getCinemaClass() == "Cinema 3") //Cinema 3 Platinum Movie Suite
 			totalPrice += platinumCinemaCharge;
-//		TODO CHECK IF DATE OF MOVIE CHOSEN IS A HOLIDAY
-//		if (booking.get???().isHoliday())
-//			totalPrice -= holidayDiscount;
+		if (Holidays.isHoliday(ticket.getChosenCinemaShowtime().substring(4, 8)));
+			totalPrice -= holidayDiscount;
+			
 		if (ticket.getWeekDayOrEnd()==1)
 			totalPrice += baseMoviePricing[2];
-		else if (ticket.getWeekDayOrEnd()==0 && ticket.getAge()<13 || ticket.getAge()>54)
+		else if (ticket.getWeekDayOrEnd()==0 && ticket.getAge()<13 || ticket.getWeekDayOrEnd()==0 && ticket.getAge()>54)
 			totalPrice += baseMoviePricing[0];
 		else
 			totalPrice += baseMoviePricing[1];
