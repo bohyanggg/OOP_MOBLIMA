@@ -350,18 +350,18 @@ public class Customer {
                         public int compare(Map.Entry<String, Integer> o1,
                                            Map.Entry<String, Integer> o2)
                         {
-                            return (o1.getValue()).compareTo(o2.getValue());
+                            return (o2.getValue()).compareTo(o1.getValue());
                         }
                     });
                     HashMap<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
                     for (Map.Entry<String, Integer> aa : list) {
                         sortedMap.put(aa.getKey(), aa.getValue());
                     }
-                    int count = 1;
+                    int count = 0;
                     Iterator<String> itr = sortedMap.keySet().iterator();
                     while (itr.hasNext() && count < 6) {
                         String key = itr.next();
-                        System.out.println(count +". "+ key +": " + sortedMap.get(key));
+                        System.out.println((count+1) +". "+ key +": " + sortedMap.get(key));
                         count++;
                     }
                     break;
