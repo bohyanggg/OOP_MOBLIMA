@@ -13,6 +13,9 @@ public class Startup {
 	
 	private static Scanner sc = new Scanner(System.in);
 	
+	/**
+	 * store the type of user (customer or staff)
+	 */
 	private static int userType;
 	
 	public static void main(String[] args) {
@@ -20,7 +23,7 @@ public class Startup {
 		MovieDetails movieDetails = new MovieDetails();
 		//Ask for user type
 		while (true) {
-			
+				
 			//Keep asking for input if invalid input is received
 			while (true) {
 				
