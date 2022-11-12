@@ -38,6 +38,7 @@ public class Ticket {
 		this.cinemaClass = booking.getCinemaChoice();
 		System.out.print("\nEnter your age: ");
 		this.age = sc.nextInt();
+		sc.nextLine();
 		
 		
 		if (chosenCinemaShowtime.contains("Sat") || chosenCinemaShowtime.contains("Sun"))
@@ -47,15 +48,16 @@ public class Ticket {
 
 		
 		//TODO MAY NEED TO ADD "sc.nextLine()" IN BETWEEN SCANS IF SCANNER NOT WORKING PROPERLY
-		System.out.print("\nEnter your name: ");
+		System.out.print("Enter your name: ");
 		this.customerName = sc.nextLine();
-		System.out.print("\nEnter your mobile number: ");
+		System.out.print("Enter your mobile number: ");
 		this.customerMobileNumber = sc.nextLine();
-		System.out.print("\nEnter your email: ");
+		System.out.println("Enter your email: ");
 		this.customerEmail = sc.nextLine();
 		this.chosenCinemaShowtime = chosenCinemaShowtime;
 		
 		this.transactionID = generateTransactionID();
+		System.out.println("Confirmed!");
 	}
 
 	//TODO CONVERT CINEMA SHOWTIME TO TRANSACTION ID (STRING) WITH CINEMA CODE

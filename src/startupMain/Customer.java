@@ -183,6 +183,7 @@ public class Customer {
 						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
 						Calendar c = Calendar.getInstance();
         				System.out.println("Time of purchase:" + c.getTime());
+        				break;
 					}
 					
 					else if (cineplexChoice == "Cathay Cineplexes Clementi Mall") {
@@ -232,7 +233,7 @@ public class Customer {
 						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
 						Ticket ticket = new Ticket();
 						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
-						
+						break;
 					}
 					
 					else if (cineplexChoice == "Cathay Cineplexes Jewel") {
@@ -282,7 +283,7 @@ public class Customer {
 						//CREATE TICKET HERE, PASS IN THE DATE AND TIME
 						Ticket ticket = new Ticket();
 						ticket.createTicket(movieList.get(chosenMovieIndex), booking, chosenCinemaShowtime);
-						
+						break;
 					}
 					else if (cineplexChoice == "Quit"){
 						userChoice = 5;
