@@ -6,8 +6,9 @@ import java.util.Scanner;
  * Entity class representing a booking
  * A booking object is created by Customer when they are making a movie booking
  * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
- *
+ * 
  */
+
 public class Booking {
 	private String CineplexChoice;
 	private Scanner cineplexChoice = new Scanner(System.in);
@@ -24,7 +25,14 @@ public class Booking {
 	public Booking() {
 
 	}
-
+/**
+ * 
+ * @return cineplexchoice return the choices for the cineplex available
+ * @return cinemachoice returns the cinemas available
+ * @return moviechoice returns the movies in the txt
+ * @return seatchoice returns the seat that is chosen
+ * 
+ */
 	public String getCineplexChoice() {
 		return this.CineplexChoice;
 	}
@@ -76,7 +84,10 @@ public class Booking {
 			ChooseACineplex();
 		}
 	}
-
+/**
+ * 
+ * @return returnt the selected cinema
+ */
 	public int ChooseACinema() {
 		System.out.print("Enter your choice: ");
 		int userChoice = cinemaChoice.nextInt();
@@ -97,7 +108,10 @@ public class Booking {
 		}
 		return userChoice-1;
 	}
-
+/**
+ * 
+ * @return userchoice returns the selected choice of movie
+ */
 	//TODO SCAN FROM Movies.txt
 	public int ChooseAMovie(){
 		System.out.print("Enter your choice: ");
@@ -107,7 +121,7 @@ public class Booking {
 		MovieChoice = movieList.get(userChoice-1).getTitle();
 		return userChoice-1;
 	}
-
+ 
 	public void ChooseASeat(){
 		System.out.println("Enter your choice: (comma',' separated for multiple seats)");
 		SeatChoice = seatChoice.next();

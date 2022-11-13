@@ -24,7 +24,11 @@ public class Cineplex{
 	public String getName() {
 		return this.Name;
 	}
-	
+	/**
+	 * 
+	 * @param Name name of the cinemas in cineplex
+	 * @return returns the name of cinemas
+	 */
 	public ArrayList<String> GetCinemasOfCineplex(String Name){
 		return this.cineplex.get(Name);
 	}

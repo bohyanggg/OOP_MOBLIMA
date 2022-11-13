@@ -79,7 +79,11 @@ public class MovieDetails extends SeatingPlan {
             this.MovieSeats.put(title, seats);
 		}
     }
-
+/**
+ * 
+ * @param title movie title
+ * @return the details for that movie title
+ */
     private HashMap<String, ArrayList<String>> getMovieDetails(String title){
         return this.MovieDetails.get(title);
     }
@@ -95,12 +99,12 @@ public class MovieDetails extends SeatingPlan {
         this.DisplaySeatingPlan(title);
     }
 
-    // TODO read from saved movies and put into a HashMap like below function
+    
     private void PutDataIntoMap(){
         ArrayList<Movie> movieList = new ArrayList<>();
         movieList = ResourceManager.getmovieList(movieList);
         for (Movie m : movieList){
-            //System.out.println(m.getTitle());
+           
             try {
                     HashMap<String, ArrayList<String>> details = new HashMap<String, ArrayList<String>>();
                     ArrayList<String> status = new ArrayList<String>();
@@ -118,9 +122,6 @@ public class MovieDetails extends SeatingPlan {
                     ArrayList<String> overallReview = new ArrayList<String>();
                     overallReview.add(m.getOverallReviewerRating());
                     details.put("Overall Review", overallReview);
-                    // ArrayList<String> reviewsAndRatings = new ArrayList<String>();
-                    // reviewsAndRatings.add(m.getReviewsAndRatings());
-                    // details.put("Reviews and Ratings", reviewsAndRatings);
                     ArrayList<String> sales = new ArrayList<String>();
                     sales.add(m.getTicketSales());
                     details.put("Ticket Sales", sales);
@@ -132,39 +133,5 @@ public class MovieDetails extends SeatingPlan {
         }
     }
 
-//    private void GetMovieDetailsFromFile(){
-//        try {
-//        	Path fileName = Path.of(".\\src\\Movies.txt");
-//			ArrayList<String> movies = (ArrayList<String>) Files.readAllLines(fileName);
-//			for (String line : movies){
-//                String[] info = line.split("@");
-//                HashMap<String, ArrayList<String>> details = new HashMap<String, ArrayList<String>>();
-//                ArrayList<String> status = new ArrayList<String>();
-//                status.add(info[1]);
-//                details.put("Showing Status", status);
-//                ArrayList<String> synopsis = new ArrayList<String>();
-//                synopsis.add(info[2]);
-//                details.put("Synopsis", synopsis);
-//                ArrayList<String> director = new ArrayList<String>();
-//                director.add(info[3]);
-//                details.put("Director", director);
-//                ArrayList<String> cast = new ArrayList<String>();
-//                cast.add(info[4]);
-//                details.put("Cast", cast);
-//                ArrayList<String> overallReview = new ArrayList<String>();
-//                overallReview.add(info[5]);
-//                details.put("Overall Review", overallReview);
-//                ArrayList<String> reviewsAdnRatings = new ArrayList<String>();
-//                reviewsAdnRatings.add(info[6]);
-//                details.put("Reviews and Ratings", reviewsAdnRatings);
-//                ArrayList<String> sales = new ArrayList<String>();
-//                sales.add(info[7]);
-//                details.put("Ticket Sales", sales);
-//                this.MovieDetails.put(info[0], details);
-//            }
-//		}
-//		catch (Exception err){
-//			System.err.println(err);
-//		}
-//    }
+
 }

@@ -75,7 +75,10 @@ public class Movie implements Serializable{
 		setCast();
 		setOverallReviewerRating();
 	}
-	
+	/**
+	 * 
+	 * @return return title
+	 */
 	public String getTitle() {
 		return title;
 	}
@@ -84,7 +87,10 @@ public class Movie implements Serializable{
 		System.out.print("\nEnter Movie Title: ");
 		title = sc.nextLine();
 	}
-
+	/**
+	 * 
+	 * @return return type of movie
+	 */
 	public String getType() {
 		return type;
 	}
@@ -108,7 +114,10 @@ public class Movie implements Serializable{
 		}
 		System.out.print("\n");
 	}
-	
+	/**
+	 * 
+	 * @return display cinema showtime
+	 */
 	public ArrayList<String>[] getCinemaShowtime() {
 		return cinemaShowtime;
 	}
@@ -156,7 +165,10 @@ public class Movie implements Serializable{
 			}
 		}
 	}
-	
+	/**
+	 * 
+	 * @return status of the movie
+	 */
 	public String getShowingStatus() {
 		switch(showingStatus) 
 		{
@@ -178,16 +190,24 @@ public class Movie implements Serializable{
 		showingStatus = sc.nextInt();
 		sc.nextLine(); //to fix nextLine() issue
 	}
-
+/**
+ * 
+ * @return synopsis of movie
+ */
 	public String getSynopsis() {
 		return synopsis;
 	}
-
+/**
+ * @param sets the synopsis 
+ */
 	public void setSynopsis() {
 		System.out.print("\nEnter Synopsis: ");
 		synopsis = sc.nextLine();
 	}
-
+/**
+ * 
+ * @return director of movie
+ */
 	public String getDirector() {
 		return director;
 	}
@@ -196,7 +216,10 @@ public class Movie implements Serializable{
 		System.out.print("\nEnter Director: ");
 		director = sc.nextLine();
 	}
-
+/**
+ * 
+ * @return shows the cast for the movie
+ */
 	public String getCast() {
 		String stringCast = "";
 		for (int i=0; i<cast.size()-1; i++) {
@@ -217,7 +240,10 @@ public class Movie implements Serializable{
 			cast.add(sc.nextLine());
 		}
 	}
-
+/**
+ * 
+ * @return reviews that the movie has gotten
+ */
 	public String getOverallReviewerRating() {
 		return overallReviewerRating;
 	}
@@ -264,7 +290,10 @@ public class Movie implements Serializable{
 		setOverallReviewerRating();
 		System.out.println("\nRating and Review Added!\n");
 	}
-	
+	/**
+	 * 
+	 * @return amount of ticket sold for that movie
+	 */
 	public String getTicketSales() {
 		return Integer.toString(this.ticketSales);
 	}

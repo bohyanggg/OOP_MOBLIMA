@@ -15,7 +15,10 @@ public class Customer {
 	//Movie details
 	MovieDetails movieDetails;
 	Scanner sc = new Scanner(System.in);
-
+/**
+ * 
+ * @param movieDetails refers to the movie sypnosis and details
+ */
 	public Customer(MovieDetails movieDetails){
 		this.movieDetails = movieDetails;
 	}
@@ -82,6 +85,7 @@ public class Customer {
                     // If cannot find any movies that contain the keyword
                     
 				}
+				
 				
 				//Choice 1	List movies			
 				if (userChoice == 1) { //i copied over this whole part from MovieListingConfig 's viewmovielisting

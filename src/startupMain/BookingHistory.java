@@ -1,6 +1,11 @@
 package startupMain;
 
 import java.util.ArrayList;
+/**
+ * Entity class representing booking history
+ * The booking history object is created to save and print out customer transactions
+ * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
+ */
 
 public class BookingHistory {
 

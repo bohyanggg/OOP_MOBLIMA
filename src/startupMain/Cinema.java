@@ -7,8 +7,9 @@ import java.util.HashMap;
 /**
  * Entity class representing a cinema
  * @author Low Zheng Han, Lou Sim Teng, MD Firdaus Bin Azizan, Hsieh Boh Yang, Martin Chin
- *
+ * 
  */
+
 public class Cinema extends SeatingPlan{
 	private String Name;
 	private String[][] plan;
@@ -18,12 +19,18 @@ public class Cinema extends SeatingPlan{
 	public Cinema() {
 		
 	}
-	
+	/**
+	 * 
+	 * @param Name returns the names of the movies in the cinema
+	 */
 	public Cinema(String Name) {
 		this.Name = Name;
 		this.getMovies();
 	}
-	
+	/**
+	 * 
+	 * @return return the movie name in the txt
+	 */
 	public String GetName() {
 		return this.Name;
 	}
@@ -47,7 +54,10 @@ public class Cinema extends SeatingPlan{
 			System.err.println(err);
 		}
 	}
-	
+	/**
+	 * 
+	 * @return returns the string of movies in the cinema
+	 */
 	public ArrayList<String> GetMoviesOfCinema() {
 		return this.movies;
 	}
