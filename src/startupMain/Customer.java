@@ -201,7 +201,7 @@ public class Customer {
 						ResourceManager.addmovieList(movieList);
 						
 						//PRINT TIME OF PURCHASE
-						Calendar calendarInstance = Calendar.getInstance();
+						//Calendar calendarInstance = Calendar.getInstance();
         				//System.out.println("Time of purchase:" + calendarInstance.getTime());
 						
 						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
@@ -214,9 +214,9 @@ public class Customer {
 						String frmtdDate = dateFormat.format(date);
 
 						System.out.println("Time of purchase: " + frmtdDate);
-				        String strDate = dateFormat.format(date);
+				        //String strDate = dateFormat.format(date);
 						BookingHistory bookingHistory = new BookingHistory();
-						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), strDate);
+						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), frmtdDate);
 						break;
 					}
 					
@@ -280,15 +280,22 @@ public class Customer {
 						ResourceManager.addmovieList(movieList);
 						
 						//PRINT TIME OF PURCHASE
-						Calendar calendarInstance = Calendar.getInstance();
-        				System.out.println("Time of purchase:" + calendarInstance.getTime());
+						//Calendar calendarInstance = Calendar.getInstance();
+        				//System.out.println("Time of purchase:" + calendarInstance.getTime());
 						
 						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
-						Date date = Calendar.getInstance().getTime();
-				        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-				        String strDate = dateFormat.format(date);
+						//Date date = Calendar.getInstance().getTime();
+				        //DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+						Date date = new Date();
+
+						String frmtdDate = dateFormat.format(date);
+
+						System.out.println("Time of purchase: " + frmtdDate);
+				        //String strDate = dateFormat.format(date);
 						BookingHistory bookingHistory = new BookingHistory();
-						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), strDate);
+						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), frmtdDate);
 						break;
 					}
 					
@@ -352,15 +359,22 @@ public class Customer {
 						ResourceManager.addmovieList(movieList);
 						
 						//PRINT TIME OF PURCHASE
-						Calendar calendarInstance = Calendar.getInstance();
-        				System.out.println("Time of purchase:" + calendarInstance.getTime());
+						//Calendar calendarInstance = Calendar.getInstance();
+        				//System.out.println("Time of purchase:" + calendarInstance.getTime());
 						
 						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
-						Date date = Calendar.getInstance().getTime();
-				        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-				        String strDate = dateFormat.format(date);
+						//Date date = Calendar.getInstance().getTime();
+				        //DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+						Date date = new Date();
+
+						String frmtdDate = dateFormat.format(date);
+
+						System.out.println("Time of purchase: " + frmtdDate);
+				        //String strDate = dateFormat.format(date);
 						BookingHistory bookingHistory = new BookingHistory();
-						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), strDate);
+						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), frmtdDate);
 						break;
 					}
 					else if (cineplexChoice == "Quit"){
