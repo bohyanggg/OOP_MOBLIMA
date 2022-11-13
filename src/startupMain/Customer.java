@@ -161,7 +161,7 @@ public class Customer {
 						}
 						
 						//IF NO CINEMA SHOWTIMES FOR CHOSEN CINEMA
-						if (movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size() == 0) {
+						if (movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size()==0 || movieList.get(chosenMovieIndex).getShowingStatus()=="End of Showing") {
 							System.out.println("No available cinema showtimes.");
 							continue;
 						}
@@ -248,7 +248,7 @@ public class Customer {
 						}
 						
 						//IF NO CINEMA SHOWTIMES FOR CHOSEN CINEMA
-						if (movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size() == 0) {
+						if (movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size()==0 || movieList.get(chosenMovieIndex).getShowingStatus()=="End of Showing") {
 							System.out.println("No available cinema showtimes.");
 							continue;
 						}
@@ -335,7 +335,7 @@ public class Customer {
 						}
 						
 						//IF NO CINEMA SHOWTIMES FOR CHOSEN CINEMA
-						if (movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size() == 0) {
+						if (movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size()==0 || movieList.get(chosenMovieIndex).getShowingStatus()=="End of Showing") {
 							System.out.println("No available cinema showtimes.");
 							continue;
 						}
