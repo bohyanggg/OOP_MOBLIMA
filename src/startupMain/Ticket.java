@@ -18,7 +18,6 @@ public class Ticket {
 	private String customerName;
 	private String customerMobileNumber;
 	private String customerEmail;
-	private String transactionID;
 	private String chosenCinemaShowtime;
 	
 	/**
@@ -52,15 +51,7 @@ public class Ticket {
 		System.out.print("Enter your email: ");
 		this.customerEmail = sc.nextLine();
 		this.chosenCinemaShowtime = chosenCinemaShowtime;
-		this.transactionID = generateTransactionID();
 		System.out.println("Confirmed!");
-	}
-
-	//TODO TRANSACTION ID WITH CINEMA CODE AND TRANSACTION TIME
-	public String generateTransactionID() {
-		
-		//RETURN COMPLETED TRANSACTION ID
-		return null;
 	}
 	
 	public String getType() {

@@ -188,7 +188,7 @@ public class Customer {
 						//CONFIRM PURCHASE OF TICKET
 						TicketPricing ticketPricing = new TicketPricing();
 						System.out.println("Price of Ticket is: $" + String.format("%.2f", ticketPricing.calculateTicketPrice(ticket)));
-						System.out.println("Proceed to payment? (Y/N)");
+						System.out.print("Proceed to payment? (Y/N)");
 						sc.nextLine();
 						String payOrNo = sc.nextLine();
 						if (payOrNo.equalsIgnoreCase("Y")) {
@@ -208,13 +208,21 @@ public class Customer {
 						//Date date = Calendar.getInstance().getTime();
 				        //DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+						SimpleDateFormat transactionIDformat = new SimpleDateFormat("yyyyMMddHHmm");
 						Date date = new Date();
-
+						
+						String transactionIDdate = transactionIDformat.format(date);
 						String frmtdDate = dateFormat.format(date);
-
+						
+						String cinemaCode = "";
+						if (chosenCinemaIndex == 0) cinemaCode = "CM1";
+						else if (chosenCinemaIndex == 1) cinemaCode = "CM2";
+						else if (chosenCinemaIndex == 2) cinemaCode = "CM3";
+						
+						System.out.println("Transaction ID: " + cinemaCode + transactionIDdate);
 						System.out.println("Time of purchase: " + frmtdDate);
-				        //String strDate = dateFormat.format(date);
+						System.out.println();
+						
 						BookingHistory bookingHistory = new BookingHistory();
 						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), frmtdDate);
 						break;
@@ -267,7 +275,7 @@ public class Customer {
 						//CONFIRM PURCHASE OF TICKET
 						TicketPricing ticketPricing = new TicketPricing();
 						System.out.println("Price of Ticket is: $" + String.format("%.2f", ticketPricing.calculateTicketPrice(ticket)));
-						System.out.println("Proceed to payment? (Y/N)");
+						System.out.print("Proceed to payment? (Y/N)");
 						sc.nextLine();
 						String payOrNo = sc.nextLine();
 						if (payOrNo.equalsIgnoreCase("Y")) {
@@ -287,13 +295,21 @@ public class Customer {
 						//Date date = Calendar.getInstance().getTime();
 				        //DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+						SimpleDateFormat transactionIDformat = new SimpleDateFormat("yyyyMMddHHmm");
 						Date date = new Date();
-
+						
+						String transactionIDdate = transactionIDformat.format(date);
 						String frmtdDate = dateFormat.format(date);
-
+						
+						String cinemaCode = "";
+						if (chosenCinemaIndex == 0) cinemaCode = "CM1";
+						else if (chosenCinemaIndex == 1) cinemaCode = "CM2";
+						else if (chosenCinemaIndex == 2) cinemaCode = "CM3";
+						
+						System.out.println("Transaction ID: " + cinemaCode + transactionIDdate);
 						System.out.println("Time of purchase: " + frmtdDate);
-				        //String strDate = dateFormat.format(date);
+						System.out.println();
+						
 						BookingHistory bookingHistory = new BookingHistory();
 						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), frmtdDate);
 						break;
@@ -346,7 +362,7 @@ public class Customer {
 						//CONFIRM PURCHASE OF TICKET
 						TicketPricing ticketPricing = new TicketPricing();
 						System.out.println("Price of Ticket is: $" + String.format("%.2f", ticketPricing.calculateTicketPrice(ticket)));
-						System.out.println("Proceed to payment? (Y/N)");
+						System.out.print("Proceed to payment? (Y/N)");
 						sc.nextLine();
 						String payOrNo = sc.nextLine();
 						if (payOrNo.equalsIgnoreCase("Y")) {
@@ -365,14 +381,23 @@ public class Customer {
 						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
 						//Date date = Calendar.getInstance().getTime();
 				        //DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+						
 						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+						SimpleDateFormat transactionIDformat = new SimpleDateFormat("yyyyMMddHHmm");
 						Date date = new Date();
-
+						
+						String transactionIDdate = transactionIDformat.format(date);
 						String frmtdDate = dateFormat.format(date);
-
+						
+						String cinemaCode = "";
+						if (chosenCinemaIndex == 0) cinemaCode = "CM1";
+						else if (chosenCinemaIndex == 1) cinemaCode = "CM2";
+						else if (chosenCinemaIndex == 2) cinemaCode = "CM3";
+						
+						System.out.println("Transaction ID: " + cinemaCode + transactionIDdate);
 						System.out.println("Time of purchase: " + frmtdDate);
-				        //String strDate = dateFormat.format(date);
+						System.out.println();
+						
 						BookingHistory bookingHistory = new BookingHistory();
 						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), frmtdDate);
 						break;
