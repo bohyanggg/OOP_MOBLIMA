@@ -165,7 +165,7 @@ public class Customer {
 							System.out.println("No available cinema showtimes.");
 							continue;
 						}
-						System.out.print("Available Cinema Showtimes: ");
+						System.out.print("Available Cinema Showtimes: \n");
 						for (int i=0; i<movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size(); i++) {
 							System.out.println((i+1) + ". " + movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(i));
 						}
