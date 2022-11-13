@@ -4,6 +4,7 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.time.LocalDateTime;
 
 /**
  * Boundary class which calls on control classes and uses entity classes.
@@ -201,11 +202,18 @@ public class Customer {
 						
 						//PRINT TIME OF PURCHASE
 						Calendar calendarInstance = Calendar.getInstance();
-        				System.out.println("Time of purchase:" + calendarInstance.getTime());
+        				//System.out.println("Time of purchase:" + calendarInstance.getTime());
 						
 						//ADD TO BOOKING HISTORY (customerName, title, time of purchase)
-						Date date = Calendar.getInstance().getTime();
-				        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+						//Date date = Calendar.getInstance().getTime();
+				        //DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+						Date date = new Date();
+
+						String frmtdDate = dateFormat.format(date);
+
+						System.out.println("Time of purchase: " + frmtdDate);
 				        String strDate = dateFormat.format(date);
 						BookingHistory bookingHistory = new BookingHistory();
 						bookingHistory.addToBookingHistory(ticket.getCustomerName(), movieList.get(chosenMovieIndex).getTitle(), strDate);
