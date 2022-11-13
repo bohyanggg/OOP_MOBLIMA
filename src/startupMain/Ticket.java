@@ -82,10 +82,6 @@ public class Ticket {
 		return customerEmail;
 	}
 	
-	public String getTransactionID() {
-		return transactionID;
-	}
-	
 	public String getChosenCinemaShowtime() {
 		return chosenCinemaShowtime;
 	}
