@@ -47,7 +47,8 @@ public class TicketPricing implements Serializable {
 			totalPrice += threeDCharge;
 		if (ticket.getCinemaClass() == "Cinema 3") //Cinema 3 Platinum Movie Suite
 			totalPrice += platinumCinemaCharge;
-		if (Holidays.isHoliday(ticket.getChosenCinemaShowtime().substring(5, 10)) == 1)
+		//System.out.println(ticket.getChosenCinemaShowtime().substring(4, 9));
+		if (Holidays.isHoliday(ticket.getChosenCinemaShowtime().substring(4, 9)) == 1)
 			totalPrice -= holidayDiscount;
 		if (ticket.getWeekDayOrEnd()==1)
 			totalPrice += baseMoviePricing[2];
