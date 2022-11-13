@@ -40,22 +40,23 @@ public class TicketPricing implements Serializable {
 	 */
 	public double calculateTicketPrice(Ticket ticket) {
 		int totalPrice = 0;
+		TicketPricing ticketPricing = ResourceManager.loadTicketPricing();
 		
 		if (ticket.getType().contains("Blockbuster"))
-			totalPrice += blockbusterCharge;
+			totalPrice += ticketPricing.getBlockbusterCharge();
 		else if (ticket.getType().contains("3D"))
-			totalPrice += threeDCharge;
+			totalPrice += ticketPricing.getThreeDCharge();
 		if (ticket.getCinemaClass() == "Cinema 3") //Cinema 3 Platinum Movie Suite
-			totalPrice += platinumCinemaCharge;
+			totalPrice += ticketPricing.getPlatinumCinemaCharge();
 		//System.out.println(ticket.getChosenCinemaShowtime().substring(4, 9));
 		if (Holidays.isHoliday(ticket.getChosenCinemaShowtime().substring(4, 9)) == 1)
-			totalPrice -= holidayDiscount;
+			totalPrice -= ticketPricing.getHolidayDiscount();
 		if (ticket.getWeekDayOrEnd()==1)
-			totalPrice += baseMoviePricing[2];
+			totalPrice += ticketPricing.getBaseMoviePricing()[2];
 		else if (ticket.getWeekDayOrEnd()==0 && ticket.getAge()<13 || ticket.getWeekDayOrEnd()==0 && ticket.getAge()>54)
-			totalPrice += baseMoviePricing[0];
+			totalPrice += ticketPricing.getBaseMoviePricing()[0];
 		else
-			totalPrice += baseMoviePricing[1];
+			totalPrice += ticketPricing.getBaseMoviePricing()[1];
 		return totalPrice;
 	}
 	
@@ -68,7 +69,9 @@ public class TicketPricing implements Serializable {
 		System.out.println("3D Charge: " + threeDCharge);
 		System.out.println("Platinum Movie Suite Charge: " + platinumCinemaCharge);
 		System.out.println("Holiday Discount: " + holidayDiscount);
-		System.out.println("Base Movie Pricing [Senior Citizen and Child Weekday, Adult Weekday, Weekend (All)]: " + baseMoviePricing);
+		System.out.println("Base Movie Pricing (Senior Citizen and Child Weekday): " + baseMoviePricing[0]);
+		System.out.println("Base Movie Pricing (Adult Weekday): " + baseMoviePricing[1]);
+		System.out.println("Base Movie Pricing (Weekend (All)): " + baseMoviePricing[2]);
 	}
 	
 	public double getBlockbusterCharge() {
