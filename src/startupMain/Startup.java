@@ -32,11 +32,12 @@ public class Startup {
 									   "    Hi, are you a staff or a customer?\n" +
 								   	   "          Enter 0 for Staff\n" +
 								   	   "         Enter 1 for Customer\n" +
+								   	   "      Enter 2 to exit application\n"+	
 								   	   "|=======================================|\n");
 					userType = sc.nextInt();
 					
 					//If input is not 0 or 1, throw new exception
-					if (userType!=0 && userType!=1) {
+					if (userType!=0 && userType!=1 && userType!=2 ) {
 						throw new IOException();
 					}
 					//If input is 0 or 1, break from while loop
@@ -56,10 +57,15 @@ public class Startup {
 			}
 			
 			//If user is a customer
-			else {
+			else if (userType ==1){
 				//Create new customer object
 				Customer customer = new Customer(movieDetails);
 				customer.showCustomerSystem();
+			}
+			//exit application
+			else {
+				System.out.println("Exiting aplication now...\n");
+				break;
 			}
 		}
 	}
