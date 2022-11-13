@@ -252,7 +252,7 @@ public class Customer {
 							System.out.println("No available cinema showtimes.");
 							continue;
 						}
-						System.out.print("Available Cinema Showtimes: ");
+						System.out.print("Available Cinema Showtimes: \n");
 						for (int i=0; i<movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size(); i++) {
 							System.out.println((i+1) + ". " + movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(i));
 						}
@@ -339,7 +339,7 @@ public class Customer {
 							System.out.println("No available cinema showtimes.");
 							continue;
 						}
-						System.out.print("Available Cinema Showtimes: ");
+						System.out.print("Available Cinema Showtimes: \n");
 						for (int i=0; i<movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].size(); i++) {
 							System.out.println((i+1) + ". " + movieList.get(chosenMovieIndex).getCinemaShowtime()[chosenCinemaIndex].get(i));
 						}
@@ -455,7 +455,7 @@ public class Customer {
 				if (userChoice == 5) {
 					ArrayList<Movie> movieList = new ArrayList<>();
 					movieList = ResourceManager.getmovieList(movieList);
-					System.out.println("Top 5 Movies based on Ticket Sales (lowest to highest)");
+					System.out.println("Top 5 Movies based on Ticket Sales (Highest to lowest)");
                     HashMap<String, Integer> reviewRatingTable = new HashMap<String, Integer>();                    
                     for(Movie movieInList : movieList){
                         reviewRatingTable.put(movieInList.getTitle(), Integer.parseInt(movieInList.getTicketSales()));
